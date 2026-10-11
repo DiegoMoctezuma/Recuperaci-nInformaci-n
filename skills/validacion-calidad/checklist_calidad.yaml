@@ -1,0 +1,68 @@
+# Verificaciones por etapa. bloqueante: true => si falla, la etapa es FAIL.
+
+setup:
+  - {id: S1, tipo: archivo_existe, ruta: requirements.txt, bloqueante: true, desc: "requirements.txt existe"}
+  - {id: S2, tipo: archivo_existe, ruta: .gitignore, bloqueante: true, desc: ".gitignore existe"}
+  - {id: S3, tipo: python, expr: "'data/raw/' in open('.gitignore').read()", bloqueante: true, desc: "data/raw ignorado por git"}
+  - {id: S4, tipo: comando, cmd: "python -c \"import sklearn, rank_bm25, gensim, spacy, wordcloud, pptx; spacy.load('en_core_web_sm')\"", bloqueante: true, desc: "dependencias instaladas"}
+  - {id: S5, tipo: archivo_existe, ruta: estado/progreso.json, bloqueante: true, desc: "archivo de estado creado"}
+
+descarga:
+  - {id: D1, tipo: archivo_existe, ruta: data/raw/bbc-text.csv, bloqueante: true, desc: "CSV descargado"}
+  - {id: D2, tipo: csv_filas, ruta: data/raw/bbc-text.csv, min: 2225, max: 2225, bloqueante: true, desc: "2,225 filas"}
+  - {id: D3, tipo: csv_columnas, ruta: data/raw/bbc-text.csv, columnas: [category, text], bloqueante: true, desc: "columnas category y text"}
+  - {id: D4, tipo: python, expr: "set(pd.read_csv('data/raw/bbc-text.csv').category) == {'business','entertainment','politics','sport','tech'}", bloqueante: true, desc: "5 categorías esperadas"}
+  - {id: D5, tipo: archivo_existe, ruta: data/raw/bbc-text.sha256, bloqueante: false, desc: "hash registrado"}
+  - {id: D6, tipo: archivo_existe, ruta: reports/descarga.md, bloqueante: true, desc: "reporte de descarga"}
+
+eda_raw:
+  - {id: E1, tipo: archivo_existe, ruta: reports/eda_raw.md, bloqueante: true, desc: "reporte EDA raw"}
+  - {id: E2, tipo: json_rango, ruta: reports/eda_raw.json, clave: n_duplicados, min: 99, max: 99, bloqueante: true, desc: "detectó los 99 duplicados"}
+  - {id: E3, tipo: archivo_existe, ruta: reports/figuras/raw_categorias.png, bloqueante: true, desc: "gráfica de categorías"}
+  - {id: E4, tipo: archivo_existe, ruta: reports/figuras/raw_longitudes.png, bloqueante: true, desc: "gráfica de longitudes"}
+
+limpieza:
+  - {id: L1, tipo: archivo_existe, ruta: data/processed/corpus_clean.csv, bloqueante: true, desc: "corpus limpio"}
+  - {id: L2, tipo: csv_filas, ruta: data/processed/corpus_clean.csv, min: 2050, max: 2126, bloqueante: true, desc: "duplicados quitados (<= 2,126)"}
+  - {id: L3, tipo: csv_columnas, ruta: data/processed/corpus_clean.csv, columnas: [doc_id, category, titulo, text_original, text_norm, tokens_lemma, tokens_stem, n_tokens], bloqueante: true, desc: "columnas en orden"}
+  - {id: L4, tipo: csv_sin_nulos, ruta: data/processed/corpus_clean.csv, columnas: [doc_id, category, tokens_lemma], bloqueante: true, desc: "sin nulos"}
+  - {id: L5, tipo: csv_sin_duplicados, ruta: data/processed/corpus_clean.csv, columna: text_original, bloqueante: true, desc: "sin textos duplicados"}
+  - {id: L6, tipo: csv_sin_duplicados, ruta: data/processed/corpus_clean.csv, columna: doc_id, bloqueante: true, desc: "doc_id único"}
+  - {id: L7, tipo: python, expr: "not pd.read_csv('data/processed/corpus_clean.csv').tokens_lemma.str.contains(r'\\d|[A-Z]|\\b(the|and|said)\\b').any()", bloqueante: true, desc: "sin dígitos, mayúsculas ni stopwords comunes"}
+  - {id: L8, tipo: comando, cmd: "python -c \"import sys; sys.path.insert(0,'src'); from preprocesamiento import preprocesar; assert preprocesar('The Markets were FALLING in 2005!') == ['market','fall']\"", bloqueante: false, desc: "preprocesar() reutilizable y consistente"}
+  - {id: L9, tipo: archivo_existe, ruta: reports/limpieza.md, bloqueante: true, desc: "reporte de limpieza"}
+
+eda_corpus:
+  - {id: C1, tipo: archivo_existe, ruta: reports/eda_corpus.md, bloqueante: true, desc: "reporte EDA corpus"}
+  - {id: C2, tipo: json_rango, ruta: reports/eda_corpus.json, clave: zipf_s, min: 0.6, max: 1.5, bloqueante: true, desc: "exponente de Zipf plausible"}
+  - {id: C3, tipo: json_rango, ruta: reports/eda_corpus.json, clave: heaps_beta, min: 0.3, max: 0.8, bloqueante: true, desc: "beta de Heaps plausible"}
+  - {id: C4, tipo: json_rango, ruta: reports/eda_corpus.json, clave: heaps_r2, min: 0.9, max: 1.0, bloqueante: false, desc: "buen ajuste de Heaps"}
+  - {id: C5, tipo: archivo_existe, ruta: reports/figuras/zipf.png, bloqueante: true, desc: "gráfica Zipf"}
+  - {id: C6, tipo: archivo_existe, ruta: reports/figuras/heaps.png, bloqueante: true, desc: "gráfica Heaps"}
+  - {id: C7, tipo: python, expr: "all(os.path.exists(f'reports/figuras/wordcloud_{c}.png') for c in ['global','business','entertainment','politics','sport','tech'])", bloqueante: true, desc: "6 wordclouds"}
+
+indices:
+  - {id: I1, tipo: python, expr: "all(os.path.exists(f'models/{f}') for f in ['count.pkl','tfidf.pkl','bm25.pkl','svd.pkl'])", bloqueante: true, desc: "4 índices obligatorios"}
+  - {id: I2, tipo: python, expr: "all(os.path.exists(f'models/{f}') for f in ['w2v.model','w2v_docs.npy','lda.pkl'])", bloqueante: false, desc: "índices extra (W2V, LDA)"}
+  - {id: I3, tipo: python, expr: "len(pd.read_csv('models/doc_index.csv')) == len(pd.read_csv('data/processed/corpus_clean.csv'))", bloqueante: true, desc: "mapeo fila→documento completo"}
+  - {id: I4, tipo: comando, cmd: "python -c \"import sys; sys.path.insert(0,'src'); from buscar import buscar; [buscar('stock market shares', m, 10).shape[0]==10 or sys.exit(1) for m in ['count','tfidf','bm25','svd']]\"", bloqueante: true, desc: "buscar() devuelve 10 resultados en los 4 métodos"}
+  - {id: I5, tipo: comando, cmd: "python -c \"import sys; sys.path.insert(0,'src'); from buscar import buscar; r=buscar('election labour party vote','bm25',5); sys.exit(0 if (r.category=='politics').sum()>=3 else 1)\"", bloqueante: true, desc: "sanidad: consulta política devuelve política"}
+  - {id: I6, tipo: comando, cmd: "python -c \"import sys; sys.path.insert(0,'src'); from buscar import buscar; r=buscar('stock market shares','tfidf',10); sys.exit(0 if r.score.is_monotonic_decreasing else 1)\"", bloqueante: true, desc: "ranking ordenado descendente"}
+  - {id: I7, tipo: archivo_existe, ruta: src/ingesta.py, bloqueante: true, desc: "pipeline de ingesta"}
+  - {id: I8, tipo: archivo_existe, ruta: reports/ejemplos_busqueda.md, bloqueante: true, desc: "ejemplos de búsqueda"}
+
+evaluacion:
+  - {id: V1, tipo: archivo_existe, ruta: reports/metricas.csv, bloqueante: true, desc: "métricas agregadas"}
+  - {id: V2, tipo: python, expr: "set(pd.read_csv('reports/metricas.csv').iloc[:,0]) >= {'count','tfidf','bm25','svd'}", bloqueante: true, desc: "los 4 métodos evaluados"}
+  - {id: V3, tipo: python, expr: "pd.read_csv('reports/metricas.csv').select_dtypes('number').drop(columns=[c for c in pd.read_csv('reports/metricas.csv').columns if 'lat' in c.lower()], errors='ignore').apply(lambda s: s.between(0,1).all()).all()", bloqueante: true, desc: "métricas entre 0 y 1"}
+  - {id: V4, tipo: python, expr: "pd.read_csv('data/processed/consultas.csv').query_id.nunique() >= 115", bloqueante: true, desc: "100 auto + 15 manuales"}
+  - {id: V5, tipo: python, expr: "all(os.path.exists(f'reports/figuras/{f}') for f in ['eval_map_por_metodo.png','eval_heatmap_categoria.png','eval_latencia.png'])", bloqueante: true, desc: "gráficas de evaluación"}
+  - {id: V6, tipo: archivo_existe, ruta: reports/evaluacion.md, bloqueante: true, desc: "reporte de evaluación"}
+
+presentacion:
+  - {id: P1, tipo: archivo_existe, ruta: presentacion/estilo.json, bloqueante: true, desc: "estilos extraídos de la plantilla"}
+  - {id: P2, tipo: archivo_existe, ruta: presentacion/salida/presentacion_final.pptx, bloqueante: true, desc: "presentación generada"}
+  - {id: P3, tipo: python, expr: "__import__('pptx').Presentation('presentacion/salida/presentacion_final.pptx').slides.__len__() >= 10", bloqueante: true, desc: "al menos 10 diapositivas"}
+  - {id: P4, tipo: python, expr: "not any(p.level>0 or (p.text.strip()[:1] in '•-*–') and p.text.strip() for s in __import__('pptx').Presentation('presentacion/salida/presentacion_final.pptx').slides for sh in s.shapes if sh.has_text_frame for p in sh.text_frame.paragraphs)", bloqueante: true, desc: "sin viñetas"}
+  - {id: P5, tipo: python, expr: "max(len(' '.join(sh.text_frame.text for sh in s.shapes if sh.has_text_frame).split()) for s in __import__('pptx').Presentation('presentacion/salida/presentacion_final.pptx').slides) <= 60", bloqueante: true, desc: "máx. 60 palabras por diapositiva"}
+  - {id: P6, tipo: archivo_existe, ruta: presentacion/salida/revision_visual.md, bloqueante: true, desc: "revisión visual hecha"}
