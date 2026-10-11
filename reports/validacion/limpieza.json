@@ -1,0 +1,81 @@
+{
+  "etapa": "limpieza",
+  "fecha": "2026-10-11T16:49:32",
+  "resultado": "PASS",
+  "fallos_bloqueantes": [],
+  "fallos_no_bloqueantes": [],
+  "verificaciones": [
+    {
+      "id": "L1",
+      "desc": "corpus limpio",
+      "tipo": "archivo_existe",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "data/processed/corpus_clean.csv existe"
+    },
+    {
+      "id": "L2",
+      "desc": "duplicados quitados (<= 2,126)",
+      "tipo": "csv_filas",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "2,126 filas (rango esperado [2,050, 2,126])"
+    },
+    {
+      "id": "L3",
+      "desc": "columnas en orden",
+      "tipo": "csv_columnas",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "columnas ['doc_id', 'category', 'titulo', 'text_original', 'text_norm', 'tokens_lemma', 'tokens_stem', 'n_tokens'] presentes y en orden"
+    },
+    {
+      "id": "L4",
+      "desc": "sin nulos",
+      "tipo": "csv_sin_nulos",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "sin nulos en ['doc_id', 'category', 'tokens_lemma']"
+    },
+    {
+      "id": "L5",
+      "desc": "sin textos duplicados",
+      "tipo": "csv_sin_duplicados",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "0 duplicados en 'text_original'"
+    },
+    {
+      "id": "L6",
+      "desc": "doc_id único",
+      "tipo": "csv_sin_duplicados",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "0 duplicados en 'doc_id'"
+    },
+    {
+      "id": "L7",
+      "desc": "sin dígitos, mayúsculas ni stopwords comunes",
+      "tipo": "python",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "expr -> True"
+    },
+    {
+      "id": "L8",
+      "desc": "preprocesar() reutilizable y consistente",
+      "tipo": "comando",
+      "bloqueante": false,
+      "resultado": "PASS",
+      "detalle": "código de salida 0"
+    },
+    {
+      "id": "L9",
+      "desc": "reporte de limpieza",
+      "tipo": "archivo_existe",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "reports/limpieza.md existe"
+    }
+  ]
+}

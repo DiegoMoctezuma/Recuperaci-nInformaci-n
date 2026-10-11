@@ -1,0 +1,15 @@
+{
+  "n_antes": 2225,
+  "n_despues": 2126,
+  "duplicados": 99,
+  "descartados_cortos": 0,
+  "tokens_promedio": {
+    "antes": 390.45,
+    "despues": 181.42
+  },
+  "vocabulario": {
+    "lemma": 24971,
+    "stem": 21127
+  },
+  "segundos": 33.6
+}
