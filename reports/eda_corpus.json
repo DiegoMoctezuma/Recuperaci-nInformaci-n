@@ -1,0 +1,391 @@
+{
+  "n_docs": 2126,
+  "N": 385689,
+  "V": 24971,
+  "hapax": 9980,
+  "hapax_pct_vocabulario": 39.97,
+  "zipf_s": 0.6088327408368511,
+  "zipf_r2": 0.9468983231266613,
+  "zipf_C": 6751.378742285523,
+  "zipf_rango_ajuste": [
+    1,
+    1000
+  ],
+  "heaps_K": 25.250209606803082,
+  "heaps_beta": 0.5386790915857187,
+  "heaps_r2": 0.9975659662556446,
+  "heaps_puntos": 77,
+  "heaps_semilla": 42,
+  "heaps_paso_tokens": 5000,
+  "V_lemma": 24971,
+  "V_stem": 21127,
+  "N_stem": 394426,
+  "reduccion_vocabulario_stem_vs_lemma_pct": 15.39,
+  "longitud_media_tokens": 181.4153339604892,
+  "vocabulario_por_categoria": {
+    "business": 9056,
+    "entertainment": 9420,
+    "politics": 8513,
+    "sport": 8660,
+    "tech": 9331
+  },
+  "tokens_por_categoria": {
+    "business": 81183,
+    "entertainment": 59571,
+    "politics": 84689,
+    "sport": 77122,
+    "tech": 83124
+  },
+  "top_global": [
+    [
+      "people",
+      1894
+    ],
+    [
+      "win",
+      1448
+    ],
+    [
+      "good",
+      1432
+    ],
+    [
+      "game",
+      1402
+    ],
+    [
+      "time",
+      1330
+    ],
+    [
+      "world",
+      1171
+    ],
+    [
+      "government",
+      1163
+    ],
+    [
+      "come",
+      1156
+    ],
+    [
+      "play",
+      1087
+    ],
+    [
+      "company",
+      1067
+    ],
+    [
+      "film",
+      1061
+    ],
+    [
+      "tell",
+      1014
+    ],
+    [
+      "work",
+      952
+    ],
+    [
+      "want",
+      921
+    ],
+    [
+      "firm",
+      912
+    ],
+    [
+      "add",
+      896
+    ],
+    [
+      "like",
+      852
+    ],
+    [
+      "think",
+      839
+    ],
+    [
+      "number",
+      825
+    ],
+    [
+      "include",
+      809
+    ],
+    [
+      "country",
+      803
+    ],
+    [
+      "market",
+      800
+    ],
+    [
+      "way",
+      792
+    ],
+    [
+      "month",
+      788
+    ],
+    [
+      "set",
+      781
+    ],
+    [
+      "service",
+      769
+    ],
+    [
+      "plan",
+      766
+    ],
+    [
+      "labour",
+      763
+    ],
+    [
+      "player",
+      760
+    ],
+    [
+      "need",
+      750
+    ]
+  ],
+  "exclusivas_por_categoria": {
+    "business": {
+      "n": 3217,
+      "top": [
+        [
+          "yukos",
+          195
+        ],
+        [
+          "lse",
+          79
+        ],
+        [
+          "gazprom",
+          73
+        ],
+        [
+          "fiat",
+          70
+        ],
+        [
+          "boerse",
+          67
+        ],
+        [
+          "worldcom",
+          65
+        ],
+        [
+          "yugansk",
+          59
+        ],
+        [
+          "ebber",
+          58
+        ],
+        [
+          "rosneft",
+          58
+        ],
+        [
+          "boeing",
+          44
+        ]
+      ]
+    },
+    "entertainment": {
+      "n": 3493,
+      "top": [
+        [
+          "actress",
+          154
+        ],
+        [
+          "festival",
+          143
+        ],
+        [
+          "aviator",
+          88
+        ],
+        [
+          "foxx",
+          55
+        ],
+        [
+          "rapper",
+          47
+        ],
+        [
+          "drake",
+          45
+        ],
+        [
+          "scorsese",
+          42
+        ],
+        [
+          "swank",
+          41
+        ],
+        [
+          "eastwood",
+          39
+        ],
+        [
+          "staunton",
+          38
+        ]
+      ]
+    },
+    "politics": {
+      "n": 2493,
+      "top": [
+        [
+          "tory",
+          440
+        ],
+        [
+          "lib",
+          171
+        ],
+        [
+          "ukip",
+          128
+        ],
+        [
+          "blunkett",
+          105
+        ],
+        [
+          "kilroysilk",
+          105
+        ],
+        [
+          "asylum",
+          96
+        ],
+        [
+          "torie",
+          46
+        ],
+        [
+          "detention",
+          38
+        ],
+        [
+          "prescott",
+          38
+        ],
+        [
+          "goldsmith",
+          37
+        ]
+      ]
+    },
+    "sport": {
+      "n": 3426,
+      "top": [
+        [
+          "roddick",
+          120
+        ],
+        [
+          "referee",
+          90
+        ],
+        [
+          "mourinho",
+          71
+        ],
+        [
+          "nadal",
+          64
+        ],
+        [
+          "kenteris",
+          63
+        ],
+        [
+          "iaaf",
+          62
+        ],
+        [
+          "federer",
+          56
+        ],
+        [
+          "gara",
+          56
+        ],
+        [
+          "wenger",
+          56
+        ],
+        [
+          "henman",
+          54
+        ]
+      ]
+    },
+    "tech": {
+      "n": 3331,
+      "top": [
+        [
+          "portable",
+          79
+        ],
+        [
+          "spam",
+          77
+        ],
+        [
+          "browser",
+          57
+        ],
+        [
+          "multimedia",
+          55
+        ],
+        [
+          "server",
+          53
+        ],
+        [
+          "domain",
+          49
+        ],
+        [
+          "psp",
+          47
+        ],
+        [
+          "halo",
+          43
+        ],
+        [
+          "wifi",
+          43
+        ],
+        [
+          "windows",
+          39
+        ]
+      ]
+    }
+  },
+  "zipf_dentro_de_0.6_1.5": true,
+  "heaps_dentro_de_0.3_0.8": true,
+  "heaps_dentro_de_0.4_0.7": true
+}
