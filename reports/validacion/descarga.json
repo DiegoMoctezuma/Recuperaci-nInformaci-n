@@ -1,0 +1,57 @@
+{
+  "etapa": "descarga",
+  "fecha": "2026-10-11T16:36:55",
+  "resultado": "PASS",
+  "fallos_bloqueantes": [],
+  "fallos_no_bloqueantes": [],
+  "verificaciones": [
+    {
+      "id": "D1",
+      "desc": "CSV descargado",
+      "tipo": "archivo_existe",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "data/raw/bbc-text.csv existe"
+    },
+    {
+      "id": "D2",
+      "desc": "2,225 filas",
+      "tipo": "csv_filas",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "2,225 filas (rango esperado [2,225, 2,225])"
+    },
+    {
+      "id": "D3",
+      "desc": "columnas category y text",
+      "tipo": "csv_columnas",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "columnas ['category', 'text'] presentes y en orden"
+    },
+    {
+      "id": "D4",
+      "desc": "5 categorías esperadas",
+      "tipo": "python",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "expr -> True"
+    },
+    {
+      "id": "D5",
+      "desc": "hash registrado",
+      "tipo": "archivo_existe",
+      "bloqueante": false,
+      "resultado": "PASS",
+      "detalle": "data/raw/bbc-text.sha256 existe"
+    },
+    {
+      "id": "D6",
+      "desc": "reporte de descarga",
+      "tipo": "archivo_existe",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "reports/descarga.md existe"
+    }
+  ]
+}
