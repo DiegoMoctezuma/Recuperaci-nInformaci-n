@@ -1,0 +1,57 @@
+{
+  "etapa": "evaluacion",
+  "fecha": "2026-10-11T17:24:28",
+  "resultado": "PASS",
+  "fallos_bloqueantes": [],
+  "fallos_no_bloqueantes": [],
+  "verificaciones": [
+    {
+      "id": "V1",
+      "desc": "métricas agregadas",
+      "tipo": "archivo_existe",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "reports/metricas.csv existe"
+    },
+    {
+      "id": "V2",
+      "desc": "los 4 métodos evaluados",
+      "tipo": "python",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "expr -> True"
+    },
+    {
+      "id": "V3",
+      "desc": "métricas entre 0 y 1",
+      "tipo": "python",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "expr -> np.True_"
+    },
+    {
+      "id": "V4",
+      "desc": "100 auto + 15 manuales",
+      "tipo": "python",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "expr -> True"
+    },
+    {
+      "id": "V5",
+      "desc": "gráficas de evaluación",
+      "tipo": "python",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "expr -> True"
+    },
+    {
+      "id": "V6",
+      "desc": "reporte de evaluación",
+      "tipo": "archivo_existe",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "reports/evaluacion.md existe"
+    }
+  ]
+}

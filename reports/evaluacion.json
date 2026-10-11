@@ -1,0 +1,989 @@
+{
+  "n_consultas": 115,
+  "resultados_incompletos_por_metodo": {
+    "count": 0,
+    "tfidf": 0,
+    "bm25": 0,
+    "svd": 0,
+    "w2v": 0,
+    "lda": 0
+  },
+  "metricas": [
+    {
+      "metodo": "count",
+      "tipo": "auto",
+      "p_at_5": 0.754,
+      "p_at_10": 0.717,
+      "map_at_10": 0.6496,
+      "ndcg_at_10": 0.7382,
+      "mrr": 0.8803,
+      "latencia_ms": 12.1354
+    },
+    {
+      "metodo": "tfidf",
+      "tipo": "auto",
+      "p_at_5": 0.804,
+      "p_at_10": 0.758,
+      "map_at_10": 0.6907,
+      "ndcg_at_10": 0.7836,
+      "mrr": 0.93,
+      "latencia_ms": 4.5018
+    },
+    {
+      "metodo": "bm25",
+      "tipo": "auto",
+      "p_at_5": 0.82,
+      "p_at_10": 0.761,
+      "map_at_10": 0.7077,
+      "ndcg_at_10": 0.7936,
+      "mrr": 0.9532,
+      "latencia_ms": 4.371
+    },
+    {
+      "metodo": "svd",
+      "tipo": "auto",
+      "p_at_5": 0.89,
+      "p_at_10": 0.849,
+      "map_at_10": 0.8192,
+      "ndcg_at_10": 0.8686,
+      "mrr": 0.9585,
+      "latencia_ms": 9.0105
+    },
+    {
+      "metodo": "w2v",
+      "tipo": "auto",
+      "p_at_5": 0.896,
+      "p_at_10": 0.896,
+      "map_at_10": 0.8639,
+      "ndcg_at_10": 0.8976,
+      "mrr": 0.9327,
+      "latencia_ms": 2.5119
+    },
+    {
+      "metodo": "lda",
+      "tipo": "auto",
+      "p_at_5": 0.742,
+      "p_at_10": 0.758,
+      "map_at_10": 0.7117,
+      "ndcg_at_10": 0.7559,
+      "mrr": 0.8055,
+      "latencia_ms": 2.6957
+    },
+    {
+      "metodo": "count",
+      "tipo": "manual",
+      "p_at_5": 0.9467,
+      "p_at_10": 0.96,
+      "map_at_10": 0.9364,
+      "ndcg_at_10": 0.9636,
+      "mrr": 1.0,
+      "latencia_ms": 11.7964
+    },
+    {
+      "metodo": "tfidf",
+      "tipo": "manual",
+      "p_at_5": 0.9733,
+      "p_at_10": 0.98,
+      "map_at_10": 0.9714,
+      "ndcg_at_10": 0.9844,
+      "mrr": 1.0,
+      "latencia_ms": 4.3331
+    },
+    {
+      "metodo": "bm25",
+      "tipo": "manual",
+      "p_at_5": 0.9867,
+      "p_at_10": 0.98,
+      "map_at_10": 0.9718,
+      "ndcg_at_10": 0.9847,
+      "mrr": 1.0,
+      "latencia_ms": 2.7985
+    },
+    {
+      "metodo": "svd",
+      "tipo": "manual",
+      "p_at_5": 1.0,
+      "p_at_10": 1.0,
+      "map_at_10": 1.0,
+      "ndcg_at_10": 1.0,
+      "mrr": 1.0,
+      "latencia_ms": 10.1716
+    },
+    {
+      "metodo": "w2v",
+      "tipo": "manual",
+      "p_at_5": 1.0,
+      "p_at_10": 1.0,
+      "map_at_10": 1.0,
+      "ndcg_at_10": 1.0,
+      "mrr": 1.0,
+      "latencia_ms": 2.1248
+    },
+    {
+      "metodo": "lda",
+      "tipo": "manual",
+      "p_at_5": 0.9733,
+      "p_at_10": 0.9867,
+      "map_at_10": 0.9721,
+      "ndcg_at_10": 0.9834,
+      "mrr": 1.0,
+      "latencia_ms": 2.3673
+    },
+    {
+      "metodo": "count",
+      "tipo": "total",
+      "p_at_5": 0.7791,
+      "p_at_10": 0.7487,
+      "map_at_10": 0.687,
+      "ndcg_at_10": 0.7676,
+      "mrr": 0.8959,
+      "latencia_ms": 12.0911
+    },
+    {
+      "metodo": "tfidf",
+      "tipo": "total",
+      "p_at_5": 0.8261,
+      "p_at_10": 0.787,
+      "map_at_10": 0.7273,
+      "ndcg_at_10": 0.8098,
+      "mrr": 0.9391,
+      "latencia_ms": 4.4798
+    },
+    {
+      "metodo": "bm25",
+      "tipo": "total",
+      "p_at_5": 0.8417,
+      "p_at_10": 0.7896,
+      "map_at_10": 0.7422,
+      "ndcg_at_10": 0.8185,
+      "mrr": 0.9593,
+      "latencia_ms": 4.1659
+    },
+    {
+      "metodo": "svd",
+      "tipo": "total",
+      "p_at_5": 0.9043,
+      "p_at_10": 0.8687,
+      "map_at_10": 0.8428,
+      "ndcg_at_10": 0.8858,
+      "mrr": 0.9639,
+      "latencia_ms": 9.162
+    },
+    {
+      "metodo": "w2v",
+      "tipo": "total",
+      "p_at_5": 0.9096,
+      "p_at_10": 0.9096,
+      "map_at_10": 0.8817,
+      "ndcg_at_10": 0.911,
+      "mrr": 0.9414,
+      "latencia_ms": 2.4614
+    },
+    {
+      "metodo": "lda",
+      "tipo": "total",
+      "p_at_5": 0.7722,
+      "p_at_10": 0.7878,
+      "map_at_10": 0.7456,
+      "ndcg_at_10": 0.7856,
+      "mrr": 0.8309,
+      "latencia_ms": 2.6528
+    }
+  ],
+  "map_por_categoria": [
+    {
+      "metodo": "count",
+      "categoria": "business",
+      "map_at_10": 0.7746,
+      "n_consultas": 23
+    },
+    {
+      "metodo": "count",
+      "categoria": "entertainment",
+      "map_at_10": 0.5693,
+      "n_consultas": 23
+    },
+    {
+      "metodo": "count",
+      "categoria": "politics",
+      "map_at_10": 0.6574,
+      "n_consultas": 23
+    },
+    {
+      "metodo": "count",
+      "categoria": "sport",
+      "map_at_10": 0.6273,
+      "n_consultas": 23
+    },
+    {
+      "metodo": "count",
+      "categoria": "tech",
+      "map_at_10": 0.8065,
+      "n_consultas": 23
+    },
+    {
+      "metodo": "tfidf",
+      "categoria": "business",
+      "map_at_10": 0.7298,
+      "n_consultas": 23
+    },
+    {
+      "metodo": "tfidf",
+      "categoria": "entertainment",
+      "map_at_10": 0.6547,
+      "n_consultas": 23
+    },
+    {
+      "metodo": "tfidf",
+      "categoria": "politics",
+      "map_at_10": 0.695,
+      "n_consultas": 23
+    },
+    {
+      "metodo": "tfidf",
+      "categoria": "sport",
+      "map_at_10": 0.7694,
+      "n_consultas": 23
+    },
+    {
+      "metodo": "tfidf",
+      "categoria": "tech",
+      "map_at_10": 0.7874,
+      "n_consultas": 23
+    },
+    {
+      "metodo": "bm25",
+      "categoria": "business",
+      "map_at_10": 0.7638,
+      "n_consultas": 23
+    },
+    {
+      "metodo": "bm25",
+      "categoria": "entertainment",
+      "map_at_10": 0.65,
+      "n_consultas": 23
+    },
+    {
+      "metodo": "bm25",
+      "categoria": "politics",
+      "map_at_10": 0.6985,
+      "n_consultas": 23
+    },
+    {
+      "metodo": "bm25",
+      "categoria": "sport",
+      "map_at_10": 0.7826,
+      "n_consultas": 23
+    },
+    {
+      "metodo": "bm25",
+      "categoria": "tech",
+      "map_at_10": 0.8161,
+      "n_consultas": 23
+    },
+    {
+      "metodo": "svd",
+      "categoria": "business",
+      "map_at_10": 0.8617,
+      "n_consultas": 23
+    },
+    {
+      "metodo": "svd",
+      "categoria": "entertainment",
+      "map_at_10": 0.8009,
+      "n_consultas": 23
+    },
+    {
+      "metodo": "svd",
+      "categoria": "politics",
+      "map_at_10": 0.7888,
+      "n_consultas": 23
+    },
+    {
+      "metodo": "svd",
+      "categoria": "sport",
+      "map_at_10": 0.8394,
+      "n_consultas": 23
+    },
+    {
+      "metodo": "svd",
+      "categoria": "tech",
+      "map_at_10": 0.9229,
+      "n_consultas": 23
+    },
+    {
+      "metodo": "w2v",
+      "categoria": "business",
+      "map_at_10": 0.9204,
+      "n_consultas": 23
+    },
+    {
+      "metodo": "w2v",
+      "categoria": "entertainment",
+      "map_at_10": 0.8875,
+      "n_consultas": 23
+    },
+    {
+      "metodo": "w2v",
+      "categoria": "politics",
+      "map_at_10": 0.8287,
+      "n_consultas": 23
+    },
+    {
+      "metodo": "w2v",
+      "categoria": "sport",
+      "map_at_10": 0.8931,
+      "n_consultas": 23
+    },
+    {
+      "metodo": "w2v",
+      "categoria": "tech",
+      "map_at_10": 0.8788,
+      "n_consultas": 23
+    },
+    {
+      "metodo": "lda",
+      "categoria": "business",
+      "map_at_10": 0.8666,
+      "n_consultas": 23
+    },
+    {
+      "metodo": "lda",
+      "categoria": "entertainment",
+      "map_at_10": 0.7405,
+      "n_consultas": 23
+    },
+    {
+      "metodo": "lda",
+      "categoria": "politics",
+      "map_at_10": 0.5836,
+      "n_consultas": 23
+    },
+    {
+      "metodo": "lda",
+      "categoria": "sport",
+      "map_at_10": 0.7467,
+      "n_consultas": 23
+    },
+    {
+      "metodo": "lda",
+      "categoria": "tech",
+      "map_at_10": 0.7908,
+      "n_consultas": 23
+    }
+  ],
+  "comparaciones_pareadas_map": {
+    "w2v-svd": {
+      "dif_media_map": 0.0389,
+      "ic95": [
+        -0.0038,
+        0.0822
+      ],
+      "consultas_a_gana": 33,
+      "consultas_b_gana": 14
+    },
+    "svd-bm25": {
+      "dif_media_map": 0.1006,
+      "ic95": [
+        0.0662,
+        0.1357
+      ],
+      "consultas_a_gana": 55,
+      "consultas_b_gana": 14
+    },
+    "bm25-tfidf": {
+      "dif_media_map": 0.0149,
+      "ic95": [
+        -0.0015,
+        0.0321
+      ],
+      "consultas_a_gana": 35,
+      "consultas_b_gana": 30
+    },
+    "tfidf-count": {
+      "dif_media_map": 0.0403,
+      "ic95": [
+        -0.0035,
+        0.0815
+      ],
+      "consultas_a_gana": 56,
+      "consultas_b_gana": 30
+    },
+    "bm25-count": {
+      "dif_media_map": 0.0552,
+      "ic95": [
+        0.0147,
+        0.0971
+      ],
+      "consultas_a_gana": 57,
+      "consultas_b_gana": 26
+    },
+    "lda-bm25": {
+      "dif_media_map": 0.0034,
+      "ic95": [
+        -0.0725,
+        0.0814
+      ],
+      "consultas_a_gana": 39,
+      "consultas_b_gana": 37
+    }
+  },
+  "casos_candidatos": {
+    "auto": [
+      {
+        "query_id": "auto_064",
+        "query": "white prepared for battle tough-scrummaging prop julian white",
+        "categoria": "sport",
+        "doc_origen": "doc_0313",
+        "ap_at_10": {
+          "count": 0.7004,
+          "tfidf": 0.89,
+          "bm25": 0.8521,
+          "svd": 1.0,
+          "w2v": 1.0,
+          "lda": 0.0
+        },
+        "top3": {
+          "count": [
+            "doc_0333 (sport) white admits to balco drugs link banned american",
+            "doc_0721 (sport) mansfield 0-1 leyton orient an second-half goal from",
+            "doc_0357 (politics) baa support ahead of court battle uk airport"
+          ],
+          "tfidf": [
+            "doc_0333 (sport) white admits to balco drugs link banned american",
+            "doc_1245 (sport) barkley fit for match in ireland england centre",
+            "doc_2044 (sport) bell set for england debut bath prop duncan"
+          ],
+          "bm25": [
+            "doc_1245 (sport) barkley fit for match in ireland england centre",
+            "doc_2044 (sport) bell set for england debut bath prop duncan",
+            "doc_0057 (sport) henson stakes early lions claim the six nations"
+          ],
+          "svd": [
+            "doc_1472 (sport) vickery out of six nations england tight-head prop",
+            "doc_2044 (sport) bell set for england debut bath prop duncan",
+            "doc_1650 (sport) stevens named in england line-up england have named"
+          ],
+          "w2v": [
+            "doc_1650 (sport) stevens named in england line-up england have named",
+            "doc_1245 (sport) barkley fit for match in ireland england centre",
+            "doc_0978 (sport) dawson wins england squad recall wasps scrum-half matt"
+          ],
+          "lda": [
+            "doc_1999 (business) beer giant swallows russian firm brewing giant inbev",
+            "doc_1515 (business) chinese wine tempts italy s illva italy s",
+            "doc_1695 (business) india s deccan seals $1.8bn deal air deccan"
+          ]
+        }
+      },
+      {
+        "query_id": "auto_063",
+        "query": "young debut cut short by ginepri fifteen-year-old donald",
+        "categoria": "sport",
+        "doc_origen": "doc_0304",
+        "ap_at_10": {
+          "count": 0.0,
+          "tfidf": 0.09,
+          "bm25": 0.02,
+          "svd": 0.0,
+          "w2v": 0.2595,
+          "lda": 1.0
+        },
+        "top3": {
+          "count": [
+            "doc_1268 (politics) short attacks us over tsunami aid former cabinet",
+            "doc_1907 (politics) tories unveil quango blitz plans plans to abolish",
+            "doc_1636 (business) us airways staff agree to pay cut a"
+          ],
+          "tfidf": [
+            "doc_0590 (entertainment) branson show flops on us screens entrepreneur sir",
+            "doc_0714 (sport) rochus shocks coria in auckland top seed guillermo",
+            "doc_1765 (business) us gives foreign firms extra time foreign firms"
+          ],
+          "bm25": [
+            "doc_0590 (entertainment) branson show flops on us screens entrepreneur sir",
+            "doc_1765 (business) us gives foreign firms extra time foreign firms",
+            "doc_1725 (politics) brown names 16 march for budget chancellor gordon"
+          ],
+          "svd": [
+            "doc_0772 (entertainment) bollywood draws global stars british actress antonia bernath",
+            "doc_1119 (business) mcdonald s to sponsor mtv show mcdonald s",
+            "doc_1027 (entertainment) tough schedule delays elliot show preview performances of"
+          ],
+          "w2v": [
+            "doc_2072 (entertainment) briton wins short film oscar three of the",
+            "doc_1175 (sport) what now for british tennis tim henman s",
+            "doc_1786 (sport) o connor aims to grab opportunity johnny o"
+          ],
+          "lda": [
+            "doc_0554 (sport) mcilroy continues winning streak james mcilroy stormed to",
+            "doc_0836 (sport) gardener wins double in glasgow britain s jason",
+            "doc_1059 (sport) off-colour gardener storms to win britain s jason"
+          ]
+        }
+      },
+      {
+        "query_id": "auto_005",
+        "query": "yukos heading back to us courts russian oil",
+        "categoria": "business",
+        "doc_origen": "doc_0335",
+        "ap_at_10": {
+          "count": 1.0,
+          "tfidf": 1.0,
+          "bm25": 1.0,
+          "svd": 1.0,
+          "w2v": 1.0,
+          "lda": 0.0
+        },
+        "top3": {
+          "count": [
+            "doc_1864 (business) yukos accused of lying to court russian oil",
+            "doc_1033 (business) yukos loses us bankruptcy battle a judge has",
+            "doc_0076 (business) yukos sues four firms for $20bn russian oil"
+          ],
+          "tfidf": [
+            "doc_0076 (business) yukos sues four firms for $20bn russian oil",
+            "doc_1864 (business) yukos accused of lying to court russian oil",
+            "doc_1146 (business) yukos bankruptcy not us matter russian authorities do"
+          ],
+          "bm25": [
+            "doc_0076 (business) yukos sues four firms for $20bn russian oil",
+            "doc_1864 (business) yukos accused of lying to court russian oil",
+            "doc_1146 (business) yukos bankruptcy not us matter russian authorities do"
+          ],
+          "svd": [
+            "doc_0076 (business) yukos sues four firms for $20bn russian oil",
+            "doc_0494 (business) putin backs state grab for yukos russia s",
+            "doc_1743 (business) yukos unit fetches $9bn at auction a little-known"
+          ],
+          "w2v": [
+            "doc_0076 (business) yukos sues four firms for $20bn russian oil",
+            "doc_1146 (business) yukos bankruptcy not us matter russian authorities do",
+            "doc_1033 (business) yukos loses us bankruptcy battle a judge has"
+          ],
+          "lda": [
+            "doc_1249 (sport) hewitt falls to dent lleyton hewitt suffered a",
+            "doc_1923 (sport) johansson takes adelaide victory second seed joachim johansson",
+            "doc_1958 (sport) injury sidelines philippoussis mark philippoussis withdrew from the"
+          ]
+        }
+      },
+      {
+        "query_id": "auto_097",
+        "query": "no half measures with half-life 2 could half-life",
+        "categoria": "tech",
+        "doc_origen": "doc_1829",
+        "ap_at_10": {
+          "count": 0.1222,
+          "tfidf": 0.8,
+          "bm25": 0.8,
+          "svd": 0.89,
+          "w2v": 1.0,
+          "lda": 0.0
+        },
+        "top3": {
+          "count": [
+            "doc_0826 (tech) ban hits half-life 2 pirates hard about 20",
+            "doc_1216 (sport) o sullivan quick to hail italians ireland coach",
+            "doc_1098 (business) qantas sees profits fly to record australian airline"
+          ],
+          "tfidf": [
+            "doc_0826 (tech) ban hits half-life 2 pirates hard about 20",
+            "doc_1465 (tech) half-life 2 sweeps bafta awards pc first person",
+            "doc_1516 (tech) ultimate game award for doom 3 sci-fi shooter"
+          ],
+          "bm25": [
+            "doc_0826 (tech) ban hits half-life 2 pirates hard about 20",
+            "doc_1465 (tech) half-life 2 sweeps bafta awards pc first person",
+            "doc_1516 (tech) ultimate game award for doom 3 sci-fi shooter"
+          ],
+          "svd": [
+            "doc_0826 (tech) ban hits half-life 2 pirates hard about 20",
+            "doc_1465 (tech) half-life 2 sweeps bafta awards pc first person",
+            "doc_0945 (tech) gta sequel is criminally good the grand theft"
+          ],
+          "w2v": [
+            "doc_0826 (tech) ban hits half-life 2 pirates hard about 20",
+            "doc_1220 (tech) blinx sequel purrs nicely the original blinx was",
+            "doc_1752 (tech) halo fans hope for sequel xbox video game"
+          ],
+          "lda": [
+            "doc_1818 (business) german economy rebounds germany s economy the biggest",
+            "doc_2018 (business) us trade deficit widens sharply the gap between",
+            "doc_0246 (business) steady job growth continues in us the us"
+          ]
+        }
+      },
+      {
+        "query_id": "auto_055",
+        "query": "mcconnell details scots wave toll at least three",
+        "categoria": "politics",
+        "doc_origen": "doc_1529",
+        "ap_at_10": {
+          "count": 0.2861,
+          "tfidf": 0.4425,
+          "bm25": 0.4425,
+          "svd": 1.0,
+          "w2v": 0.1355,
+          "lda": 0.0
+        },
+        "top3": {
+          "count": [
+            "doc_0187 (politics) mcconnell in drunk remark row scotland s first",
+            "doc_2092 (business) us bank loses customer details the bank of",
+            "doc_0531 (politics) scots smoking ban details set out smoke-free areas"
+          ],
+          "tfidf": [
+            "doc_0531 (politics) scots smoking ban details set out smoke-free areas",
+            "doc_0187 (politics) mcconnell in drunk remark row scotland s first",
+            "doc_1605 (politics) drink remark acts as diversion the first minister"
+          ],
+          "bm25": [
+            "doc_0531 (politics) scots smoking ban details set out smoke-free areas",
+            "doc_0187 (politics) mcconnell in drunk remark row scotland s first",
+            "doc_1605 (politics) drink remark acts as diversion the first minister"
+          ],
+          "svd": [
+            "doc_1605 (politics) drink remark acts as diversion the first minister",
+            "doc_0187 (politics) mcconnell in drunk remark row scotland s first",
+            "doc_0531 (politics) scots smoking ban details set out smoke-free areas"
+          ],
+          "w2v": [
+            "doc_1200 (business) asia quake increases poverty risk nearly two million",
+            "doc_1092 (business) tsunami slows sri lanka s growth sri lanka",
+            "doc_1167 (business) giant waves damage s asia economy governments aid"
+          ],
+          "lda": [
+            "doc_2027 (tech) cabs collect mountain of mobiles gadgets are cheaper",
+            "doc_0125 (tech) ibm frees 500 software patents computer giant ibm",
+            "doc_2123 (entertainment) rem announce new glasgow concert us band rem"
+          ]
+        }
+      },
+      {
+        "query_id": "auto_075",
+        "query": "trial date is set for balco case a",
+        "categoria": "sport",
+        "doc_origen": "doc_1878",
+        "ap_at_10": {
+          "count": 0.3267,
+          "tfidf": 0.78,
+          "bm25": 0.7578,
+          "svd": 0.8,
+          "w2v": 1.0,
+          "lda": 0.0
+        },
+        "top3": {
+          "count": [
+            "doc_1891 (sport) balco case trial date pushed back the trial",
+            "doc_1877 (sport) hewitt survives nalbandian epic home favourite lleyton hewitt",
+            "doc_1021 (tech) video phones act as dating tools technologies from"
+          ],
+          "tfidf": [
+            "doc_1891 (sport) balco case trial date pushed back the trial",
+            "doc_0333 (sport) white admits to balco drugs link banned american",
+            "doc_1459 (sport) collins banned in landmark case sprinter michelle collins"
+          ],
+          "bm25": [
+            "doc_1891 (sport) balco case trial date pushed back the trial",
+            "doc_1459 (sport) collins banned in landmark case sprinter michelle collins",
+            "doc_0333 (sport) white admits to balco drugs link banned american"
+          ],
+          "svd": [
+            "doc_1891 (sport) balco case trial date pushed back the trial",
+            "doc_0333 (sport) white admits to balco drugs link banned american",
+            "doc_1459 (sport) collins banned in landmark case sprinter michelle collins"
+          ],
+          "w2v": [
+            "doc_1891 (sport) balco case trial date pushed back the trial",
+            "doc_1459 (sport) collins banned in landmark case sprinter michelle collins",
+            "doc_0750 (sport) greek pair attend drugs hearing greek sprinters kostas"
+          ],
+          "lda": [
+            "doc_0034 (business) insurance bosses plead guilty another three us insurance",
+            "doc_1669 (politics) guantanamo pair s passport ban the government has",
+            "doc_0001 (business) worldcom boss left books alone former worldcom boss"
+          ]
+        }
+      }
+    ],
+    "manual": [
+      {
+        "query_id": "manual_15",
+        "query": "video games console",
+        "categoria": "tech",
+        "doc_origen": "",
+        "ap_at_10": {
+          "count": 0.5248,
+          "tfidf": 1.0,
+          "bm25": 1.0,
+          "svd": 1.0,
+          "w2v": 1.0,
+          "lda": 1.0
+        },
+        "top3": {
+          "count": [
+            "doc_1281 (tech) ea to take on film and tv giants",
+            "doc_1051 (business) news corp eyes video games market news corp",
+            "doc_0349 (tech) new consoles promise big problems making games for"
+          ],
+          "tfidf": [
+            "doc_0036 (tech) gamers snap up new sony psp gamers have",
+            "doc_1553 (tech) sony psp console hits us in march us",
+            "doc_0804 (tech) gangsters dominate gaming chart video games on consoles"
+          ],
+          "bm25": [
+            "doc_2043 (tech) what s next for next-gen consoles the next",
+            "doc_0150 (tech) slim playstation triples sales sony playstation 2 s",
+            "doc_0834 (tech) slimmer playstation triple sales sony playstation 2 s"
+          ],
+          "svd": [
+            "doc_2043 (tech) what s next for next-gen consoles the next",
+            "doc_1007 (tech) xbox 2 may be unveiled in summer details",
+            "doc_1281 (tech) ea to take on film and tv giants"
+          ],
+          "w2v": [
+            "doc_1592 (tech) game makers get xbox 2 sneak peek microsoft",
+            "doc_0804 (tech) gangsters dominate gaming chart video games on consoles",
+            "doc_0632 (tech) nintendo ds makes its euro debut nintendo s"
+          ],
+          "lda": [
+            "doc_2080 (tech) mobile tv tipped as one to watch scandinavians",
+            "doc_0329 (tech) cebit fever takes over hanover thousands of products",
+            "doc_0068 (tech) microsoft gets the blogging bug software giant microsoft"
+          ]
+        }
+      },
+      {
+        "query_id": "manual_11",
+        "query": "tennis open final",
+        "categoria": "sport",
+        "doc_origen": "",
+        "ap_at_10": {
+          "count": 0.89,
+          "tfidf": 1.0,
+          "bm25": 1.0,
+          "svd": 1.0,
+          "w2v": 1.0,
+          "lda": 0.5809
+        },
+        "top3": {
+          "count": [
+            "doc_0250 (sport) federer joins all-time greats the last year has",
+            "doc_0358 (sport) henman & murray claim lta awards tim henman",
+            "doc_0137 (sport) safin relieved at aussie recovery marat safin admitted"
+          ],
+          "tfidf": [
+            "doc_0137 (sport) safin relieved at aussie recovery marat safin admitted",
+            "doc_1916 (sport) clijsters set for february return tennis star kim",
+            "doc_0303 (sport) faultless federer has no equal roger federer -"
+          ],
+          "bm25": [
+            "doc_0137 (sport) safin relieved at aussie recovery marat safin admitted",
+            "doc_0303 (sport) faultless federer has no equal roger federer -",
+            "doc_1916 (sport) clijsters set for february return tennis star kim"
+          ],
+          "svd": [
+            "doc_0250 (sport) federer joins all-time greats the last year has",
+            "doc_0137 (sport) safin relieved at aussie recovery marat safin admitted",
+            "doc_1903 (sport) officials respond in court row australian tennis top"
+          ],
+          "w2v": [
+            "doc_1274 (sport) sydney return for henin-hardenne olympic champion justine henin-hardenne",
+            "doc_1791 (sport) capriati out of australian open jennifer capriati has",
+            "doc_0250 (sport) federer joins all-time greats the last year has"
+          ],
+          "lda": [
+            "doc_1903 (sport) officials respond in court row australian tennis top",
+            "doc_0177 (business) yukos owner sues russia for $28bn the majority",
+            "doc_0069 (business) indonesia declines debt freeze indonesia no longer needs"
+          ]
+        }
+      },
+      {
+        "query_id": "manual_05",
+        "query": "music album chart",
+        "categoria": "entertainment",
+        "doc_origen": "",
+        "ap_at_10": {
+          "count": 0.8154,
+          "tfidf": 1.0,
+          "bm25": 1.0,
+          "svd": 1.0,
+          "w2v": 1.0,
+          "lda": 1.0
+        },
+        "top3": {
+          "count": [
+            "doc_1630 (entertainment) rapper 50 cent scores chart first rapper 50",
+            "doc_1246 (entertainment) downloads enter us singles chart digital music downloads",
+            "doc_1568 (entertainment) uk world s biggest music buyer uk consumers"
+          ],
+          "tfidf": [
+            "doc_1630 (entertainment) rapper 50 cent scores chart first rapper 50",
+            "doc_1020 (entertainment) brits return keane to number one brits success",
+            "doc_1374 (entertainment) doves soar to uk album summit manchester rock"
+          ],
+          "bm25": [
+            "doc_1630 (entertainment) rapper 50 cent scores chart first rapper 50",
+            "doc_1374 (entertainment) doves soar to uk album summit manchester rock",
+            "doc_1020 (entertainment) brits return keane to number one brits success"
+          ],
+          "svd": [
+            "doc_1630 (entertainment) rapper 50 cent scores chart first rapper 50",
+            "doc_1374 (entertainment) doves soar to uk album summit manchester rock",
+            "doc_1866 (entertainment) hard act to follow for outkast us rap"
+          ],
+          "w2v": [
+            "doc_1246 (entertainment) downloads enter us singles chart digital music downloads",
+            "doc_1630 (entertainment) rapper 50 cent scores chart first rapper 50",
+            "doc_1374 (entertainment) doves soar to uk album summit manchester rock"
+          ],
+          "lda": [
+            "doc_1793 (entertainment) elvis regains top chart position elvis presley has",
+            "doc_0917 (entertainment) prodigy join v festival line-up essex act prodigy",
+            "doc_1678 (entertainment) elvis set to top uk singles chart rock"
+          ]
+        }
+      },
+      {
+        "query_id": "manual_10",
+        "query": "football match goal",
+        "categoria": "sport",
+        "doc_origen": "",
+        "ap_at_10": {
+          "count": 0.8154,
+          "tfidf": 0.9,
+          "bm25": 0.89,
+          "svd": 1.0,
+          "w2v": 1.0,
+          "lda": 1.0
+        },
+        "top3": {
+          "count": [
+            "doc_1975 (sport) wenger dejected as arsenal slump arsenal manager arsene",
+            "doc_0089 (sport) slovakia reach hopman cup final slovakia will play",
+            "doc_1697 (sport) mcclaren hails boro s uefa spirit middlesbrough boss"
+          ],
+          "tfidf": [
+            "doc_1697 (sport) mcclaren hails boro s uefa spirit middlesbrough boss",
+            "doc_0640 (sport) mcclaren targets champions league middlesbrough boss steve mcclaren",
+            "doc_1331 (sport) anelka eyes man city departure striker nicolas anelka"
+          ],
+          "bm25": [
+            "doc_1697 (sport) mcclaren hails boro s uefa spirit middlesbrough boss",
+            "doc_1915 (sport) brentford v southampton griffin park tuesday 1 march",
+            "doc_0640 (sport) mcclaren targets champions league middlesbrough boss steve mcclaren"
+          ],
+          "svd": [
+            "doc_1697 (sport) mcclaren hails boro s uefa spirit middlesbrough boss",
+            "doc_1196 (sport) jol joy at professional cup win tottenham manager",
+            "doc_0640 (sport) mcclaren targets champions league middlesbrough boss steve mcclaren"
+          ],
+          "w2v": [
+            "doc_0640 (sport) mcclaren targets champions league middlesbrough boss steve mcclaren",
+            "doc_1196 (sport) jol joy at professional cup win tottenham manager",
+            "doc_1697 (sport) mcclaren hails boro s uefa spirit middlesbrough boss"
+          ],
+          "lda": [
+            "doc_1886 (sport) smith keen on home series return scotland manager",
+            "doc_1510 (sport) wenger shock at newcastle dip arsenal manager arsene",
+            "doc_0023 (sport) cole faces lengthy injury lay-off aston villa s"
+          ]
+        }
+      },
+      {
+        "query_id": "manual_04",
+        "query": "film award ceremony",
+        "categoria": "entertainment",
+        "doc_origen": "",
+        "ap_at_10": {
+          "count": 1.0,
+          "tfidf": 0.8354,
+          "bm25": 0.8354,
+          "svd": 1.0,
+          "w2v": 1.0,
+          "lda": 1.0
+        },
+        "top3": {
+          "count": [
+            "doc_0681 (entertainment) vera drake scoops film award oscar hopefuls mike",
+            "doc_0084 (entertainment) controversial film tops festival a controversial film starring",
+            "doc_1736 (entertainment) super size me wins writers award super size"
+          ],
+          "tfidf": [
+            "doc_1840 (entertainment) wine comedy wins critics award quirky comedy sideways",
+            "doc_0272 (entertainment) us critics laud comedy sideways road trip comedy",
+            "doc_0681 (entertainment) vera drake scoops film award oscar hopefuls mike"
+          ],
+          "bm25": [
+            "doc_0681 (entertainment) vera drake scoops film award oscar hopefuls mike",
+            "doc_1840 (entertainment) wine comedy wins critics award quirky comedy sideways",
+            "doc_0168 (entertainment) stars gear up for bafta ceremony film stars"
+          ],
+          "svd": [
+            "doc_0310 (entertainment) incredibles win animation awards the incredibles movie has",
+            "doc_1783 (entertainment) surprise win for anti-bush film michael moore s",
+            "doc_0681 (entertainment) vera drake scoops film award oscar hopefuls mike"
+          ],
+          "w2v": [
+            "doc_0363 (entertainment) sideways dominates spirit awards the comedy sideways has",
+            "doc_1589 (entertainment) spirit awards hail sideways the comedy sideways has",
+            "doc_0681 (entertainment) vera drake scoops film award oscar hopefuls mike"
+          ],
+          "lda": [
+            "doc_0084 (entertainment) controversial film tops festival a controversial film starring",
+            "doc_1443 (entertainment) farrell due to make us tv debut actor",
+            "doc_1632 (entertainment) adventure tale tops awards young book fans have"
+          ]
+        }
+      },
+      {
+        "query_id": "manual_09",
+        "query": "tax plans government",
+        "categoria": "politics",
+        "doc_origen": "",
+        "ap_at_10": {
+          "count": 1.0,
+          "tfidf": 0.8354,
+          "bm25": 1.0,
+          "svd": 1.0,
+          "w2v": 1.0,
+          "lda": 1.0
+        },
+        "top3": {
+          "count": [
+            "doc_1019 (politics) cabinet anger at brown cash raid ministers are",
+            "doc_1419 (politics) parties plans for council tax anger at council",
+            "doc_1398 (politics) nat insurance to rise say tories national insurance"
+          ],
+          "tfidf": [
+            "doc_1019 (politics) cabinet anger at brown cash raid ministers are",
+            "doc_1419 (politics) parties plans for council tax anger at council",
+            "doc_1757 (politics) howard and blair tax pledge clash tony blair"
+          ],
+          "bm25": [
+            "doc_1019 (politics) cabinet anger at brown cash raid ministers are",
+            "doc_1419 (politics) parties plans for council tax anger at council",
+            "doc_2020 (politics) taxes must be trusted - kennedy public trust"
+          ],
+          "svd": [
+            "doc_1419 (politics) parties plans for council tax anger at council",
+            "doc_2020 (politics) taxes must be trusted - kennedy public trust",
+            "doc_0387 (politics) will tory tax cuts lift spirits michael howard"
+          ],
+          "w2v": [
+            "doc_1419 (politics) parties plans for council tax anger at council",
+            "doc_1402 (politics) kennedy criticises unfair taxes gordon brown has failed",
+            "doc_2020 (politics) taxes must be trusted - kennedy public trust"
+          ],
+          "lda": [
+            "doc_0880 (politics) lib dems target the student vote students can",
+            "doc_0544 (politics) lib dems unveil women s manifesto the liberal",
+            "doc_1148 (politics) what really divides the parties so what is"
+          ]
+        }
+      }
+    ]
+  }
+}
