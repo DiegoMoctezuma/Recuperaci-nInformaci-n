@@ -60,9 +60,12 @@ evaluacion:
   - {id: V6, tipo: archivo_existe, ruta: reports/evaluacion.md, bloqueante: true, desc: "reporte de evaluación"}
 
 presentacion:
-  - {id: P1, tipo: archivo_existe, ruta: presentacion/estilo.json, bloqueante: true, desc: "estilos extraídos de la plantilla"}
+  - {id: P1, tipo: python, expr: "all(k in json.load(open('presentacion/estilo.json')) for k in ['paleta','tipografia'])", bloqueante: true, desc: "sistema de diseño propio documentado (paleta y tipografía)"}
   - {id: P2, tipo: archivo_existe, ruta: presentacion/salida/presentacion_final.pptx, bloqueante: true, desc: "presentación generada"}
-  - {id: P3, tipo: python, expr: "__import__('pptx').Presentation('presentacion/salida/presentacion_final.pptx').slides.__len__() >= 10", bloqueante: true, desc: "al menos 10 diapositivas"}
-  - {id: P4, tipo: python, expr: "not any(p.level>0 or (p.text.strip()[:1] in '•-*–') and p.text.strip() for s in __import__('pptx').Presentation('presentacion/salida/presentacion_final.pptx').slides for sh in s.shapes if sh.has_text_frame for p in sh.text_frame.paragraphs)", bloqueante: true, desc: "sin viñetas"}
+  - {id: P3, tipo: python, expr: "len(__import__('pptx').Presentation('presentacion/salida/presentacion_final.pptx').slides) >= 12", bloqueante: true, desc: "al menos 12 diapositivas"}
+  - {id: P4, tipo: python, expr: "not any(p.level>0 or (p.text.strip()[:1] in '•-*–' and p.text.strip()) for s in __import__('pptx').Presentation('presentacion/salida/presentacion_final.pptx').slides for sh in s.shapes if sh.has_text_frame for p in sh.text_frame.paragraphs)", bloqueante: true, desc: "sin viñetas"}
   - {id: P5, tipo: python, expr: "max(len(' '.join(sh.text_frame.text for sh in s.shapes if sh.has_text_frame).split()) for s in __import__('pptx').Presentation('presentacion/salida/presentacion_final.pptx').slides) <= 60", bloqueante: true, desc: "máx. 60 palabras por diapositiva"}
-  - {id: P6, tipo: archivo_existe, ruta: presentacion/salida/revision_visual.md, bloqueante: true, desc: "revisión visual hecha"}
+  - {id: P6, tipo: python, expr: "all(sh.left>=0 and sh.top>=0 and sh.left+sh.width<=prs.slide_width and sh.top+sh.height<=prs.slide_height for prs in [__import__('pptx').Presentation('presentacion/salida/presentacion_final.pptx')] for s in prs.slides for sh in s.shapes)", bloqueante: true, desc: "ninguna forma sale del lienzo"}
+  - {id: P7, tipo: python, expr: "len([f for f in os.listdir('presentacion/salida/preview') if f.startswith('slide_')]) == len(__import__('pptx').Presentation('presentacion/salida/presentacion_final.pptx').slides)", bloqueante: true, desc: "una vista previa por diapositiva"}
+  - {id: P8, tipo: python, expr: "json.load(open('presentacion/salida/revision_automatica.json')).get('errores', 1) == 0", bloqueante: true, desc: "revisión automática sin errores (desbordes, solapes, contraste, tamaños)"}
+  - {id: P9, tipo: archivo_existe, ruta: presentacion/salida/revision_visual.md, bloqueante: true, desc: "revisión visual documentada"}

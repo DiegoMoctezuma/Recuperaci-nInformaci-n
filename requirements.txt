@@ -1,0 +1,16 @@
+pandas>=2.0
+numpy
+scikit-learn>=1.3
+scipy
+rank-bm25
+gensim>=4.3
+spacy>=3.7
+nltk
+matplotlib
+wordcloud
+python-pptx
+pyyaml
+joblib
+# Para ejecutar el notebook de entrega (práctica.ipynb)
+ipykernel
+nbconvert

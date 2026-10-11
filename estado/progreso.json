@@ -1,0 +1,13 @@
+{
+  "proyecto": "bbc-ir-skills",
+  "etapas": {
+    "setup":        {"estado": "PASS", "intentos": 0, "commit": null, "fecha": null, "autor": null, "notas": "Validada 2026-10-11 (5/5 verificaciones PASS). Advertencias menores en reports/validacion/setup.md; desviaciones acordadas: ipykernel/nbconvert, extras en .gitignore, entorno conda bbc-ir, sin ejecutor.md, CSV en data/raw/."},
+    "descarga":     {"estado": "PENDIENTE", "intentos": 0, "commit": null, "fecha": null, "autor": null, "notas": ""},
+    "eda_raw":      {"estado": "PENDIENTE", "intentos": 0, "commit": null, "fecha": null, "autor": null, "notas": ""},
+    "limpieza":     {"estado": "PENDIENTE", "intentos": 0, "commit": null, "fecha": null, "autor": null, "notas": ""},
+    "eda_corpus":   {"estado": "PENDIENTE", "intentos": 0, "commit": null, "fecha": null, "autor": null, "notas": ""},
+    "indices":      {"estado": "PENDIENTE", "intentos": 0, "commit": null, "fecha": null, "autor": null, "notas": ""},
+    "evaluacion":   {"estado": "PENDIENTE", "intentos": 0, "commit": null, "fecha": null, "autor": null, "notas": ""},
+    "presentacion": {"estado": "PENDIENTE", "intentos": 0, "commit": null, "fecha": null, "autor": null, "notas": ""}
+  }
+}
