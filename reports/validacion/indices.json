@@ -1,0 +1,73 @@
+{
+  "etapa": "indices",
+  "fecha": "2026-10-11T17:10:19",
+  "resultado": "PASS",
+  "fallos_bloqueantes": [],
+  "fallos_no_bloqueantes": [],
+  "verificaciones": [
+    {
+      "id": "I1",
+      "desc": "4 índices obligatorios",
+      "tipo": "python",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "expr -> True"
+    },
+    {
+      "id": "I2",
+      "desc": "índices extra (W2V, LDA)",
+      "tipo": "python",
+      "bloqueante": false,
+      "resultado": "PASS",
+      "detalle": "expr -> True"
+    },
+    {
+      "id": "I3",
+      "desc": "mapeo fila→documento completo",
+      "tipo": "python",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "expr -> True"
+    },
+    {
+      "id": "I4",
+      "desc": "buscar() devuelve 10 resultados en los 4 métodos",
+      "tipo": "comando",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "código de salida 0"
+    },
+    {
+      "id": "I5",
+      "desc": "sanidad: consulta política devuelve política",
+      "tipo": "comando",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "código de salida 0"
+    },
+    {
+      "id": "I6",
+      "desc": "ranking ordenado descendente",
+      "tipo": "comando",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "código de salida 0"
+    },
+    {
+      "id": "I7",
+      "desc": "pipeline de ingesta",
+      "tipo": "archivo_existe",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "src/ingesta.py existe"
+    },
+    {
+      "id": "I8",
+      "desc": "ejemplos de búsqueda",
+      "tipo": "archivo_existe",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "reports/ejemplos_busqueda.md existe"
+    }
+  ]
+}

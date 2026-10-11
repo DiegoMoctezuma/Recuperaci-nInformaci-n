@@ -1,0 +1,229 @@
+{
+  "n_docs": 2126,
+  "metodos": {
+    "count": {
+      "dimensiones": [
+        2126,
+        13350
+      ],
+      "vocabulario": 13350,
+      "densidad_pct": 0.89,
+      "tiempo_s": 0.11
+    },
+    "tfidf": {
+      "dimensiones": [
+        2126,
+        13350
+      ],
+      "vocabulario": 13350,
+      "densidad_pct": 0.89,
+      "tiempo_s": 0.1
+    },
+    "bm25": {
+      "dimensiones": [
+        2126,
+        24971
+      ],
+      "vocabulario": 24971,
+      "densidad_pct": 0.5,
+      "tiempo_s": 0.08
+    },
+    "svd": {
+      "dimensiones": [
+        2126,
+        200
+      ],
+      "vocabulario": 13350,
+      "densidad_pct": 100.0,
+      "tiempo_s": 0.61,
+      "varianza_explicada_acumulada_pct": 33.03,
+      "varianza_acumulada_por_componentes_pct": {
+        "10": 6.0,
+        "50": 15.19,
+        "100": 22.48,
+        "150": 28.23,
+        "200": 33.03
+      }
+    },
+    "w2v": {
+      "dimensiones": [
+        2126,
+        100
+      ],
+      "vocabulario": 14991,
+      "densidad_pct": 100.0,
+      "tiempo_s": 29.41
+    },
+    "lda": {
+      "dimensiones": [
+        2126,
+        10
+      ],
+      "vocabulario": 13350,
+      "densidad_pct": 100.0,
+      "tiempo_s": 6.93,
+      "topicos": [
+        {
+          "topico": 0,
+          "etiqueta": "Economía y precios",
+          "palabras": [
+            "rise",
+            "market",
+            "sale",
+            "growth",
+            "price",
+            "economy",
+            "rate",
+            "fall",
+            "month",
+            "economic"
+          ]
+        },
+        {
+          "topico": 1,
+          "etiqueta": "Música",
+          "palabras": [
+            "music",
+            "band",
+            "song",
+            "album",
+            "number",
+            "chart",
+            "record",
+            "single",
+            "artist",
+            "rock"
+          ]
+        },
+        {
+          "topico": 2,
+          "etiqueta": "Leyes y tribunales",
+          "palabras": [
+            "law",
+            "government",
+            "case",
+            "court",
+            "tell",
+            "lord",
+            "rule",
+            "right",
+            "police",
+            "company"
+          ]
+        },
+        {
+          "topico": 3,
+          "etiqueta": "Política británica y elecciones",
+          "palabras": [
+            "labour",
+            "party",
+            "election",
+            "people",
+            "blair",
+            "government",
+            "minister",
+            "tory",
+            "brown",
+            "plan"
+          ]
+        },
+        {
+          "topico": 4,
+          "etiqueta": "Rugby y fútbol: partidos",
+          "palabras": [
+            "win",
+            "minute",
+            "ireland",
+            "second",
+            "ball",
+            "try",
+            "run",
+            "game",
+            "penalty",
+            "italy"
+          ]
+        },
+        {
+          "topico": 5,
+          "etiqueta": "Yukos, deuda y Rusia (mixto)",
+          "palabras": [
+            "open",
+            "bank",
+            "yukos",
+            "world",
+            "set",
+            "win",
+            "country",
+            "russian",
+            "play",
+            "debt"
+          ]
+        },
+        {
+          "topico": 6,
+          "etiqueta": "Tecnología móvil y usuarios",
+          "palabras": [
+            "people",
+            "game",
+            "technology",
+            "mobile",
+            "phone",
+            "service",
+            "use",
+            "user",
+            "computer",
+            "network"
+          ]
+        },
+        {
+          "topico": 7,
+          "etiqueta": "Fútbol: jugadores y clubes",
+          "palabras": [
+            "game",
+            "play",
+            "win",
+            "england",
+            "player",
+            "club",
+            "time",
+            "good",
+            "team",
+            "think"
+          ]
+        },
+        {
+          "topico": 8,
+          "etiqueta": "Cine y premios",
+          "palabras": [
+            "film",
+            "good",
+            "award",
+            "star",
+            "win",
+            "include",
+            "actor",
+            "director",
+            "oscar",
+            "prize"
+          ]
+        },
+        {
+          "topico": 9,
+          "etiqueta": "Empresas, ofertas y fusiones",
+          "palabras": [
+            "company",
+            "china",
+            "firm",
+            "share",
+            "deal",
+            "offer",
+            "india",
+            "bid",
+            "market",
+            "airline"
+          ]
+        }
+      ]
+    }
+  }
+}
