@@ -1,0 +1,65 @@
+{
+  "etapa": "eda_corpus",
+  "fecha": "2026-10-11T16:53:30",
+  "resultado": "PASS",
+  "fallos_bloqueantes": [],
+  "fallos_no_bloqueantes": [],
+  "verificaciones": [
+    {
+      "id": "C1",
+      "desc": "reporte EDA corpus",
+      "tipo": "archivo_existe",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "reports/eda_corpus.md existe"
+    },
+    {
+      "id": "C2",
+      "desc": "exponente de Zipf plausible",
+      "tipo": "json_rango",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "zipf_s = 0.6088327408368511 (rango esperado [0.6, 1.5])"
+    },
+    {
+      "id": "C3",
+      "desc": "beta de Heaps plausible",
+      "tipo": "json_rango",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "heaps_beta = 0.5386790915857187 (rango esperado [0.3, 0.8])"
+    },
+    {
+      "id": "C4",
+      "desc": "buen ajuste de Heaps",
+      "tipo": "json_rango",
+      "bloqueante": false,
+      "resultado": "PASS",
+      "detalle": "heaps_r2 = 0.9975659662556446 (rango esperado [0.9, 1.0])"
+    },
+    {
+      "id": "C5",
+      "desc": "gráfica Zipf",
+      "tipo": "archivo_existe",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "reports/figuras/zipf.png existe"
+    },
+    {
+      "id": "C6",
+      "desc": "gráfica Heaps",
+      "tipo": "archivo_existe",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "reports/figuras/heaps.png existe"
+    },
+    {
+      "id": "C7",
+      "desc": "6 wordclouds",
+      "tipo": "python",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "expr -> True"
+    }
+  ]
+}
