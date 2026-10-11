@@ -1,0 +1,178 @@
+{
+  "n_docs": 2225,
+  "n_duplicados": 99,
+  "n_docs_tras_deduplicar": 2126,
+  "duplicados_por_categoria": {
+    "business": 7,
+    "entertainment": 17,
+    "politics": 14,
+    "sport": 7,
+    "tech": 54
+  },
+  "n_grupos_duplicados": 99,
+  "n_filas_en_grupos_duplicados": 198,
+  "grupos_duplicados_con_categorias_distintas": 0,
+  "conteo_categorias": {
+    "business": 510,
+    "entertainment": 386,
+    "politics": 417,
+    "sport": 511,
+    "tech": 401
+  },
+  "porcentaje_categorias": {
+    "business": 22.92,
+    "entertainment": 17.35,
+    "politics": 18.74,
+    "sport": 22.97,
+    "tech": 18.02
+  },
+  "conteo_categorias_tras_deduplicar": {
+    "business": 503,
+    "entertainment": 369,
+    "politics": 403,
+    "sport": 504,
+    "tech": 347
+  },
+  "nulos": {
+    "category": 0,
+    "text": 0
+  },
+  "textos_vacios": 0,
+  "longitud_media": 390.2952808988764,
+  "longitud_palabras": {
+    "global": {
+      "media": 390.2952808988764,
+      "mediana": 337.0,
+      "min": 90,
+      "max": 4492,
+      "p25": 250.0,
+      "p75": 479.0
+    },
+    "business": {
+      "media": 334.1862745098039,
+      "mediana": 303.0,
+      "min": 142,
+      "max": 912,
+      "p25": 236.0,
+      "p75": 395.75
+    },
+    "entertainment": {
+      "media": 337.6761658031088,
+      "mediana": 267.0,
+      "min": 144,
+      "max": 3570,
+      "p25": 228.25,
+      "p75": 367.75
+    },
+    "politics": {
+      "media": 461.19424460431657,
+      "mediana": 449.0,
+      "min": 90,
+      "max": 4492,
+      "p25": 320.0,
+      "p75": 536.0
+    },
+    "sport": {
+      "media": 336.3228962818004,
+      "mediana": 296.0,
+      "min": 116,
+      "max": 1671,
+      "p25": 208.0,
+      "p75": 415.5
+    },
+    "tech": {
+      "media": 507.35660847880297,
+      "mediana": 450.0,
+      "min": 165,
+      "max": 3007,
+      "p25": 340.0,
+      "p75": 633.0
+    }
+  },
+  "longitud_caracteres": {
+    "global": {
+      "media": 2262.936179775281,
+      "mediana": 1965.0,
+      "min": 501,
+      "max": 25483,
+      "p25": 1446.0,
+      "p75": 2802.0
+    },
+    "business": {
+      "media": 1984.6176470588234,
+      "mediana": 1817.5,
+      "min": 846,
+      "max": 5406,
+      "p25": 1410.25,
+      "p75": 2371.75
+    },
+    "entertainment": {
+      "media": 1926.4559585492227,
+      "mediana": 1557.0,
+      "min": 823,
+      "max": 19136,
+      "p25": 1312.75,
+      "p75": 2101.0
+    },
+    "politics": {
+      "media": 2681.822541966427,
+      "mediana": 2626.0,
+      "min": 501,
+      "max": 25483,
+      "p25": 1877.0,
+      "p75": 3146.0
+    },
+    "sport": {
+      "media": 1894.8825831702543,
+      "mediana": 1640.0,
+      "min": 719,
+      "max": 9471,
+      "p25": 1189.0,
+      "p75": 2339.0
+    },
+    "tech": {
+      "media": 2974.216957605985,
+      "mediana": 2636.0,
+      "min": 973,
+      "max": 16158,
+      "p25": 2045.0,
+      "p75": 3749.0
+    }
+  },
+  "pct_docs_con_digitos": 95.10112359550563,
+  "pct_docs_con_digitos_por_categoria": {
+    "business": 99.01960784313727,
+    "entertainment": 97.40932642487047,
+    "politics": 91.12709832134293,
+    "sport": 93.9334637964775,
+    "tech": 93.51620947630923
+  },
+  "pct_docs_con_simbolo": {
+    "£": 29.078651685393258,
+    "$": 21.48314606741573,
+    "%": 28.314606741573034,
+    "-": 94.56179775280899
+  },
+  "pct_docs_con_algun_simbolo": 96.58426966292136,
+  "pct_docs_con_mayusculas": 0.0,
+  "otros_caracteres_top": {
+    ".": 43717,
+    "-": 12943,
+    ")": 2229,
+    "(": 2227,
+    "%": 1968,
+    ":": 1695,
+    "£": 1403,
+    "$": 1240,
+    ";": 478,
+    "&": 236,
+    "/": 227,
+    "!": 198,
+    "[": 110,
+    "]": 110,
+    "#": 30
+  },
+  "caracteres_no_ascii": {
+    "£": 1403
+  }
+}

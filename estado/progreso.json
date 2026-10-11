@@ -3,7 +3,7 @@
   "etapas": {
     "setup":        {"estado": "PASS", "intentos": 0, "commit": "679174d", "fecha": "2026-10-11T16:35:34-0600", "autor": "DiegoMoctezuma", "notas": "Validada 2026-10-11 (5/5 verificaciones PASS). Advertencias menores en reports/validacion/setup.md; desviaciones acordadas: ipykernel/nbconvert, extras en .gitignore, entorno conda bbc-ir, sin ejecutor.md, CSV en data/raw/."},
     "descarga":     {"estado": "PASS", "intentos": 0, "commit": "32ea3e5", "fecha": "2026-10-11T16:38:35-0600", "autor": "DiegoMoctezuma", "notas": "Validada 2026-10-11 (6/6 verificaciones PASS; descarga.py exit 0; SHA-256 coincide en CSV, .sha256 y reporte). Desviación acordada: CSV ya existía local, no se ejercitó la descarga ni el respaldo git (solo revisados en código). Ver reports/validacion/descarga.md."},
-    "eda_raw":      {"estado": "PENDIENTE", "intentos": 0, "commit": null, "fecha": null, "autor": null, "notas": ""},
+    "eda_raw":      {"estado": "PASS", "intentos": 0, "commit": null, "fecha": null, "autor": null, "notas": "Validada 2026-10-11 (4/4 verificaciones PASS; eda.py --modo raw exit 0 y salidas idénticas al re-ejecutar; métricas recalculadas con pandas sin discrepancias). Advertencias menores: boxplot con alpha 0.8 (tono algo más claro que la paleta); --modo corpus es stub acordado hasta eda_corpus. Ver reports/validacion/eda_raw.md."},
     "limpieza":     {"estado": "PENDIENTE", "intentos": 0, "commit": null, "fecha": null, "autor": null, "notas": ""},
     "eda_corpus":   {"estado": "PENDIENTE", "intentos": 0, "commit": null, "fecha": null, "autor": null, "notas": ""},
     "indices":      {"estado": "PENDIENTE", "intentos": 0, "commit": null, "fecha": null, "autor": null, "notas": ""},

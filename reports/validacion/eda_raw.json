@@ -1,0 +1,41 @@
+{
+  "etapa": "eda_raw",
+  "fecha": "2026-10-11T16:41:01",
+  "resultado": "PASS",
+  "fallos_bloqueantes": [],
+  "fallos_no_bloqueantes": [],
+  "verificaciones": [
+    {
+      "id": "E1",
+      "desc": "reporte EDA raw",
+      "tipo": "archivo_existe",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "reports/eda_raw.md existe"
+    },
+    {
+      "id": "E2",
+      "desc": "detectó los 99 duplicados",
+      "tipo": "json_rango",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "n_duplicados = 99 (rango esperado [99, 99])"
+    },
+    {
+      "id": "E3",
+      "desc": "gráfica de categorías",
+      "tipo": "archivo_existe",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "reports/figuras/raw_categorias.png existe"
+    },
+    {
+      "id": "E4",
+      "desc": "gráfica de longitudes",
+      "tipo": "archivo_existe",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "reports/figuras/raw_longitudes.png existe"
+    }
+  ]
+}
