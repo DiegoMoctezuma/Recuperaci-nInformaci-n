@@ -1,0 +1,135 @@
+[
+  {
+    "layout": "portada",
+    "titulo": "Recuperación de información en BBC News",
+    "titulo_resalte": "BBC News",
+    "subtitulo": "Seis buscadores, 2,126 noticias, 115 consultas",
+    "equipo": "Diego Moctezuma",
+    "materia": "Minería de Textos · Ciencia de Datos",
+    "fecha": "11 de octubre de 2026",
+    "proyecto_corto": "BBC News IR",
+    "icono": "lupa sobre un periódico",
+    "notas": "Buenos días. Les presento un sistema de recuperación de información sobre noticias de la BBC. Partimos de 2,225 noticias en cinco categorías, las limpiamos y construimos seis formas de buscar: conteo, TF-IDF, BM25, SVD, Word2Vec y LDA. Las comparamos con 115 consultas. Veremos qué encontramos, qué método rinde mejor y con qué cautelas deben leerse los resultados, empezando por el problema."
+  },
+  {
+    "layout": "cifra_grande",
+    "titulo": "Encontrar la noticia correcta entre 2,225 exige un buscador, no paciencia",
+    "cifra": "2,225",
+    "etiqueta": "noticias de la BBC",
+    "frase": "Cinco categorías. Probamos seis formas de ordenar las noticias por su parecido con la consulta.",
+    "notas": "El problema es sencillo de enunciar: dada una consulta en lenguaje natural, devolver las noticias más parecidas. Con 2,225 noticias de la BBC repartidas en cinco categorías, leerlas una por una no es práctico. Por eso construimos un buscador y, sobre todo, comparamos seis maneras de representar el texto, porque la elección de esa representación cambia mucho qué documentos aparecen primero."
+  },
+  {
+    "layout": "grafica",
+    "titulo": "Deporte y negocios suman 45.89% de las 2,225 noticias",
+    "imagen": "presentacion/figuras/cat_distribucion.png",
+    "alt": "Barras horizontales con el número de noticias por categoría; deporte (511) y negocios (510) destacan en naranja",
+    "mensaje": "Ninguna categoría domina: cada una tiene entre 386 y 511 noticias.",
+    "pie": "Fuente: reports/eda_raw.json",
+    "notas": "Este es el corpus: cinco categorías, de 386 noticias de entretenimiento a 511 de deporte. Deporte y negocios suman 45.89% de las 2,225 noticias, pero ninguna categoría domina, así que no esperamos un sesgo fuerte hacia un tema. Esto importa porque más adelante usaremos la categoría como criterio de relevancia: un documento es relevante si comparte categoría con la consulta."
+  },
+  {
+    "layout": "cifra_grande",
+    "titulo": "99 noticias estaban duplicadas y quedaron 2,126 documentos únicos",
+    "cifra": "2,126",
+    "etiqueta": "documentos únicos",
+    "frase": "Eran 99 pares de textos idénticos con la misma categoría; dejarlos podría inflar los aciertos.",
+    "notas": "Antes de indexar limpiamos el corpus. Encontramos 99 noticias duplicadas exactas, siempre con la misma categoría, y las eliminamos: quedaron 2,126 documentos. Si se dejaran, un duplicado del documento de origen sería un acierto trivial y las métricas saldrían infladas. Después normalizamos el texto, quitamos stopwords y lematizamos, lo que dejó un vocabulario de 24,971 palabras."
+  },
+  {
+    "layout": "grafica",
+    "titulo": "Pocas palabras dominan el corpus: la frecuencia cae con exponente s = 0.6088",
+    "imagen": "presentacion/figuras/zipf.png",
+    "alt": "Gráfica log-log de rango contra frecuencia con la recta de Zipf ajustada en naranja",
+    "mensaje": "El exponente es bajo porque se quitaron las stopwords. El ajuste cubre los rangos 1 a 1,000 (R² = 0.9469).",
+    "pie": "Fuente: reports/eda_corpus.json",
+    "notas": "La ley de Zipf dice que pocas palabras concentran muchas apariciones. Ajustamos los rangos 1 a 1,000 y obtuvimos un exponente de 0.6088, con R cuadrada de 0.9469. Es más bajo que el uno clásico porque quitamos las stopwords, que son justo las palabras más frecuentes. El mensaje práctico: unas cuantas palabras pesan mucho, y por eso ponderar por rareza tiene sentido."
+  },
+  {
+    "layout": "grafica",
+    "titulo": "El vocabulario no deja de crecer: β = 0.5387",
+    "imagen": "presentacion/figuras/heaps.png",
+    "alt": "Crecimiento del vocabulario contra tokens leídos con la curva de Heaps ajustada en naranja",
+    "mensaje": "Hay 24,971 palabras distintas en 385,689 tokens, y 39.97% aparece una sola vez.",
+    "pie": "Fuente: reports/eda_corpus.json",
+    "notas": "La ley de Heaps mide cuánto crece el vocabulario al leer más texto. Con un exponente beta de 0.5387, dentro del rango típico, el vocabulario sigue creciendo sin estabilizarse: terminamos con 24,971 palabras distintas en 385,689 tokens, y 39.97% aparece una sola vez. Eso significa que siempre habrá consultas con palabras que el índice apenas vio, algo a tener presente al evaluar."
+  },
+  {
+    "layout": "bloques",
+    "titulo": "Cada categoría tiene su propia huella de palabras",
+    "bloques": [
+      {"nombre": "Deporte", "frase": "Tenistas y técnicos: roddick, nadal, mourinho, wenger.", "imagen": "presentacion/figuras/wordcloud_sport.png", "alt": "Nube de palabras de deporte"},
+      {"nombre": "Política", "frase": "Partidos y casos: tory, ukip, blunkett, asylum.", "imagen": "presentacion/figuras/wordcloud_politics.png", "alt": "Nube de palabras de política"},
+      {"nombre": "Tecnología", "frase": "Internet y consolas: spam, browser, wifi, psp.", "imagen": "presentacion/figuras/wordcloud_tech.png", "alt": "Nube de palabras de tecnología"}
+    ],
+    "pie": "Tamaño: palabras frecuentes y propias de cada categoría.",
+    "notas": "Cada categoría tiene su propio vocabulario. Estas nubes muestran deporte, política y tecnología; el tamaño destaca las palabras frecuentes y propias de cada una, no las genéricas. En deporte aparecen nombres como Roddick o Mourinho, en política Tory y UKIP, en tecnología spam y browser. Esta huella léxica justifica usar la categoría como criterio de relevancia, aunque sea un criterio imperfecto."
+  },
+  {
+    "layout": "flujo",
+    "titulo": "La consulta se convierte en vector y se compara con cada documento",
+    "pasos": [
+      {"etiqueta": "Consulta", "detalle": "texto libre", "icono": "teclado"},
+      {"etiqueta": "Limpieza", "detalle": "igual que el corpus", "icono": "escoba"},
+      {"etiqueta": "Vectores", "detalle": "según el método", "icono": "tabla numérica", "clave": true},
+      {"etiqueta": "Similitud", "detalle": "coseno o BM25", "icono": "ángulo"},
+      {"etiqueta": "Ranking", "detalle": "los k más cercanos", "icono": "podio"}
+    ],
+    "notas": "Así funciona el buscador. La consulta pasa por la misma limpieza que el corpus, se convierte en un vector según el método elegido y se compara con los 2,126 documentos mediante similitud coseno, o con el puntaje BM25. El resultado es un ranking y nos quedamos con los k más cercanos. Lo que cambia entre métodos es sobre todo cómo se construye ese vector."
+  },
+  {
+    "layout": "bloques",
+    "titulo": "Cuatro maneras de convertir texto en números",
+    "bloques": [
+      {"nombre": "Conteo", "frase": "Cuenta cuántas veces aparece cada palabra.", "icono": "contador"},
+      {"nombre": "TF-IDF", "frase": "Premia las palabras raras y castiga las comunes.", "icono": "balanza"},
+      {"nombre": "BM25", "frase": "Puntúa con rareza, saturación y longitud del texto.", "icono": "curva"},
+      {"nombre": "SVD", "frase": "Comprime el vocabulario en 200 dimensiones latentes.", "icono": "matriz comprimida"}
+    ],
+    "notas": "Cuatro de los métodos evaluados. El conteo, que en código es CountVectorizer, cuenta apariciones. TF-IDF pondera por rareza. BM25 añade saturación de frecuencia y normalización por longitud. SVD comprime la matriz en 200 dimensiones latentes. Además evaluamos Word2Vec y LDA con 10 tópicos; Word2Vec aparece en seguida porque obtuvo el mejor MAP@10 de los seis."
+  },
+  {
+    "layout": "cifra_grande",
+    "titulo": "Word2Vec lidera con 88.17% de MAP@10; SVD le sigue con 84.28% y los métodos léxicos quedan atrás.",
+    "cifra": "88.17%",
+    "etiqueta": "MAP@10 de Word2Vec",
+    "frase": "Word2Vec promedia los vectores de sus palabras (100 dimensiones). Sobre SVD su ventaja no es concluyente.",
+    "notas": "Evaluamos con 115 consultas: 100 automáticas y 15 manuales. Como no hay juicios de relevancia, un documento cuenta como relevante si su categoría coincide con la esperada. Con ese supuesto, Word2Vec obtiene 88.17% de MAP@10 y SVD 84.28%. Cuidado: la diferencia de 3.89 puntos tiene un intervalo de confianza de 95% entre -0.38 y 8.22, así que no podemos afirmar que Word2Vec supere a SVD."
+  },
+  {
+    "layout": "grafica",
+    "titulo": "BM25 (74.22%) y TF-IDF (72.73%) rinden casi igual; solo BM25 supera con claridad al conteo (68.70%).",
+    "imagen": "presentacion/figuras/map_metodos.png",
+    "alt": "MAP@10 por método: Word2Vec 88.17%, SVD 84.28%, LDA 74.56%, BM25 74.22% resaltado, TF-IDF 72.73%, Conteo 68.70%",
+    "mensaje": "BM25 supera a TF-IDF por 1.49 puntos, pero el IC 95% [-0.15, 3.21] incluye 0: en la práctica empatan.",
+    "pie": "Relevante: misma categoría que la consulta. Fuente: reports/metricas.csv",
+    "notas": "Entre los métodos léxicos, BM25 obtiene 74.22% de MAP@10, TF-IDF 72.73% y conteo 68.70%. BM25 supera a TF-IDF por 1.49 puntos, pero el intervalo incluye cero, así que en la práctica son equivalentes; solo la ventaja sobre el conteo es clara, 5.52 puntos. Recordemos que relevante significa misma categoría que la consulta. SVD supera a BM25 por 10.06 puntos, y Word2Vec es además el más rápido, con 2.46 milisegundos."
+  },
+  {
+    "layout": "grafica_completa",
+    "titulo": "Con consultas manuales cortas casi todos aciertan; con titulares de 8 palabras Word2Vec logra 86.39% y conteo 64.96%.",
+    "imagen": "presentacion/figuras/mancuernas_tipo_consulta.png",
+    "alt": "MAP@10 por método y tipo de consulta: los puntos de consultas manuales quedan cerca de 100% y los de titulares de 8 palabras se dispersan",
+    "pie": "MAP@10 por tipo de consulta (15 manuales, 100 automáticas). Relevante: misma categoría que la consulta.",
+    "notas": "Separamos las consultas por tipo. Con las 15 manuales, de dos a cuatro palabras y muy temáticas, SVD y Word2Vec llegan a 100.00% y el peor, el conteo, a 93.64%: casi no discriminan. Con los 100 titulares de ocho palabras, que mezclan nombres propios y palabras genéricas, Word2Vec logra 86.39% y el conteo 64.96%. Las diferencias aparecen en las consultas difíciles. Y la categoría sigue siendo solo un proxy de relevancia."
+  },
+  {
+    "layout": "demo",
+    "titulo": "Word2Vec responde a una consulta temática con tres noticias de política",
+    "consulta": "election labour party vote",
+    "metodo": "w2v",
+    "resultados": [
+      {"rank": 1, "doc_id": "doc_0259", "category": "politics", "titulo": "ukip outspent labour on eu poll the uk"},
+      {"rank": 2, "doc_id": "doc_1208", "category": "politics", "titulo": "sainsbury s labour election gift science minister lord"},
+      {"rank": 3, "doc_id": "doc_0375", "category": "politics", "titulo": "top tories on lib dem hit list the"}
+    ],
+    "notas": "Un ejemplo real con Word2Vec: la consulta election labour party vote. Los tres primeros resultados son de política, la categoría esperada. Los títulos son los primeros términos de cada nota, por eso se ven recortados. Conviene recordar que acierto de categoría no es lo mismo que satisfacción del usuario: una nota de la categoría correcta puede no tratar exactamente el tema consultado."
+  },
+  {
+    "layout": "cierre",
+    "conclusion": "Word2Vec y SVD recuperan mejor que los métodos léxicos, aunque su diferencia aún no es concluyente.",
+    "etiqueta": "Recomendación",
+    "recomendacion": "Adoptar Word2Vec como método principal, conservar SVD como alternativa y validar con juicios de relevancia reales, porque aquí la categoría es solo un proxy.",
+    "notas": "En resumen, Word2Vec y SVD recuperan mejor que los métodos léxicos, pero entre ellos la diferencia no es concluyente con 115 consultas. Recomendamos Word2Vec como método principal, por su precisión y velocidad, SVD como alternativa, y validar con juicios de relevancia reales, porque la categoría es solo un proxy. BM25 sirve como línea base léxica sencilla. Gracias; quedo atento a preguntas."
+  }
+]

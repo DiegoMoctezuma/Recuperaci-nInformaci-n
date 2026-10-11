@@ -1,0 +1,2698 @@
+[
+ {
+  "n": 1,
+  "layout": "portada",
+  "cajas": [
+   {
+    "tipo": "fondo",
+    "x": 0,
+    "y": 0,
+    "w": 13.333,
+    "h": 7.5,
+    "relleno": "#14213D"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 1.5,
+    "w": 9.04975,
+    "h": 1.6666666666666665,
+    "texto": "Recuperación de información en BBC News",
+    "runs": [
+     [
+      "Recuperación de información en ",
+      "#F6F4EF"
+     ],
+     [
+      "BBC News",
+      "#E07A1F"
+     ]
+    ],
+    "tamaño": 44,
+    "color": "#F6F4EF",
+    "fuente": "Georgia",
+    "negrita": true,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Titulo"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 3.3166666666666664,
+    "w": 9.04975,
+    "h": 0.5333333333333333,
+    "texto": "Seis buscadores, 2,126 noticias, 115 consultas",
+    "runs": [
+     [
+      "Seis buscadores, 2,126 noticias, 115 consultas",
+      "#C9CCD1"
+     ]
+    ],
+    "tamaño": 20,
+    "color": "#C9CCD1",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Subtitulo"
+   },
+   {
+    "tipo": "marcador",
+    "x": 9.849749999999998,
+    "y": 1.6,
+    "w": 2.88325,
+    "h": 2.88325,
+    "relleno": null,
+    "borde": "#E07A1F",
+    "grosor": 1.75,
+    "dash": true,
+    "radio": 0.15,
+    "nombre": "Marcador icono",
+    "texto": "ICONO: lupa sobre un periódico",
+    "runs": [
+     [
+      "ICONO: lupa sobre un periódico",
+      "#C9CCD1"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#C9CCD1",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "c",
+    "ancla": "m"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 6.4,
+    "w": 2.88325,
+    "h": 0.6,
+    "texto": "Diego Moctezuma",
+    "runs": [
+     [
+      "Diego Moctezuma",
+      "#C9CCD1"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#C9CCD1",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "b",
+    "nombre": "Equipo"
+   },
+   {
+    "tipo": "texto",
+    "x": 3.6832499999999997,
+    "y": 6.4,
+    "w": 4.93875,
+    "h": 0.6,
+    "texto": "Minería de Textos · Ciencia de Datos",
+    "runs": [
+     [
+      "Minería de Textos · Ciencia de Datos",
+      "#C9CCD1"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#C9CCD1",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "b",
+    "nombre": "Materia"
+   },
+   {
+    "tipo": "texto",
+    "x": 8.822,
+    "y": 6.4,
+    "w": 3.911,
+    "h": 0.6,
+    "texto": "11 de octubre de 2026",
+    "runs": [
+     [
+      "11 de octubre de 2026",
+      "#C9CCD1"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#C9CCD1",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "r",
+    "ancla": "b",
+    "nombre": "Fecha"
+   }
+  ]
+ },
+ {
+  "n": 2,
+  "layout": "cifra_grande",
+  "cajas": [
+   {
+    "tipo": "fondo",
+    "x": 0,
+    "y": 0,
+    "w": 13.333,
+    "h": 7.5,
+    "relleno": "#F6F4EF"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 0.5,
+    "w": 12.133,
+    "h": 1.2,
+    "texto": "Encontrar la noticia correcta entre 2,225 exige un buscador, no paciencia",
+    "runs": [
+     [
+      "Encontrar la noticia correcta entre 2,225 exige un buscador, no paciencia",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 30,
+    "color": "#1B1F24",
+    "fuente": "Georgia",
+    "negrita": true,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Titulo"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 3.0083333333333333,
+    "w": 5.9665,
+    "h": 2.033333333333333,
+    "texto": "2,225",
+    "runs": [
+     [
+      "2,225",
+      "#B05400"
+     ]
+    ],
+    "tamaño": 110,
+    "color": "#B05400",
+    "fuente": "Georgia",
+    "negrita": true,
+    "align": "l",
+    "ancla": "m",
+    "nombre": "Cifra grande"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 5.041666666666666,
+    "w": 5.9665,
+    "h": 0.4,
+    "texto": "noticias de la BBC",
+    "runs": [
+     [
+      "noticias de la BBC",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Etiqueta de la cifra"
+   },
+   {
+    "tipo": "texto",
+    "x": 6.766499999999999,
+    "y": 3.625,
+    "w": 5.9665,
+    "h": 1.2,
+    "texto": "Cinco categorías. Probamos seis formas de ordenar las noticias por su parecido con la consulta.",
+    "runs": [
+     [
+      "Cinco categorías. Probamos seis formas de ordenar las noticias por su parecido con la consulta.",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 20,
+    "color": "#1B1F24",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "m",
+    "nombre": "Frase de apoyo"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 6.6,
+    "w": 3.911,
+    "h": 0.4,
+    "texto": "BBC News IR",
+    "runs": [
+     [
+      "BBC News IR",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Pie proyecto"
+   },
+   {
+    "tipo": "texto",
+    "x": 10.8775,
+    "y": 6.6,
+    "w": 1.8555,
+    "h": 0.4,
+    "texto": "2",
+    "runs": [
+     [
+      "2",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "r",
+    "ancla": "t",
+    "nombre": "Numero de diapositiva"
+   }
+  ]
+ },
+ {
+  "n": 3,
+  "layout": "grafica",
+  "cajas": [
+   {
+    "tipo": "fondo",
+    "x": 0,
+    "y": 0,
+    "w": 13.333,
+    "h": 7.5,
+    "relleno": "#F6F4EF"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 0.5,
+    "w": 12.133,
+    "h": 0.7,
+    "texto": "Deporte y negocios suman 45.89% de las 2,225 noticias",
+    "runs": [
+     [
+      "Deporte y negocios suman 45.89% de las 2,225 noticias",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 30,
+    "color": "#1B1F24",
+    "fuente": "Georgia",
+    "negrita": true,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Titulo"
+   },
+   {
+    "tipo": "imagen",
+    "x": 0.6,
+    "y": 1.45,
+    "w": 8.022,
+    "h": 4.011,
+    "ruta": "/Users/mikitl/Documents/FES/Ciencia de Datos/Clases/míneriaTextos/BBC-News-Classification/presentacion/figuras/cat_distribucion.png",
+    "nombre": "Imagen cat_distribucion"
+   },
+   {
+    "tipo": "texto",
+    "x": 8.822,
+    "y": 1.45,
+    "w": 3.911,
+    "h": 1.2,
+    "texto": "Ninguna categoría domina: cada una tiene entre 386 y 511 noticias.",
+    "runs": [
+     [
+      "Ninguna categoría domina: cada una tiene entre 386 y 511 noticias.",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 20,
+    "color": "#1B1F24",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Mensaje clave"
+   },
+   {
+    "tipo": "texto",
+    "x": 8.822,
+    "y": 6.1,
+    "w": 3.911,
+    "h": 0.4,
+    "texto": "Fuente: reports/eda_raw.json",
+    "runs": [
+     [
+      "Fuente: reports/eda_raw.json",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "b",
+    "nombre": "Pie de fuente"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 6.6,
+    "w": 3.911,
+    "h": 0.4,
+    "texto": "BBC News IR",
+    "runs": [
+     [
+      "BBC News IR",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Pie proyecto"
+   },
+   {
+    "tipo": "texto",
+    "x": 10.8775,
+    "y": 6.6,
+    "w": 1.8555,
+    "h": 0.4,
+    "texto": "3",
+    "runs": [
+     [
+      "3",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "r",
+    "ancla": "t",
+    "nombre": "Numero de diapositiva"
+   }
+  ]
+ },
+ {
+  "n": 4,
+  "layout": "cifra_grande",
+  "cajas": [
+   {
+    "tipo": "fondo",
+    "x": 0,
+    "y": 0,
+    "w": 13.333,
+    "h": 7.5,
+    "relleno": "#F6F4EF"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 0.5,
+    "w": 12.133,
+    "h": 1.2,
+    "texto": "99 noticias estaban duplicadas y quedaron 2,126 documentos únicos",
+    "runs": [
+     [
+      "99 noticias estaban duplicadas y quedaron 2,126 documentos únicos",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 30,
+    "color": "#1B1F24",
+    "fuente": "Georgia",
+    "negrita": true,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Titulo"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 3.0083333333333333,
+    "w": 5.9665,
+    "h": 2.033333333333333,
+    "texto": "2,126",
+    "runs": [
+     [
+      "2,126",
+      "#B05400"
+     ]
+    ],
+    "tamaño": 110,
+    "color": "#B05400",
+    "fuente": "Georgia",
+    "negrita": true,
+    "align": "l",
+    "ancla": "m",
+    "nombre": "Cifra grande"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 5.041666666666666,
+    "w": 5.9665,
+    "h": 0.4,
+    "texto": "documentos únicos",
+    "runs": [
+     [
+      "documentos únicos",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Etiqueta de la cifra"
+   },
+   {
+    "tipo": "texto",
+    "x": 6.766499999999999,
+    "y": 3.625,
+    "w": 5.9665,
+    "h": 1.2,
+    "texto": "Eran 99 pares de textos idénticos con la misma categoría; dejarlos podría inflar los aciertos.",
+    "runs": [
+     [
+      "Eran 99 pares de textos idénticos con la misma categoría; dejarlos podría inflar los aciertos.",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 20,
+    "color": "#1B1F24",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "m",
+    "nombre": "Frase de apoyo"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 6.6,
+    "w": 3.911,
+    "h": 0.4,
+    "texto": "BBC News IR",
+    "runs": [
+     [
+      "BBC News IR",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Pie proyecto"
+   },
+   {
+    "tipo": "texto",
+    "x": 10.8775,
+    "y": 6.6,
+    "w": 1.8555,
+    "h": 0.4,
+    "texto": "4",
+    "runs": [
+     [
+      "4",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "r",
+    "ancla": "t",
+    "nombre": "Numero de diapositiva"
+   }
+  ]
+ },
+ {
+  "n": 5,
+  "layout": "grafica",
+  "cajas": [
+   {
+    "tipo": "fondo",
+    "x": 0,
+    "y": 0,
+    "w": 13.333,
+    "h": 7.5,
+    "relleno": "#F6F4EF"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 0.5,
+    "w": 12.133,
+    "h": 1.2,
+    "texto": "Pocas palabras dominan el corpus: la frecuencia cae con exponente s = 0.6088",
+    "runs": [
+     [
+      "Pocas palabras dominan el corpus: la frecuencia cae con exponente s = 0.6088",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 30,
+    "color": "#1B1F24",
+    "fuente": "Georgia",
+    "negrita": true,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Titulo"
+   },
+   {
+    "tipo": "imagen",
+    "x": 0.6,
+    "y": 1.95,
+    "w": 8.022,
+    "h": 4.011,
+    "ruta": "/Users/mikitl/Documents/FES/Ciencia de Datos/Clases/míneriaTextos/BBC-News-Classification/presentacion/figuras/zipf.png",
+    "nombre": "Imagen zipf"
+   },
+   {
+    "tipo": "texto",
+    "x": 8.822,
+    "y": 1.95,
+    "w": 3.911,
+    "h": 1.8666666666666667,
+    "texto": "El exponente es bajo porque se quitaron las stopwords. El ajuste cubre los rangos 1 a 1,000 (R² = 0.9469).",
+    "runs": [
+     [
+      "El exponente es bajo porque se quitaron las stopwords. El ajuste cubre los rangos 1 a 1,000 (R² = 0.9469).",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 20,
+    "color": "#1B1F24",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Mensaje clave"
+   },
+   {
+    "tipo": "texto",
+    "x": 8.822,
+    "y": 6.1,
+    "w": 3.911,
+    "h": 0.4,
+    "texto": "Fuente: reports/eda_corpus.json",
+    "runs": [
+     [
+      "Fuente: reports/eda_corpus.json",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "b",
+    "nombre": "Pie de fuente"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 6.6,
+    "w": 3.911,
+    "h": 0.4,
+    "texto": "BBC News IR",
+    "runs": [
+     [
+      "BBC News IR",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Pie proyecto"
+   },
+   {
+    "tipo": "texto",
+    "x": 10.8775,
+    "y": 6.6,
+    "w": 1.8555,
+    "h": 0.4,
+    "texto": "5",
+    "runs": [
+     [
+      "5",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "r",
+    "ancla": "t",
+    "nombre": "Numero de diapositiva"
+   }
+  ]
+ },
+ {
+  "n": 6,
+  "layout": "grafica",
+  "cajas": [
+   {
+    "tipo": "fondo",
+    "x": 0,
+    "y": 0,
+    "w": 13.333,
+    "h": 7.5,
+    "relleno": "#F6F4EF"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 0.5,
+    "w": 12.133,
+    "h": 0.7,
+    "texto": "El vocabulario no deja de crecer: β = 0.5387",
+    "runs": [
+     [
+      "El vocabulario no deja de crecer: β = 0.5387",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 30,
+    "color": "#1B1F24",
+    "fuente": "Georgia",
+    "negrita": true,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Titulo"
+   },
+   {
+    "tipo": "imagen",
+    "x": 0.6,
+    "y": 1.45,
+    "w": 8.022,
+    "h": 4.011,
+    "ruta": "/Users/mikitl/Documents/FES/Ciencia de Datos/Clases/míneriaTextos/BBC-News-Classification/presentacion/figuras/heaps.png",
+    "nombre": "Imagen heaps"
+   },
+   {
+    "tipo": "texto",
+    "x": 8.822,
+    "y": 1.45,
+    "w": 3.911,
+    "h": 1.5333333333333332,
+    "texto": "Hay 24,971 palabras distintas en 385,689 tokens, y 39.97% aparece una sola vez.",
+    "runs": [
+     [
+      "Hay 24,971 palabras distintas en 385,689 tokens, y 39.97% aparece una sola vez.",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 20,
+    "color": "#1B1F24",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Mensaje clave"
+   },
+   {
+    "tipo": "texto",
+    "x": 8.822,
+    "y": 6.1,
+    "w": 3.911,
+    "h": 0.4,
+    "texto": "Fuente: reports/eda_corpus.json",
+    "runs": [
+     [
+      "Fuente: reports/eda_corpus.json",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "b",
+    "nombre": "Pie de fuente"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 6.6,
+    "w": 3.911,
+    "h": 0.4,
+    "texto": "BBC News IR",
+    "runs": [
+     [
+      "BBC News IR",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Pie proyecto"
+   },
+   {
+    "tipo": "texto",
+    "x": 10.8775,
+    "y": 6.6,
+    "w": 1.8555,
+    "h": 0.4,
+    "texto": "6",
+    "runs": [
+     [
+      "6",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "r",
+    "ancla": "t",
+    "nombre": "Numero de diapositiva"
+   }
+  ]
+ },
+ {
+  "n": 7,
+  "layout": "bloques",
+  "cajas": [
+   {
+    "tipo": "fondo",
+    "x": 0,
+    "y": 0,
+    "w": 13.333,
+    "h": 7.5,
+    "relleno": "#F6F4EF"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 0.5,
+    "w": 12.133,
+    "h": 0.7,
+    "texto": "Cada categoría tiene su propia huella de palabras",
+    "runs": [
+     [
+      "Cada categoría tiene su propia huella de palabras",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 30,
+    "color": "#1B1F24",
+    "fuente": "Georgia",
+    "negrita": true,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Titulo"
+   },
+   {
+    "tipo": "imagen",
+    "x": 0.7,
+    "y": 1.7083333333333333,
+    "w": 3.7110000000000003,
+    "h": 2.1885384615384615,
+    "ruta": "/Users/mikitl/Documents/FES/Ciencia de Datos/Clases/míneriaTextos/BBC-News-Classification/presentacion/figuras/wordcloud_sport.png",
+    "nombre": "Imagen wordcloud_sport"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 4.1083333333333325,
+    "w": 3.911,
+    "h": 0.5333333333333333,
+    "texto": "Deporte",
+    "runs": [
+     [
+      "Deporte",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 20,
+    "color": "#1B1F24",
+    "fuente": "Calibri",
+    "negrita": true,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Bloque 1 nombre"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 4.641666666666666,
+    "w": 3.911,
+    "h": 1.2,
+    "texto": "Tenistas y técnicos: roddick, nadal, mourinho, wenger.",
+    "runs": [
+     [
+      "Tenistas y técnicos: roddick, nadal, mourinho, wenger.",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 20,
+    "color": "#1B1F24",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Bloque 1 frase"
+   },
+   {
+    "tipo": "imagen",
+    "x": 4.810999999999999,
+    "y": 1.7083333333333333,
+    "w": 3.7110000000000003,
+    "h": 2.1885384615384615,
+    "ruta": "/Users/mikitl/Documents/FES/Ciencia de Datos/Clases/míneriaTextos/BBC-News-Classification/presentacion/figuras/wordcloud_politics.png",
+    "nombre": "Imagen wordcloud_politics"
+   },
+   {
+    "tipo": "texto",
+    "x": 4.710999999999999,
+    "y": 4.1083333333333325,
+    "w": 3.911,
+    "h": 0.5333333333333333,
+    "texto": "Política",
+    "runs": [
+     [
+      "Política",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 20,
+    "color": "#1B1F24",
+    "fuente": "Calibri",
+    "negrita": true,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Bloque 2 nombre"
+   },
+   {
+    "tipo": "texto",
+    "x": 4.710999999999999,
+    "y": 4.641666666666666,
+    "w": 3.911,
+    "h": 1.2,
+    "texto": "Partidos y casos: tory, ukip, blunkett, asylum.",
+    "runs": [
+     [
+      "Partidos y casos: tory, ukip, blunkett, asylum.",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 20,
+    "color": "#1B1F24",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Bloque 2 frase"
+   },
+   {
+    "tipo": "imagen",
+    "x": 8.921999999999999,
+    "y": 1.7083333333333333,
+    "w": 3.7110000000000003,
+    "h": 2.1885384615384615,
+    "ruta": "/Users/mikitl/Documents/FES/Ciencia de Datos/Clases/míneriaTextos/BBC-News-Classification/presentacion/figuras/wordcloud_tech.png",
+    "nombre": "Imagen wordcloud_tech"
+   },
+   {
+    "tipo": "texto",
+    "x": 8.822,
+    "y": 4.1083333333333325,
+    "w": 3.911,
+    "h": 0.5333333333333333,
+    "texto": "Tecnología",
+    "runs": [
+     [
+      "Tecnología",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 20,
+    "color": "#1B1F24",
+    "fuente": "Calibri",
+    "negrita": true,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Bloque 3 nombre"
+   },
+   {
+    "tipo": "texto",
+    "x": 8.822,
+    "y": 4.641666666666666,
+    "w": 3.911,
+    "h": 1.2,
+    "texto": "Internet y consolas: spam, browser, wifi, psp.",
+    "runs": [
+     [
+      "Internet y consolas: spam, browser, wifi, psp.",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 20,
+    "color": "#1B1F24",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Bloque 3 frase"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 6.1,
+    "w": 12.133,
+    "h": 0.4,
+    "texto": "Tamaño: palabras frecuentes y propias de cada categoría.",
+    "runs": [
+     [
+      "Tamaño: palabras frecuentes y propias de cada categoría.",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Pie de fuente"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 6.6,
+    "w": 3.911,
+    "h": 0.4,
+    "texto": "BBC News IR",
+    "runs": [
+     [
+      "BBC News IR",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Pie proyecto"
+   },
+   {
+    "tipo": "texto",
+    "x": 10.8775,
+    "y": 6.6,
+    "w": 1.8555,
+    "h": 0.4,
+    "texto": "7",
+    "runs": [
+     [
+      "7",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "r",
+    "ancla": "t",
+    "nombre": "Numero de diapositiva"
+   }
+  ]
+ },
+ {
+  "n": 8,
+  "layout": "flujo",
+  "cajas": [
+   {
+    "tipo": "fondo",
+    "x": 0,
+    "y": 0,
+    "w": 13.333,
+    "h": 7.5,
+    "relleno": "#F6F4EF"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 0.5,
+    "w": 12.133,
+    "h": 1.2,
+    "texto": "La consulta se convierte en vector y se compara con cada documento",
+    "runs": [
+     [
+      "La consulta se convierte en vector y se compara con cada documento",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 30,
+    "color": "#1B1F24",
+    "fuente": "Georgia",
+    "negrita": true,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Titulo"
+   },
+   {
+    "tipo": "marcador",
+    "x": 0.7132999999999998,
+    "y": 2.783333333333333,
+    "w": 1.8,
+    "h": 1.8,
+    "relleno": null,
+    "borde": "#E07A1F",
+    "grosor": 1.75,
+    "dash": true,
+    "radio": 0.15,
+    "nombre": "Marcador icono",
+    "texto": "ICONO: teclado",
+    "runs": [
+     [
+      "ICONO: teclado",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "c",
+    "ancla": "m"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 4.733333333333333,
+    "w": 2.0265999999999997,
+    "h": 0.5333333333333333,
+    "texto": "Consulta",
+    "runs": [
+     [
+      "Consulta",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 20,
+    "color": "#1B1F24",
+    "fuente": "Calibri",
+    "negrita": true,
+    "align": "c",
+    "ancla": "t",
+    "nombre": "Paso 1 etiqueta"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 5.266666666666667,
+    "w": 2.0265999999999997,
+    "h": 0.4,
+    "texto": "texto libre",
+    "runs": [
+     [
+      "texto libre",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "c",
+    "ancla": "t",
+    "nombre": "Paso 1 detalle"
+   },
+   {
+    "tipo": "flecha",
+    "x": 2.6666,
+    "y": 3.503333333333333,
+    "w": 0.42,
+    "h": 0.36,
+    "relleno": "#C9CCD1",
+    "nombre": "Flecha"
+   },
+   {
+    "tipo": "marcador",
+    "x": 3.2398999999999996,
+    "y": 2.783333333333333,
+    "w": 1.8,
+    "h": 1.8,
+    "relleno": null,
+    "borde": "#E07A1F",
+    "grosor": 1.75,
+    "dash": true,
+    "radio": 0.15,
+    "nombre": "Marcador icono",
+    "texto": "ICONO: escoba",
+    "runs": [
+     [
+      "ICONO: escoba",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "c",
+    "ancla": "m"
+   },
+   {
+    "tipo": "texto",
+    "x": 3.1266,
+    "y": 4.733333333333333,
+    "w": 2.0265999999999997,
+    "h": 0.5333333333333333,
+    "texto": "Limpieza",
+    "runs": [
+     [
+      "Limpieza",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 20,
+    "color": "#1B1F24",
+    "fuente": "Calibri",
+    "negrita": true,
+    "align": "c",
+    "ancla": "t",
+    "nombre": "Paso 2 etiqueta"
+   },
+   {
+    "tipo": "texto",
+    "x": 3.1266,
+    "y": 5.266666666666667,
+    "w": 2.0265999999999997,
+    "h": 0.4,
+    "texto": "igual que el corpus",
+    "runs": [
+     [
+      "igual que el corpus",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "c",
+    "ancla": "t",
+    "nombre": "Paso 2 detalle"
+   },
+   {
+    "tipo": "flecha",
+    "x": 5.1932,
+    "y": 3.503333333333333,
+    "w": 0.42,
+    "h": 0.36,
+    "relleno": "#C9CCD1",
+    "nombre": "Flecha"
+   },
+   {
+    "tipo": "marcador",
+    "x": 5.766499999999999,
+    "y": 2.783333333333333,
+    "w": 1.8,
+    "h": 1.8,
+    "relleno": "#FBE9D7",
+    "borde": "#E07A1F",
+    "grosor": 1.75,
+    "dash": true,
+    "radio": 0.15,
+    "nombre": "Marcador icono",
+    "texto": "ICONO: tabla numérica",
+    "runs": [
+     [
+      "ICONO: tabla numérica",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "c",
+    "ancla": "m"
+   },
+   {
+    "tipo": "texto",
+    "x": 5.653199999999999,
+    "y": 4.733333333333333,
+    "w": 2.0265999999999997,
+    "h": 0.5333333333333333,
+    "texto": "Vectores",
+    "runs": [
+     [
+      "Vectores",
+      "#B05400"
+     ]
+    ],
+    "tamaño": 20,
+    "color": "#B05400",
+    "fuente": "Calibri",
+    "negrita": true,
+    "align": "c",
+    "ancla": "t",
+    "nombre": "Paso 3 etiqueta"
+   },
+   {
+    "tipo": "texto",
+    "x": 5.653199999999999,
+    "y": 5.266666666666667,
+    "w": 2.0265999999999997,
+    "h": 0.4,
+    "texto": "según el método",
+    "runs": [
+     [
+      "según el método",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "c",
+    "ancla": "t",
+    "nombre": "Paso 3 detalle"
+   },
+   {
+    "tipo": "flecha",
+    "x": 7.719799999999998,
+    "y": 3.503333333333333,
+    "w": 0.42,
+    "h": 0.36,
+    "relleno": "#C9CCD1",
+    "nombre": "Flecha"
+   },
+   {
+    "tipo": "marcador",
+    "x": 8.293099999999999,
+    "y": 2.783333333333333,
+    "w": 1.8,
+    "h": 1.8,
+    "relleno": null,
+    "borde": "#E07A1F",
+    "grosor": 1.75,
+    "dash": true,
+    "radio": 0.15,
+    "nombre": "Marcador icono",
+    "texto": "ICONO: ángulo",
+    "runs": [
+     [
+      "ICONO: ángulo",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "c",
+    "ancla": "m"
+   },
+   {
+    "tipo": "texto",
+    "x": 8.179799999999998,
+    "y": 4.733333333333333,
+    "w": 2.0265999999999997,
+    "h": 0.5333333333333333,
+    "texto": "Similitud",
+    "runs": [
+     [
+      "Similitud",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 20,
+    "color": "#1B1F24",
+    "fuente": "Calibri",
+    "negrita": true,
+    "align": "c",
+    "ancla": "t",
+    "nombre": "Paso 4 etiqueta"
+   },
+   {
+    "tipo": "texto",
+    "x": 8.179799999999998,
+    "y": 5.266666666666667,
+    "w": 2.0265999999999997,
+    "h": 0.4,
+    "texto": "coseno o BM25",
+    "runs": [
+     [
+      "coseno o BM25",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "c",
+    "ancla": "t",
+    "nombre": "Paso 4 detalle"
+   },
+   {
+    "tipo": "flecha",
+    "x": 10.246399999999998,
+    "y": 3.503333333333333,
+    "w": 0.42,
+    "h": 0.36,
+    "relleno": "#C9CCD1",
+    "nombre": "Flecha"
+   },
+   {
+    "tipo": "marcador",
+    "x": 10.8197,
+    "y": 2.783333333333333,
+    "w": 1.8,
+    "h": 1.8,
+    "relleno": null,
+    "borde": "#E07A1F",
+    "grosor": 1.75,
+    "dash": true,
+    "radio": 0.15,
+    "nombre": "Marcador icono",
+    "texto": "ICONO: podio",
+    "runs": [
+     [
+      "ICONO: podio",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "c",
+    "ancla": "m"
+   },
+   {
+    "tipo": "texto",
+    "x": 10.706399999999999,
+    "y": 4.733333333333333,
+    "w": 2.0265999999999997,
+    "h": 0.5333333333333333,
+    "texto": "Ranking",
+    "runs": [
+     [
+      "Ranking",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 20,
+    "color": "#1B1F24",
+    "fuente": "Calibri",
+    "negrita": true,
+    "align": "c",
+    "ancla": "t",
+    "nombre": "Paso 5 etiqueta"
+   },
+   {
+    "tipo": "texto",
+    "x": 10.706399999999999,
+    "y": 5.266666666666667,
+    "w": 2.0265999999999997,
+    "h": 0.4,
+    "texto": "los k más cercanos",
+    "runs": [
+     [
+      "los k más cercanos",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "c",
+    "ancla": "t",
+    "nombre": "Paso 5 detalle"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 6.6,
+    "w": 3.911,
+    "h": 0.4,
+    "texto": "BBC News IR",
+    "runs": [
+     [
+      "BBC News IR",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Pie proyecto"
+   },
+   {
+    "tipo": "texto",
+    "x": 10.8775,
+    "y": 6.6,
+    "w": 1.8555,
+    "h": 0.4,
+    "texto": "8",
+    "runs": [
+     [
+      "8",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "r",
+    "ancla": "t",
+    "nombre": "Numero de diapositiva"
+   }
+  ]
+ },
+ {
+  "n": 9,
+  "layout": "bloques",
+  "cajas": [
+   {
+    "tipo": "fondo",
+    "x": 0,
+    "y": 0,
+    "w": 13.333,
+    "h": 7.5,
+    "relleno": "#F6F4EF"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 0.5,
+    "w": 12.133,
+    "h": 0.7,
+    "texto": "Cuatro maneras de convertir texto en números",
+    "runs": [
+     [
+      "Cuatro maneras de convertir texto en números",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 30,
+    "color": "#1B1F24",
+    "fuente": "Georgia",
+    "negrita": true,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Titulo"
+   },
+   {
+    "tipo": "marcador",
+    "x": 0.7,
+    "y": 2.0416666666666665,
+    "w": 1.7,
+    "h": 1.7,
+    "relleno": null,
+    "borde": "#E07A1F",
+    "grosor": 1.75,
+    "dash": true,
+    "radio": 0.15,
+    "nombre": "Marcador icono",
+    "texto": "ICONO: contador",
+    "runs": [
+     [
+      "ICONO: contador",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "c",
+    "ancla": "m"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 3.8416666666666663,
+    "w": 2.88325,
+    "h": 0.5333333333333333,
+    "texto": "Conteo",
+    "runs": [
+     [
+      "Conteo",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 20,
+    "color": "#1B1F24",
+    "fuente": "Calibri",
+    "negrita": true,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Bloque 1 nombre"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 4.375,
+    "w": 2.88325,
+    "h": 1.5333333333333332,
+    "texto": "Cuenta cuántas veces aparece cada palabra.",
+    "runs": [
+     [
+      "Cuenta cuántas veces aparece cada palabra.",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 20,
+    "color": "#1B1F24",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Bloque 1 frase"
+   },
+   {
+    "tipo": "marcador",
+    "x": 3.78325,
+    "y": 2.0416666666666665,
+    "w": 1.7,
+    "h": 1.7,
+    "relleno": null,
+    "borde": "#E07A1F",
+    "grosor": 1.75,
+    "dash": true,
+    "radio": 0.15,
+    "nombre": "Marcador icono",
+    "texto": "ICONO: balanza",
+    "runs": [
+     [
+      "ICONO: balanza",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "c",
+    "ancla": "m"
+   },
+   {
+    "tipo": "texto",
+    "x": 3.6832499999999997,
+    "y": 3.8416666666666663,
+    "w": 2.88325,
+    "h": 0.5333333333333333,
+    "texto": "TF-IDF",
+    "runs": [
+     [
+      "TF-IDF",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 20,
+    "color": "#1B1F24",
+    "fuente": "Calibri",
+    "negrita": true,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Bloque 2 nombre"
+   },
+   {
+    "tipo": "texto",
+    "x": 3.6832499999999997,
+    "y": 4.375,
+    "w": 2.88325,
+    "h": 1.5333333333333332,
+    "texto": "Premia las palabras raras y castiga las comunes.",
+    "runs": [
+     [
+      "Premia las palabras raras y castiga las comunes.",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 20,
+    "color": "#1B1F24",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Bloque 2 frase"
+   },
+   {
+    "tipo": "marcador",
+    "x": 6.8664999999999985,
+    "y": 2.0416666666666665,
+    "w": 1.7,
+    "h": 1.7,
+    "relleno": null,
+    "borde": "#E07A1F",
+    "grosor": 1.75,
+    "dash": true,
+    "radio": 0.15,
+    "nombre": "Marcador icono",
+    "texto": "ICONO: curva",
+    "runs": [
+     [
+      "ICONO: curva",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "c",
+    "ancla": "m"
+   },
+   {
+    "tipo": "texto",
+    "x": 6.766499999999999,
+    "y": 3.8416666666666663,
+    "w": 2.88325,
+    "h": 0.5333333333333333,
+    "texto": "BM25",
+    "runs": [
+     [
+      "BM25",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 20,
+    "color": "#1B1F24",
+    "fuente": "Calibri",
+    "negrita": true,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Bloque 3 nombre"
+   },
+   {
+    "tipo": "texto",
+    "x": 6.766499999999999,
+    "y": 4.375,
+    "w": 2.88325,
+    "h": 1.5333333333333332,
+    "texto": "Puntúa con rareza, saturación y longitud del texto.",
+    "runs": [
+     [
+      "Puntúa con rareza, saturación y longitud del texto.",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 20,
+    "color": "#1B1F24",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Bloque 3 frase"
+   },
+   {
+    "tipo": "marcador",
+    "x": 9.949749999999998,
+    "y": 2.0416666666666665,
+    "w": 1.7,
+    "h": 1.7,
+    "relleno": null,
+    "borde": "#E07A1F",
+    "grosor": 1.75,
+    "dash": true,
+    "radio": 0.15,
+    "nombre": "Marcador icono",
+    "texto": "ICONO: matriz comprimida",
+    "runs": [
+     [
+      "ICONO: matriz comprimida",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "c",
+    "ancla": "m"
+   },
+   {
+    "tipo": "texto",
+    "x": 9.849749999999998,
+    "y": 3.8416666666666663,
+    "w": 2.88325,
+    "h": 0.5333333333333333,
+    "texto": "SVD",
+    "runs": [
+     [
+      "SVD",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 20,
+    "color": "#1B1F24",
+    "fuente": "Calibri",
+    "negrita": true,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Bloque 4 nombre"
+   },
+   {
+    "tipo": "texto",
+    "x": 9.849749999999998,
+    "y": 4.375,
+    "w": 2.88325,
+    "h": 1.5333333333333332,
+    "texto": "Comprime el vocabulario en 200 dimensiones latentes.",
+    "runs": [
+     [
+      "Comprime el vocabulario en 200 dimensiones latentes.",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 20,
+    "color": "#1B1F24",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Bloque 4 frase"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 6.6,
+    "w": 3.911,
+    "h": 0.4,
+    "texto": "BBC News IR",
+    "runs": [
+     [
+      "BBC News IR",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Pie proyecto"
+   },
+   {
+    "tipo": "texto",
+    "x": 10.8775,
+    "y": 6.6,
+    "w": 1.8555,
+    "h": 0.4,
+    "texto": "9",
+    "runs": [
+     [
+      "9",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "r",
+    "ancla": "t",
+    "nombre": "Numero de diapositiva"
+   }
+  ]
+ },
+ {
+  "n": 10,
+  "layout": "cifra_grande",
+  "cajas": [
+   {
+    "tipo": "fondo",
+    "x": 0,
+    "y": 0,
+    "w": 13.333,
+    "h": 7.5,
+    "relleno": "#F6F4EF"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 0.5,
+    "w": 12.133,
+    "h": 1.2,
+    "texto": "Word2Vec lidera con 88.17% de MAP@10; SVD le sigue con 84.28% y los métodos léxicos quedan atrás.",
+    "runs": [
+     [
+      "Word2Vec lidera con 88.17% de MAP@10; SVD le sigue con 84.28% y los métodos léxicos quedan atrás.",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 30,
+    "color": "#1B1F24",
+    "fuente": "Georgia",
+    "negrita": true,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Titulo"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 3.0083333333333333,
+    "w": 5.9665,
+    "h": 2.033333333333333,
+    "texto": "88.17%",
+    "runs": [
+     [
+      "88.17%",
+      "#B05400"
+     ]
+    ],
+    "tamaño": 110,
+    "color": "#B05400",
+    "fuente": "Georgia",
+    "negrita": true,
+    "align": "l",
+    "ancla": "m",
+    "nombre": "Cifra grande"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 5.041666666666666,
+    "w": 5.9665,
+    "h": 0.4,
+    "texto": "MAP@10 de Word2Vec",
+    "runs": [
+     [
+      "MAP@10 de Word2Vec",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Etiqueta de la cifra"
+   },
+   {
+    "tipo": "texto",
+    "x": 6.766499999999999,
+    "y": 3.625,
+    "w": 5.9665,
+    "h": 1.2,
+    "texto": "Word2Vec promedia los vectores de sus palabras (100 dimensiones). Sobre SVD su ventaja no es concluyente.",
+    "runs": [
+     [
+      "Word2Vec promedia los vectores de sus palabras (100 dimensiones). Sobre SVD su ventaja no es concluyente.",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 20,
+    "color": "#1B1F24",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "m",
+    "nombre": "Frase de apoyo"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 6.6,
+    "w": 3.911,
+    "h": 0.4,
+    "texto": "BBC News IR",
+    "runs": [
+     [
+      "BBC News IR",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Pie proyecto"
+   },
+   {
+    "tipo": "texto",
+    "x": 10.8775,
+    "y": 6.6,
+    "w": 1.8555,
+    "h": 0.4,
+    "texto": "10",
+    "runs": [
+     [
+      "10",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "r",
+    "ancla": "t",
+    "nombre": "Numero de diapositiva"
+   }
+  ]
+ },
+ {
+  "n": 11,
+  "layout": "grafica",
+  "cajas": [
+   {
+    "tipo": "fondo",
+    "x": 0,
+    "y": 0,
+    "w": 13.333,
+    "h": 7.5,
+    "relleno": "#F6F4EF"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 0.5,
+    "w": 12.133,
+    "h": 1.2,
+    "texto": "BM25 (74.22%) y TF-IDF (72.73%) rinden casi igual; solo BM25 supera con claridad al conteo (68.70%).",
+    "runs": [
+     [
+      "BM25 (74.22%) y TF-IDF (72.73%) rinden casi igual; solo BM25 supera con claridad al conteo (68.70%).",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 30,
+    "color": "#1B1F24",
+    "fuente": "Georgia",
+    "negrita": true,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Titulo"
+   },
+   {
+    "tipo": "imagen",
+    "x": 0.6,
+    "y": 1.95,
+    "w": 8.022,
+    "h": 4.011,
+    "ruta": "/Users/mikitl/Documents/FES/Ciencia de Datos/Clases/míneriaTextos/BBC-News-Classification/presentacion/figuras/map_metodos.png",
+    "nombre": "Imagen map_metodos"
+   },
+   {
+    "tipo": "texto",
+    "x": 8.822,
+    "y": 1.95,
+    "w": 3.911,
+    "h": 1.5333333333333332,
+    "texto": "BM25 supera a TF-IDF por 1.49 puntos, pero el IC 95% [-0.15, 3.21] incluye 0: en la práctica empatan.",
+    "runs": [
+     [
+      "BM25 supera a TF-IDF por 1.49 puntos, pero el IC 95% [-0.15, 3.21] incluye 0: en la práctica empatan.",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 20,
+    "color": "#1B1F24",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Mensaje clave"
+   },
+   {
+    "tipo": "texto",
+    "x": 8.822,
+    "y": 5.9,
+    "w": 3.911,
+    "h": 0.6,
+    "texto": "Relevante: misma categoría que la consulta. Fuente: reports/metricas.csv",
+    "runs": [
+     [
+      "Relevante: misma categoría que la consulta. Fuente: reports/metricas.csv",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "b",
+    "nombre": "Pie de fuente"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 6.6,
+    "w": 3.911,
+    "h": 0.4,
+    "texto": "BBC News IR",
+    "runs": [
+     [
+      "BBC News IR",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Pie proyecto"
+   },
+   {
+    "tipo": "texto",
+    "x": 10.8775,
+    "y": 6.6,
+    "w": 1.8555,
+    "h": 0.4,
+    "texto": "11",
+    "runs": [
+     [
+      "11",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "r",
+    "ancla": "t",
+    "nombre": "Numero de diapositiva"
+   }
+  ]
+ },
+ {
+  "n": 12,
+  "layout": "grafica_completa",
+  "cajas": [
+   {
+    "tipo": "fondo",
+    "x": 0,
+    "y": 0,
+    "w": 13.333,
+    "h": 7.5,
+    "relleno": "#F6F4EF"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 0.5,
+    "w": 12.133,
+    "h": 1.7,
+    "texto": "Con consultas manuales cortas casi todos aciertan; con titulares de 8 palabras Word2Vec logra 86.39% y conteo 64.96%.",
+    "runs": [
+     [
+      "Con consultas manuales cortas casi todos aciertan; con titulares de 8 palabras Word2Vec logra 86.39% y conteo 64.96%.",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 30,
+    "color": "#1B1F24",
+    "fuente": "Georgia",
+    "negrita": true,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Titulo"
+   },
+   {
+    "tipo": "imagen",
+    "x": 0.6,
+    "y": 2.45,
+    "w": 12.133,
+    "h": 3.5095454545454543,
+    "ruta": "/Users/mikitl/Documents/FES/Ciencia de Datos/Clases/míneriaTextos/BBC-News-Classification/presentacion/figuras/mancuernas_tipo_consulta.png",
+    "nombre": "Imagen mancuernas_tipo_consulta"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 6.1,
+    "w": 12.133,
+    "h": 0.4,
+    "texto": "MAP@10 por tipo de consulta (15 manuales, 100 automáticas). Relevante: misma categoría que la consulta.",
+    "runs": [
+     [
+      "MAP@10 por tipo de consulta (15 manuales, 100 automáticas). Relevante: misma categoría que la consulta.",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Pie de fuente"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 6.6,
+    "w": 3.911,
+    "h": 0.4,
+    "texto": "BBC News IR",
+    "runs": [
+     [
+      "BBC News IR",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Pie proyecto"
+   },
+   {
+    "tipo": "texto",
+    "x": 10.8775,
+    "y": 6.6,
+    "w": 1.8555,
+    "h": 0.4,
+    "texto": "12",
+    "runs": [
+     [
+      "12",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "r",
+    "ancla": "t",
+    "nombre": "Numero de diapositiva"
+   }
+  ]
+ },
+ {
+  "n": 13,
+  "layout": "demo",
+  "cajas": [
+   {
+    "tipo": "fondo",
+    "x": 0,
+    "y": 0,
+    "w": 13.333,
+    "h": 7.5,
+    "relleno": "#F6F4EF"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 0.5,
+    "w": 12.133,
+    "h": 1.2,
+    "texto": "Word2Vec responde a una consulta temática con tres noticias de política",
+    "runs": [
+     [
+      "Word2Vec responde a una consulta temática con tres noticias de política",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 30,
+    "color": "#1B1F24",
+    "fuente": "Georgia",
+    "negrita": true,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Titulo"
+   },
+   {
+    "tipo": "rect",
+    "x": 0.7,
+    "y": 1.95,
+    "w": 11.933,
+    "h": 0.7,
+    "relleno": "#FFFFFF",
+    "borde": "#5C6370",
+    "grosor": 1.5,
+    "dash": false,
+    "radio": 0.35,
+    "nombre": "Barra de busqueda"
+   },
+   {
+    "tipo": "texto",
+    "x": 1.0,
+    "y": 1.95,
+    "w": 11.333,
+    "h": 0.7,
+    "texto": "election labour party vote",
+    "runs": [
+     [
+      "election labour party vote",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 22,
+    "color": "#1B1F24",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "m",
+    "nombre": "Consulta"
+   },
+   {
+    "tipo": "rect",
+    "x": 0.7,
+    "y": 2.9,
+    "w": 11.933,
+    "h": 1.05,
+    "relleno": "#FFFFFF",
+    "borde": "#C9CCD1",
+    "grosor": 1.0,
+    "dash": false,
+    "radio": 0.12,
+    "nombre": "Tarjeta 1"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.7,
+    "y": 2.9,
+    "w": 0.82775,
+    "h": 1.05,
+    "texto": "1",
+    "runs": [
+     [
+      "1",
+      "#B05400"
+     ]
+    ],
+    "tamaño": 30,
+    "color": "#B05400",
+    "fuente": "Georgia",
+    "negrita": true,
+    "align": "c",
+    "ancla": "m",
+    "nombre": "Rango 1"
+   },
+   {
+    "tipo": "rect",
+    "x": 1.82775,
+    "y": 3.0599999999999996,
+    "w": 0.18,
+    "h": 0.18,
+    "relleno": "#2A9D8F",
+    "borde": null,
+    "grosor": 1.5,
+    "dash": false,
+    "radio": 0,
+    "nombre": "Color categoria 1"
+   },
+   {
+    "tipo": "texto",
+    "x": 2.0277499999999997,
+    "y": 2.9499999999999997,
+    "w": 10.70525,
+    "h": 0.4,
+    "texto": "Política",
+    "runs": [
+     [
+      "Política",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "m",
+    "nombre": "Categoria 1"
+   },
+   {
+    "tipo": "texto",
+    "x": 1.72775,
+    "y": 3.35,
+    "w": 10.90525,
+    "h": 0.55,
+    "texto": "ukip outspent labour on eu poll the uk",
+    "runs": [
+     [
+      "ukip outspent labour on eu poll the uk",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 20,
+    "color": "#1B1F24",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Titulo resultado 1"
+   },
+   {
+    "tipo": "rect",
+    "x": 0.7,
+    "y": 4.1,
+    "w": 11.933,
+    "h": 1.05,
+    "relleno": "#FFFFFF",
+    "borde": "#C9CCD1",
+    "grosor": 1.0,
+    "dash": false,
+    "radio": 0.12,
+    "nombre": "Tarjeta 2"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.7,
+    "y": 4.1,
+    "w": 0.82775,
+    "h": 1.05,
+    "texto": "2",
+    "runs": [
+     [
+      "2",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 30,
+    "color": "#5C6370",
+    "fuente": "Georgia",
+    "negrita": true,
+    "align": "c",
+    "ancla": "m",
+    "nombre": "Rango 2"
+   },
+   {
+    "tipo": "rect",
+    "x": 1.82775,
+    "y": 4.26,
+    "w": 0.18,
+    "h": 0.18,
+    "relleno": "#2A9D8F",
+    "borde": null,
+    "grosor": 1.5,
+    "dash": false,
+    "radio": 0,
+    "nombre": "Color categoria 2"
+   },
+   {
+    "tipo": "texto",
+    "x": 2.0277499999999997,
+    "y": 4.1499999999999995,
+    "w": 10.70525,
+    "h": 0.4,
+    "texto": "Política",
+    "runs": [
+     [
+      "Política",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "m",
+    "nombre": "Categoria 2"
+   },
+   {
+    "tipo": "texto",
+    "x": 1.72775,
+    "y": 4.55,
+    "w": 10.90525,
+    "h": 0.55,
+    "texto": "sainsbury s labour election gift science minister lord",
+    "runs": [
+     [
+      "sainsbury s labour election gift science minister lord",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 20,
+    "color": "#1B1F24",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Titulo resultado 2"
+   },
+   {
+    "tipo": "rect",
+    "x": 0.7,
+    "y": 5.3,
+    "w": 11.933,
+    "h": 1.05,
+    "relleno": "#FFFFFF",
+    "borde": "#C9CCD1",
+    "grosor": 1.0,
+    "dash": false,
+    "radio": 0.12,
+    "nombre": "Tarjeta 3"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.7,
+    "y": 5.3,
+    "w": 0.82775,
+    "h": 1.05,
+    "texto": "3",
+    "runs": [
+     [
+      "3",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 30,
+    "color": "#5C6370",
+    "fuente": "Georgia",
+    "negrita": true,
+    "align": "c",
+    "ancla": "m",
+    "nombre": "Rango 3"
+   },
+   {
+    "tipo": "rect",
+    "x": 1.82775,
+    "y": 5.46,
+    "w": 0.18,
+    "h": 0.18,
+    "relleno": "#2A9D8F",
+    "borde": null,
+    "grosor": 1.5,
+    "dash": false,
+    "radio": 0,
+    "nombre": "Color categoria 3"
+   },
+   {
+    "tipo": "texto",
+    "x": 2.0277499999999997,
+    "y": 5.35,
+    "w": 10.70525,
+    "h": 0.4,
+    "texto": "Política",
+    "runs": [
+     [
+      "Política",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "m",
+    "nombre": "Categoria 3"
+   },
+   {
+    "tipo": "texto",
+    "x": 1.72775,
+    "y": 5.75,
+    "w": 10.90525,
+    "h": 0.55,
+    "texto": "top tories on lib dem hit list the",
+    "runs": [
+     [
+      "top tories on lib dem hit list the",
+      "#1B1F24"
+     ]
+    ],
+    "tamaño": 20,
+    "color": "#1B1F24",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Titulo resultado 3"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 6.6,
+    "w": 3.911,
+    "h": 0.4,
+    "texto": "BBC News IR",
+    "runs": [
+     [
+      "BBC News IR",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Pie proyecto"
+   },
+   {
+    "tipo": "texto",
+    "x": 10.8775,
+    "y": 6.6,
+    "w": 1.8555,
+    "h": 0.4,
+    "texto": "13",
+    "runs": [
+     [
+      "13",
+      "#5C6370"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#5C6370",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "r",
+    "ancla": "t",
+    "nombre": "Numero de diapositiva"
+   }
+  ]
+ },
+ {
+  "n": 14,
+  "layout": "cierre",
+  "cajas": [
+   {
+    "tipo": "fondo",
+    "x": 0,
+    "y": 0,
+    "w": 13.333,
+    "h": 7.5,
+    "relleno": "#14213D"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 1.8000000000000003,
+    "w": 10.0775,
+    "h": 1.7,
+    "texto": "Word2Vec y SVD recuperan mejor que los métodos léxicos, aunque su diferencia aún no es concluyente.",
+    "runs": [
+     [
+      "Word2Vec y SVD recuperan mejor que los métodos léxicos, aunque su diferencia aún no es concluyente.",
+      "#F6F4EF"
+     ]
+    ],
+    "tamaño": 30,
+    "color": "#F6F4EF",
+    "fuente": "Georgia",
+    "negrita": true,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Conclusion"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 4.1,
+    "w": 9.04975,
+    "h": 0.4,
+    "texto": "Recomendación",
+    "runs": [
+     [
+      "Recomendación",
+      "#E07A1F"
+     ]
+    ],
+    "tamaño": 12,
+    "color": "#E07A1F",
+    "fuente": "Calibri",
+    "negrita": true,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Etiqueta recomendacion"
+   },
+   {
+    "tipo": "texto",
+    "x": 0.6,
+    "y": 4.5,
+    "w": 9.04975,
+    "h": 1.2,
+    "texto": "Adoptar Word2Vec como método principal, conservar SVD como alternativa y validar con juicios de relevancia reales, porque aquí la categoría es solo un proxy.",
+    "runs": [
+     [
+      "Adoptar Word2Vec como método principal, conservar SVD como alternativa y validar con juicios de relevancia reales, porque aquí la categoría es solo un proxy.",
+      "#F6F4EF"
+     ]
+    ],
+    "tamaño": 20,
+    "color": "#F6F4EF",
+    "fuente": "Calibri",
+    "negrita": false,
+    "align": "l",
+    "ancla": "t",
+    "nombre": "Recomendacion"
+   }
+  ]
+ }
+]

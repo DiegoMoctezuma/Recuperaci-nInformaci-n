@@ -1,0 +1,81 @@
+{
+  "etapa": "presentacion",
+  "fecha": "2026-10-11T17:44:08",
+  "resultado": "PASS",
+  "fallos_bloqueantes": [],
+  "fallos_no_bloqueantes": [],
+  "verificaciones": [
+    {
+      "id": "P1",
+      "desc": "sistema de diseño propio documentado (paleta y tipografía)",
+      "tipo": "python",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "expr -> True"
+    },
+    {
+      "id": "P2",
+      "desc": "presentación generada",
+      "tipo": "archivo_existe",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "presentacion/salida/presentacion_final.pptx existe"
+    },
+    {
+      "id": "P3",
+      "desc": "al menos 12 diapositivas",
+      "tipo": "python",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "expr -> True"
+    },
+    {
+      "id": "P4",
+      "desc": "sin viñetas",
+      "tipo": "python",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "expr -> True"
+    },
+    {
+      "id": "P5",
+      "desc": "máx. 60 palabras por diapositiva",
+      "tipo": "python",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "expr -> True"
+    },
+    {
+      "id": "P6",
+      "desc": "ninguna forma sale del lienzo",
+      "tipo": "python",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "expr -> True"
+    },
+    {
+      "id": "P7",
+      "desc": "una vista previa por diapositiva",
+      "tipo": "python",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "expr -> True"
+    },
+    {
+      "id": "P8",
+      "desc": "revisión automática sin errores (desbordes, solapes, contraste, tamaños)",
+      "tipo": "python",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "expr -> True"
+    },
+    {
+      "id": "P9",
+      "desc": "revisión visual documentada",
+      "tipo": "archivo_existe",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "presentacion/salida/revision_visual.md existe"
+    }
+  ]
+}
