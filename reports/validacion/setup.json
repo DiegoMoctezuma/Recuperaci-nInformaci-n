@@ -1,0 +1,49 @@
+{
+  "etapa": "setup",
+  "fecha": "2026-10-11T16:33:02",
+  "resultado": "PASS",
+  "fallos_bloqueantes": [],
+  "fallos_no_bloqueantes": [],
+  "verificaciones": [
+    {
+      "id": "S1",
+      "desc": "requirements.txt existe",
+      "tipo": "archivo_existe",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "requirements.txt existe"
+    },
+    {
+      "id": "S2",
+      "desc": ".gitignore existe",
+      "tipo": "archivo_existe",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": ".gitignore existe"
+    },
+    {
+      "id": "S3",
+      "desc": "data/raw ignorado por git",
+      "tipo": "python",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "expr -> True"
+    },
+    {
+      "id": "S4",
+      "desc": "dependencias instaladas",
+      "tipo": "comando",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "código de salida 0"
+    },
+    {
+      "id": "S5",
+      "desc": "archivo de estado creado",
+      "tipo": "archivo_existe",
+      "bloqueante": true,
+      "resultado": "PASS",
+      "detalle": "estado/progreso.json existe"
+    }
+  ]
+}
