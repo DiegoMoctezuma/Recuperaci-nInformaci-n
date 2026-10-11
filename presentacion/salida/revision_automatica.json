@@ -1,0 +1,23 @@
+{
+  "errores": 0,
+  "avisos": 0,
+  "detalle": [],
+  "palabras_por_diapositiva": {
+    "1": 31,
+    "2": 35,
+    "3": 26,
+    "4": 31,
+    "5": 39,
+    "6": 28,
+    "7": 44,
+    "8": 48,
+    "9": 53,
+    "10": 41,
+    "11": 47,
+    "12": 37,
+    "13": 49,
+    "14": 41
+  },
+  "n_diapositivas": 14,
+  "nota": "Metricas de texto con Georgia (sistema) y DejaVu Sans como respaldo de Calibri (mas ancha: conservador)."
+}
