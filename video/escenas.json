@@ -1,0 +1,82 @@
+[
+ {
+  "n": 1,
+  "bloque": "Paisaje",
+  "paso": "Mundo ordinario",
+  "narracion": "Un archivo de noticias crece todos los días. El nuestro, de la BBC, guarda dos mil doscientas veinticinco.",
+  "tts": "Un archivo de noticias crece todos los días. El nuestro, de la BBC, guarda dos mil doscientas veinticinco.",
+  "tts_eleven": "[calm] Un archivo de noticias crece todos los días. [thoughtful] El nuestro, de la BBC, guarda dos mil doscientas veinticinco."
+ },
+ {
+  "n": 2,
+  "bloque": "Desafíos",
+  "paso": "Llamada a la aventura",
+  "narracion": "Y tú necesitas una sola. No recuerdas el titular completo, solo un pedazo: ocho palabras.",
+  "tts": "Y tú necesitas una sola. No recuerdas el titular completo, solo un pedazo: ocho palabras.",
+  "tts_eleven": "[curious] Y tú necesitas una sola. [sighs] No recuerdas el titular completo, solo un pedazo: ocho palabras."
+ },
+ {
+  "n": 3,
+  "bloque": "Desafíos",
+  "paso": "Rechazo de la llamada",
+  "narracion": "Lo tentador es quedarse con lo de siempre y probarlo con consultas cortas. Ahí todo funciona: hasta contar palabras acierta noventa y tres por ciento.",
+  "tts": "Lo tentador es quedarse con lo de siempre y probarlo con consultas cortas. Ahí todo funciona: hasta contar palabras acierta noventa y tres por ciento.",
+  "tts_eleven": "[conversational] Lo tentador es quedarse con lo de siempre y probarlo con consultas cortas. [wry] Ahí todo funciona: hasta contar palabras acierta noventa y tres por ciento."
+ },
+ {
+  "n": 4,
+  "bloque": "Soluciones",
+  "paso": "Encuentro con el guía",
+  "narracion": "Nosotros ya hicimos ese recorrido. Seis métodos, ciento quince consultas y un mismo preprocesamiento para el corpus y para la consulta.",
+  "tts": "Nosotros ya hicimos ese recorrido. Seis métodos, ciento quince consultas y un mismo preprocesamiento para el corpus y para la consulta.",
+  "tts_eleven": "[confident] Nosotros ya hicimos ese recorrido. Seis métodos, ciento quince consultas y un mismo preprocesamiento para el corpus y para la consulta."
+ },
+ {
+  "n": 5,
+  "bloque": "Soluciones",
+  "paso": "Cruzar el umbral y aliados",
+  "narracion": "Antes de medir, limpiamos: noventa y nueve duplicados fuera. Y comprobamos que el corpus se comporta como lenguaje.",
+  "tts": "Antes de medir, limpiamos: noventa y nueve duplicados fuera. Y comprobamos que el corpus se comporta como lenguaje.",
+  "tts_eleven": "[matter-of-fact] Antes de medir, limpiamos: noventa y nueve duplicados fuera. Y comprobamos que el corpus se comporta como lenguaje."
+ },
+ {
+  "n": 6,
+  "bloque": "Soluciones",
+  "paso": "Acercamiento a la cueva",
+  "narracion": "Luego buscamos la prueba difícil: cien titulares de ocho palabras, sin el documento del que salieron.",
+  "tts": "Luego buscamos la prueba difícil: cien titulares de ocho palabras, sin el documento del que salieron.",
+  "tts_eleven": "[serious] Luego buscamos la prueba difícil: cien titulares de ocho palabras, sin el documento del que salieron."
+ },
+ {
+  "n": 7,
+  "bloque": "Puntos de prueba",
+  "paso": "La prueba",
+  "narracion": "Mira tu consulta. BM25 se ancla en palabras sueltas y trae tenis y tecnología. Word2Vec devuelve cinco de cinco notas de entretenimiento.",
+  "tts": "Mira tu consulta. Be eme veinticinco se ancla en palabras sueltas y trae tenis y tecnología. Uord tu vec devuelve cinco de cinco notas de entretenimiento.",
+  "tts_eleven": "[engaged] Mira tu consulta. BM veinticinco se ancla en palabras sueltas y trae tenis y tecnología. [impressed] Word2Vec devuelve cinco de cinco notas de entretenimiento."
+ },
+ {
+  "n": 8,
+  "bloque": "Puntos de prueba",
+  "paso": "La recompensa",
+  "narracion": "En las ciento quince consultas, Word2Vec llega a ochenta y ocho por ciento de MAP a diez. BM25 se queda en setenta y cuatro.",
+  "tts": "En las ciento quince consultas, Uord tu vec llega a ochenta y ocho por ciento de map a diez. Be eme veinticinco se queda en setenta y cuatro.",
+  "tts_eleven": "[confident] En las ciento quince consultas, Word2Vec llega a ochenta y ocho por ciento de MAP a diez. BM veinticinco se queda en setenta y cuatro."
+ },
+ {
+  "n": 9,
+  "bloque": "Puntos de prueba",
+  "paso": "Camino de regreso",
+  "narracion": "Dos advertencias. Relevante aquí significa misma categoría. Y entre Word2Vec y SVD, la muestra no alcanza para declarar un ganador.",
+  "tts": "Dos advertencias. Relevante aquí significa misma categoría. Y entre Uord tu vec y ese uve de, la muestra no alcanza para declarar un ganador.",
+  "tts_eleven": "[serious] Dos advertencias. Relevante aquí significa misma categoría. [honest] Y entre Word2Vec y S V D, la muestra no alcanza para declarar un ganador."
+ },
+ {
+  "n": 10,
+  "bloque": "Resumen",
+  "paso": "Resurrección y elixir",
+  "narracion": "Ahora sabes qué elegir y qué medir después: representación semántica hoy, juicios de relevancia reales mañana.",
+  "tts": "Ahora sabes qué elegir y qué medir después: representación semántica hoy, juicios de relevancia reales mañana.",
+  "tts_eleven": "[warm] Ahora sabes qué elegir y qué medir después: [hopeful] representación semántica hoy, juicios de relevancia reales mañana."
+ }
+]
