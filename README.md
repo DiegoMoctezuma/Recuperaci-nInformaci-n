@@ -16,6 +16,16 @@ evaluación con métricas de ranking y una presentación ejecutiva de resultados
 La lógica vive en `src/*.py` (scripts ejecutables desde la raíz con `python src/<script>.py`).
 El notebook de entrega `práctica.ipynb` importa esos scripts y muestra las tablas y figuras de `reports/`.
 
+## Configuración del proyecto
+
+Las skills de `skills/` son genéricas: sirven para cualquier corpus en CSV con una columna de texto y otra
+de categoría. Todo lo que depende del corpus (URL, columnas, idioma, modelo de spaCy, categorías, cifras
+esperadas, consultas de prueba y de evaluación, nombres para la presentación) está en `proyecto.yaml`.
+Las verificaciones de `checklist_calidad.yaml` también leen sus umbrales de ahí.
+
+Para usar el pipeline con otro corpus: copia `skills/`, `src/validar.py` y `checklist_calidad.yaml`,
+escribe un `proyecto.yaml` con los datos del nuevo corpus y pide "Ejecuta la skill orquestador".
+
 ## Etapas
 
 | # | Etapa | Skill | Salida principal |

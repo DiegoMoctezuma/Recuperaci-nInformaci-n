@@ -1,6 +1,6 @@
 ---
 name: video-storytelling
-description: Escribe el guion de un video corto que cuenta los resultados del sistema de recuperación BBC como una historia (viaje del héroe, triángulo retórico, adaptación a la audiencia) usando solo cifras que existen en reports/. Úsala cuando pidan un video, comercial, pitch o guion narrativo del proyecto, antes de producir cualquier imagen o audio.
+description: Escribe el guion de un video corto que cuenta los resultados de un proyecto de recuperación de información como una historia (viaje del héroe, triángulo retórico, adaptación a la audiencia) usando solo cifras que existen en reports/. Úsala cuando pidan un video, comercial, pitch o guion narrativo del proyecto, antes de producir cualquier imagen o audio.
 ---
 
 # Guion de video con storytelling
@@ -11,7 +11,7 @@ Esta skill produce **el guion**, no el video. La producción (metraje, voz, mont
 
 - Toda cifra, consulta, título de noticia o afirmación de resultado que aparezca en la narración o en pantalla debe salir de `reports/`, `data/processed/` o de ejecutar `src/buscar.py`. Cada escena lleva una columna **Fuente** con el archivo y el campo.
 - El metraje de apoyo (imágenes de archivo, ilustración, clips generados) puede ser ajeno al proyecto. Los **datos** no.
-- No redondees para que suene mejor: miles con coma (`2,126`), porcentajes con 2 decimales (`88.17%`). "9 de cada 10" solo si la cifra exacta (`90.96%`) aparece en pantalla en la misma escena.
+- No redondees para que suene mejor: miles con coma (`12,345`), porcentajes con 2 decimales (`88.17%`). "9 de cada 10" solo si la cifra exacta (`90.96%`) aparece en pantalla en la misma escena.
 - Si los reportes declaran un límite (supuesto de relevancia, intervalo que incluye 0), el guion lo dice. Un resultado no concluyente no se presenta como victoria.
 - Si falta un dato para una escena, no lo supongas: cambia la escena o detente y repórtalo.
 

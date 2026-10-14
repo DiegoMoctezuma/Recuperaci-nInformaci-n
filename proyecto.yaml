@@ -1,0 +1,95 @@
+# Configuración del proyecto. Las skills de skills/ son genéricas y leen de aquí todo lo que
+# depende del corpus. Para usar el pipeline con otro corpus, copia este archivo y cambia los valores.
+
+proyecto:
+  nombre: bbc-ir-skills            # identificador en estado/progreso.json
+  titulo: Recuperación de información en BBC News
+  nombre_corto: BBC News IR        # pie de diapositivas y créditos
+  equipo: Datisa
+  materia: Minería de Textos · Ciencia de Datos
+  entorno_conda: bbc-ir
+  python: "3.11"
+  semilla: 42
+
+datos:
+  descripcion: noticias de la BBC (2004-2005) clasificadas en cinco secciones
+  url: https://raw.githubusercontent.com/mdsohaib/BBC-News-Classification/master/bbc-text.csv
+  repo_respaldo: https://github.com/mdsohaib/BBC-News-Classification.git   # se clona si falla la URL
+  archivo_en_repo: bbc-text.csv    # ruta del archivo dentro de repo_respaldo
+  ruta_raw: data/raw/bbc-text.csv
+  tamano_minimo_bytes: 4000000     # si el archivo ya existe y supera esto, no se vuelve a descargar
+  columna_texto: text
+  columna_categoria: category
+  filas_esperadas: 2225
+  categorias:                      # nombre: documentos esperados en el CSV original
+    sport: 511
+    business: 510
+    politics: 417
+    tech: 401
+    entertainment: 386
+  duplicados_esperados: 99         # duplicados exactos de texto; se quitan en limpieza
+  idioma: en                       # código de idioma de spaCy (en, es, fr, ...)
+  notas: >-
+    El texto ya viene en minúsculas y casi sin puntuación; el título está pegado al inicio del cuerpo,
+    sin separador. El repositorio también trae notebooks: no se usan.
+
+limpieza:
+  modelo_spacy: en_core_web_sm
+  stemmer: porter                  # porter (solo inglés) o snowball (usa datos.idioma)
+  caracteres_permitidos: "a-z'"    # clase de regex que se conserva tras pasar a minúsculas
+  simbolos_a_espacio: ["£", "$"]
+  stopwords_extra: [said, mr, mrs, ms, also, would, could, year, years, new, one, two]
+  longitud_minima_token: 3
+  min_tokens_documento: 20
+  palabras_titulo: 8
+  filas_limpias: {min: 2050, max: 2126}
+  palabras_prohibidas: [the, and, said]          # no deben quedar en tokens_lemma
+  prueba: {entrada: "The Markets were FALLING in 2005!", salida: [market, fall]}
+
+eda:
+  paleta_categorias:               # un color fijo por categoría para todas las gráficas
+    business: "#1f77b4"
+    entertainment: "#ff7f0e"
+    politics: "#2ca02c"
+    sport: "#d62728"
+    tech: "#9467bd"
+  simbolos_a_contar: ["£", "$", "%", "-"]
+  zipf: {rango_ajuste: [1, 1000], s_min: 0.6, s_max: 1.5}
+  heaps: {paso_tokens: 5000, beta_min: 0.3, beta_max: 0.8, beta_tipico: [0.4, 0.7], r2_min: 0.9}
+
+indices:
+  consultas_prueba:                # Parte D de la skill indices: consulta -> categoría esperada
+    - {query: stock market shares fall, categoria: business}
+    - {query: election labour party vote, categoria: politics}
+    - {query: mobile phone software, categoria: tech}
+  sanidad:                         # la validación exige que esta consulta traiga >= minimo de su categoría
+    query: election labour party vote
+    metodo: bm25
+    k: 5
+    categoria: politics
+    minimo: 3
+  consulta_rango: stock market shares   # para comprobar 10 resultados y orden descendente
+
+evaluacion:
+  auto_por_categoria: 20
+  consultas_manuales:              # 3 por categoría
+    business: [interest rates central bank, company profits shares, oil price economy growth]
+    entertainment: [film award ceremony, music album chart, actor oscar nomination]
+    politics: [general election campaign, prime minister blair, tax plans government]
+    sport: [football match goal, tennis open final, rugby world cup]
+    tech: [mobile phone technology, computer virus security, video games console]
+
+presentacion:
+  unidad: noticias                 # cómo se llama a los documentos en las diapositivas
+  categorias_es:                   # nombres para mostrar
+    business: Negocios
+    entertainment: Entretenimiento
+    politics: Política
+    sport: Deporte
+    tech: Tecnología
+  colores_categorias:              # identidad del deck (distinta de la paleta del EDA)
+    business: "#14213D"
+    entertainment: "#E07A1F"
+    politics: "#2A9D8F"
+    sport: "#8E5572"
+    tech: "#6C8EAD"

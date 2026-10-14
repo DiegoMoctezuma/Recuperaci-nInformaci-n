@@ -1,31 +1,30 @@
 ---
 name: eda
-description: Análisis exploratorio del corpus BBC en dos modos. Modo "raw" (antes de limpiar) - distribución de categorías, longitudes, nulos y duplicados. Modo "corpus" (después de limpiar) - vocabulario, ley de Zipf, ley de Heaps y wordclouds. Úsala en las etapas eda_raw y eda_corpus del pipeline.
+description: Análisis exploratorio de un corpus de textos con categoría, en dos modos. Modo "raw" (antes de limpiar) - distribución de categorías, longitudes, nulos y duplicados. Modo "corpus" (después de limpiar) - vocabulario, ley de Zipf, ley de Heaps y wordclouds. Úsala en las etapas eda_raw y eda_corpus del pipeline.
 ---
 
 # Análisis exploratorio (EDA)
 
-Primero identifica el modo: la etapa `eda_raw` usa **modo raw**; la etapa `eda_corpus` usa **modo corpus**. Todo el código va en `src/eda.py` con un argumento: `python src/eda.py --modo raw` o `--modo corpus`.
+Primero identifica el modo: la etapa `eda_raw` usa **modo raw**; la etapa `eda_corpus` usa **modo corpus**. Todo el código va en `src/eda.py` con un argumento: `python src/eda.py --modo raw` o `--modo corpus`. Las rutas, columnas, categorías y parámetros salen de `proyecto.yaml` (secciones `datos` y `eda`).
 
 Reglas de formato para reportes y gráficas:
-- Números con separador de miles (`2,126`), porcentajes con 2 decimales (`22.97%`).
+- Números con separador de miles (`12,345`), porcentajes con 2 decimales (`22.97%`).
 - Gráficas con matplotlib, 150 dpi, PNG, título y ejes rotulados, guardadas en `reports/figuras/`.
-- Paleta fija por categoría (úsala igual en todo el proyecto y guárdala en `src/estilo_graficas.py`):
-  `business #1f77b4, entertainment #ff7f0e, politics #2ca02c, sport #d62728, tech #9467bd`.
+- Paleta fija por categoría: la de `eda.paleta_categorias`. Úsala igual en todo el proyecto y exponla en `src/estilo_graficas.py` (leída de `proyecto.yaml`, no copiada). Si falta, asigna una paleta categórica de matplotlib en orden alfabético de categoría y regístrala en `proyecto.yaml`.
 
 ---
 
-## Modo raw (entrada: `data/raw/bbc-text.csv`)
+## Modo raw (entrada: `datos.ruta_raw`)
 
-1. Carga el CSV con pandas.
+1. Carga el CSV con pandas; trabaja con `datos.columna_texto` y `datos.columna_categoria`.
 2. Calcula y guarda:
    - Conteo y porcentaje por categoría → `reports/figuras/raw_categorias.png` (barras).
    - Nulos por columna.
-   - Duplicados exactos en `text` (se esperan 99) y su distribución por categoría.
-   - Longitud en palabras (`text.str.split().str.len()`): media, mediana, min, max, p25, p75, global y por categoría → `reports/figuras/raw_longitudes.png` (boxplot por categoría).
+   - Duplicados exactos en el texto (`duplicated(keep="first")`; se esperan `datos.duplicados_esperados`) y su distribución por categoría. Comprueba si algún grupo de duplicados tiene categorías distintas.
+   - Longitud en palabras (`str.split().str.len()`): media, mediana, min, max, p25, p75, global y por categoría → `reports/figuras/raw_longitudes.png` (boxplot por categoría).
    - Longitud en caracteres (misma descripción).
-   - Presencia de caracteres no alfabéticos: % de documentos con dígitos, con símbolos (`£`, `$`, `%`, `-`).
-3. Escribe `reports/eda_raw.md` con secciones: Resumen, Categorías, Calidad (nulos/duplicados), Longitudes, Hallazgos que afectan la limpieza (lista de decisiones sugeridas, p. ej. "quitar 99 duplicados", "conservar números" o "quitarlos").
+   - Presencia de caracteres no alfabéticos: % de documentos con dígitos y con cada símbolo de `eda.simbolos_a_contar`; % con mayúsculas; caracteres no ASCII más frecuentes.
+3. Escribe `reports/eda_raw.md` con secciones: Resumen, Categorías, Calidad (nulos/duplicados), Longitudes, Hallazgos que afectan la limpieza (lista de decisiones sugeridas, p. ej. "quitar N duplicados", "conservar números" o "quitarlos").
 4. Guarda las métricas clave en `reports/eda_raw.json` (`n_docs`, `n_duplicados`, `conteo_categorias`, `longitud_media`) para que la validación las lea.
 
 ---
@@ -42,14 +41,15 @@ Los tokens están guardados como texto separado por espacios; usa `.str.split()`
 2. **Ley de Zipf**
    - Ordena frecuencias de mayor a menor; rango r = 1..V.
    - Gráfica log-log rango vs. frecuencia → `reports/figuras/zipf.png`.
-   - Ajusta `log f = log C − s·log r` con `numpy.polyfit` sobre los rangos 1 a 1,000; reporta `s` y R². Dibuja la recta ajustada en la misma gráfica.
+   - Ajusta `log f = log C − s·log r` con `numpy.polyfit` sobre los rangos de `eda.zipf.rango_ajuste`; reporta `s` y R². Dibuja la recta ajustada en la misma gráfica.
+   - Si `s` queda lejos de 1, repite el ajuste sobre `text_norm` (con stopwords) e informa ambos valores: quitar stopwords baja el exponente.
 3. **Ley de Heaps**
-   - Recorre los documentos en orden aleatorio (semilla 42) acumulando tokens; cada 5,000 tokens registra (n tokens, V tipos).
+   - Recorre los documentos en orden aleatorio (`proyecto.semilla`) acumulando tokens; cada `eda.heaps.paso_tokens` tokens registra (n tokens, V tipos).
    - Ajusta `V = K·n^β` en log-log con `numpy.polyfit`; reporta `K`, `β` y R².
    - Gráfica de la curva observada y la ajustada → `reports/figuras/heaps.png`.
-   - Interpretación esperada: β entre 0.4 y 0.7 para texto en inglés; si sale fuera, menciónalo.
+   - Interpretación: compara β con `eda.heaps.beta_tipico` (rango típico para el idioma del corpus); si sale fuera, menciónalo.
 4. **Wordclouds**
-   - Una global y una por categoría (6 imágenes) con `wordcloud.WordCloud(width=1600, height=900, background_color="white", random_state=42, max_words=150)`, usando frecuencias (`generate_from_frequencies`), no texto crudo.
+   - Una global y una por categoría con `wordcloud.WordCloud(width=1600, height=900, background_color="white", random_state=<semilla>, max_words=150)`, usando frecuencias (`generate_from_frequencies`), no texto crudo.
    - Guarda en `reports/figuras/wordcloud_<categoria>.png` y `wordcloud_global.png`.
 5. **Comparación lema vs. stem**: tamaño del vocabulario con `tokens_lemma` y con `tokens_stem`; una línea de conclusión.
 6. Escribe `reports/eda_corpus.md` con secciones: Vocabulario, Zipf (con `s` y R²), Heaps (con `K`, `β`, R²), Wordclouds (enlaces a las imágenes), Lema vs. stem, Conclusiones para la indexación.

@@ -19,7 +19,7 @@ Objetivo: que ningún avance viva solo en una computadora y que cualquier integr
   Archivos: <lista corta>
   Validación: <resultado de validacion-calidad o "sin validar">
   ```
-  Ejemplo: `limpieza: PASS — 2,126 docs tras quitar 99 duplicados`
+  Ejemplo: `limpieza: PASS — 12,345 docs tras quitar 87 duplicados`
 
 ## Pasos
 

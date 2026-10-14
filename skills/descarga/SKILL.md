@@ -1,40 +1,31 @@
 ---
 name: descarga
-description: Descarga el corpus BBC News Classification (bbc-text.csv) desde el repositorio oficial de GitHub y verifica su integridad. Úsala en la etapa 1 del pipeline o cuando falte data/raw/bbc-text.csv.
+description: Obtiene el corpus del proyecto (un CSV con una columna de texto y otra de categoría) desde la URL indicada en proyecto.yaml y verifica su integridad. Úsala en la etapa 1 del pipeline o cuando falte el CSV en data/raw/.
 ---
 
 # Descarga del corpus
 
-## Datos conocidos del dataset
-
-- Repositorio: `https://github.com/mdsohaib/BBC-News-Classification` (rama `master`).
-- Archivo a usar: **`bbc-text.csv`** (≈5 MB). El repo también trae notebooks; no los uses.
-- Columnas: `category`, `text`.
-- Filas esperadas: **2,225**.
-- Categorías esperadas (5): `sport` 511, `business` 510, `politics` 417, `tech` 401, `entertainment` 386.
-- El texto ya viene en minúsculas y casi sin puntuación; el título está pegado al inicio del cuerpo, sin separador.
-- Contiene **99 textos duplicados** (se quitan en `limpieza`, no aquí).
+Todo lo específico del dataset está en la sección `datos` de `proyecto.yaml`: `url`, `repo_respaldo`, `archivo_en_repo`, `ruta_raw`, `tamano_minimo_bytes`, `columna_texto`, `columna_categoria`, `filas_esperadas`, `categorias` (nombre → documentos esperados), `duplicados_esperados` y `notas`. Léelo antes de empezar y no copies esos valores en el código.
 
 ## Pasos
 
-1. Crea `src/descarga.py` con este comportamiento:
-   - URL directa: `https://raw.githubusercontent.com/mdsohaib/BBC-News-Classification/master/bbc-text.csv`
-   - Descarga con `urllib.request` (sin dependencias extra) a `data/raw/bbc-text.csv`.
-   - Si la descarga falla, intenta como respaldo: `git clone --depth 1 https://github.com/mdsohaib/BBC-News-Classification.git /tmp/bbc_repo` y copia `bbc-text.csv`.
-   - Si el archivo ya existe y su tamaño es > 4,000,000 bytes, no lo vuelvas a descargar (imprime `ya existe`).
-   - Calcula el SHA-256 del archivo y guárdalo en `data/raw/bbc-text.sha256`.
+1. Crea `src/descarga.py`, con la lógica en funciones (`main()`, `verificar()`) y sin efectos al importarse:
+   - Descarga `datos.url` con `urllib.request` (sin dependencias extra) a `datos.ruta_raw`.
+   - Si la descarga falla y hay `datos.repo_respaldo`, clona con `git clone --depth 1 <repo_respaldo>` en un directorio temporal y copia `datos.archivo_en_repo`.
+   - Si el archivo ya existe y su tamaño supera `datos.tamano_minimo_bytes`, no lo vuelvas a descargar (imprime `ya existe`). Esto permite usar una copia local del usuario: colócala en `datos.ruta_raw` antes de ejecutar.
+   - Calcula el SHA-256 del archivo y guárdalo junto al CSV, con el mismo nombre y extensión `.sha256`.
 2. Agrega al final del script una verificación que imprima:
    - `shape` del DataFrame,
-   - conteo por categoría,
+   - conteo por categoría (`datos.columna_categoria`),
    - número de nulos por columna.
-   Si las filas ≠ 2,225 o las categorías ≠ las 5 esperadas, termina con `sys.exit(1)` y un mensaje claro.
+   Si faltan las columnas de texto o categoría, si las filas ≠ `datos.filas_esperadas` o si las categorías no son exactamente las claves de `datos.categorias`, termina con `sys.exit(1)` y un mensaje claro.
 3. Ejecuta `python src/descarga.py`.
-4. Escribe `reports/descarga.md` con: URL usada, fecha, SHA-256, filas, tabla de conteo por categoría (números con separador de miles).
+4. Escribe `reports/descarga.md` con: URL usada (o "copia local" si no se descargó), fecha, SHA-256, filas, tabla de conteo por categoría (números con separador de miles).
 
 ## Salidas
 
-- `data/raw/bbc-text.csv` (ignorado por git; se regenera con el script)
-- `data/raw/bbc-text.sha256`
+- El CSV en `datos.ruta_raw` (ignorado por git; se regenera con el script)
+- El `.sha256` junto al CSV
 - `src/descarga.py`
 - `reports/descarga.md`
 
@@ -42,3 +33,4 @@ description: Descarga el corpus BBC News Classification (bbc-text.csv) desde el 
 
 - No limpies ni modifiques el texto.
 - No subas el CSV al repositorio.
+- Si el dataset trae otros archivos (notebooks, versiones alternativas), no los uses.

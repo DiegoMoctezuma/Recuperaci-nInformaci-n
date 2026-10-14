@@ -1,12 +1,12 @@
 ---
 name: indices
-description: Construye los índices de recuperación del corpus BBC (CountVectorizer, TF-IDF, BM25, SVD/LSA, y como extras Word2Vec y LDA), el pipeline de consulta (query → vectorización → similitud coseno o BM25 → ranking) y el pipeline de ingesta de noticias nuevas. Úsala en la etapa indices del pipeline.
+description: Construye los índices de recuperación de un corpus de textos ya limpio (CountVectorizer, TF-IDF, BM25, SVD/LSA, y como extras Word2Vec y LDA), el pipeline de consulta (query → vectorización → similitud coseno o BM25 → ranking) y el pipeline de ingesta de noticias nuevas. Úsala en la etapa indices del pipeline.
 ---
 
 # Índices, búsqueda e ingesta
 
 Entrada: `data/processed/corpus_clean.csv`, columna `tokens_lemma` (tokens separados por espacio).
-Todo usa `random_state=42`. Los modelos se guardan con `joblib` en `models/`.
+Todo usa `random_state=<proyecto.semilla>` (de `proyecto.yaml`). Los modelos se guardan con `joblib` en `models/`.
 
 ## Parte A — Construcción de índices (`src/indices.py`)
 
@@ -17,9 +17,9 @@ Para los métodos de sklearn usa `analyzer=str.split` (o `tokenizer=str.split, p
 | **CountVectorizer** | `min_df=2, max_df=0.95` | `models/count.pkl` (vectorizador + matriz) |
 | **TF-IDF** | `TfidfVectorizer(min_df=2, max_df=0.95, sublinear_tf=True, norm="l2")` | `models/tfidf.pkl` |
 | **BM25** | `rank_bm25.BM25Okapi(corpus_tokens, k1=1.5, b=0.75)` con `corpus_tokens = [t.split() for t in tokens_lemma]` | `models/bm25.pkl` |
-| **SVD (LSA)** | `TruncatedSVD(n_components=200, random_state=42)` sobre la matriz TF-IDF, luego `Normalizer(copy=False)` (pipeline `make_pipeline(svd, normalizer)`) | `models/svd.pkl` |
-| **Word2Vec** (extra) | `gensim.models.Word2Vec(sentences, vector_size=100, window=5, min_count=2, sg=1, epochs=20, seed=42, workers=1)`; vector de documento = promedio de los vectores de sus palabras en vocabulario, normalizado L2 | `models/w2v.model`, `models/w2v_docs.npy` |
-| **LDA** (extra) | `LatentDirichletAllocation(n_components=10, learning_method="batch", max_iter=20, random_state=42)` sobre la matriz de CountVectorizer; representación = distribución de tópicos por documento | `models/lda.pkl` |
+| **SVD (LSA)** | `TruncatedSVD(n_components=200, random_state=<semilla>)` sobre la matriz TF-IDF, luego `Normalizer(copy=False)` (pipeline `make_pipeline(svd, normalizer)`) | `models/svd.pkl` |
+| **Word2Vec** (extra) | `gensim.models.Word2Vec(sentences, vector_size=100, window=5, min_count=2, sg=1, epochs=20, seed=<semilla>, workers=1)`; vector de documento = promedio de los vectores de sus palabras en vocabulario, normalizado L2 | `models/w2v.model`, `models/w2v_docs.npy` |
+| **LDA** (extra) | `LatentDirichletAllocation(n_components=10, learning_method="batch", max_iter=20, random_state=<semilla>)` sobre la matriz de CountVectorizer; representación = distribución de tópicos por documento | `models/lda.pkl` |
 
 Además:
 1. Para SVD reporta la varianza explicada acumulada y guarda `reports/figuras/svd_varianza.png`.
@@ -49,11 +49,11 @@ Flujo exacto:
    - bm25 → `bm25.get_scores(tokens)`.
 4. Ordena descendente, toma top-k, une con `models/doc_index.csv`, devuelve el ranking.
 5. Carga los modelos **una sola vez** (caché a nivel de módulo), no en cada consulta.
-6. Agrega un modo CLI: `python src/buscar.py "oil prices rise" --metodo bm25 --k 5` que imprima la tabla.
+6. Agrega un modo CLI: `python src/buscar.py "<consulta>" --metodo bm25 --k 5` que imprima la tabla.
 
 ## Parte C — Pipeline de ingesta (`src/ingesta.py`)
 
-Permite agregar noticias nuevas al índice.
+Permite agregar documentos nuevos al índice.
 
 ```python
 def ingestar(textos: list[str], categorias: list[str] | None = None) -> list[str]  # devuelve doc_ids nuevos
@@ -63,15 +63,14 @@ def ingestar(textos: list[str], categorias: list[str] | None = None) -> list[str
 2. Descarta duplicados exactos contra el corpus existente.
 3. Asigna `doc_id` consecutivos a partir del último existente.
 4. Añade las filas a `data/processed/corpus_clean.csv` y a `models/doc_index.csv`.
-5. **Reconstruye** todos los índices llamando a la función principal de `src/indices.py` (con 2,000 documentos tarda segundos; no intentes actualización incremental).
+5. **Reconstruye** todos los índices llamando a la función principal de `src/indices.py` (con unos miles de documentos tarda segundos; no intentes actualización incremental).
 6. CLI: `python src/ingesta.py --archivo nuevas.csv` (columnas `text` y opcional `category`).
 
 ## Parte D — Prueba rápida
 
-Ejecuta estas 3 consultas con los 6 métodos y guarda los top-5 en `reports/ejemplos_busqueda.md`:
-- `"stock market shares fall"` (esperado: business)
-- `"election labour party vote"` (esperado: politics)
-- `"mobile phone software"` (esperado: tech)
+Ejecuta las consultas de `indices.consultas_prueba` (en `proyecto.yaml`) con los 6 métodos y guarda los top-5 en `reports/ejemplos_busqueda.md`, indicando para cada una la categoría esperada y cuántos de los 5 resultados la tienen.
+
+La validación usa además `indices.sanidad` (una consulta que debe traer al menos `minimo` documentos de su categoría) y `indices.consulta_rango` (para comprobar 10 resultados y orden descendente): comprueba ambas antes de terminar.
 
 ## No hagas
 
