@@ -16,7 +16,7 @@ Se califica estrictamente que **no sea genérica**. Como no hay plantilla, tú d
 - Máximo **60 palabras** por diapositiva, sin contar las notas del orador.
 - Solo tipografías estándar y legibles. Sin animaciones ni transiciones.
 - Números: miles con coma (`12,345`) y porcentajes con 2 decimales (`87.35%`).
-- **Iconos**: no los generes ni los descargues. Deja un marcador: un rectángulo redondeado con borde punteado del color de acento y el texto `ICONO: <qué debe representar>` en 10 pt (p. ej. `ICONO: lupa sobre un periódico`). El equipo los reemplaza después.
+- **Iconos**: no los generes ni los descargues. Deja un marcador: un rectángulo redondeado con borde punteado del color de acento y el texto `ICONO: <qué debe representar>` en 10 pt (p. ej. `ICONO: lupa sobre un documento`). El equipo los reemplaza después.
 
 ## Paso 1 — Sistema de diseño (`src/presentacion/diseno.py` + `presentacion/estilo.json`)
 

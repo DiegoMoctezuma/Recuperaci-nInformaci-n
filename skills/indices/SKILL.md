@@ -1,6 +1,6 @@
 ---
 name: indices
-description: Construye los índices de recuperación de un corpus de textos ya limpio (CountVectorizer, TF-IDF, BM25, SVD/LSA, y como extras Word2Vec y LDA), el pipeline de consulta (query → vectorización → similitud coseno o BM25 → ranking) y el pipeline de ingesta de noticias nuevas. Úsala en la etapa indices del pipeline.
+description: Construye los índices de recuperación de un corpus de textos ya limpio (CountVectorizer, TF-IDF, BM25, SVD/LSA, y como extras Word2Vec y LDA), el pipeline de consulta (query → vectorización → similitud coseno o BM25 → ranking) y el pipeline de ingesta de documentos nuevos. Úsala en la etapa indices del pipeline.
 ---
 
 # Índices, búsqueda e ingesta

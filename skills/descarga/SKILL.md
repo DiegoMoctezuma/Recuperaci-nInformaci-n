@@ -18,9 +18,10 @@ Todo lo específico del dataset está en la sección `datos` de `proyecto.yaml`:
    - `shape` del DataFrame,
    - conteo por categoría (`datos.columna_categoria`),
    - número de nulos por columna.
-   Si faltan las columnas de texto o categoría, si las filas ≠ `datos.filas_esperadas` o si las categorías no son exactamente las claves de `datos.categorias`, termina con `sys.exit(1)` y un mensaje claro.
-3. Ejecuta `python src/descarga.py`.
-4. Escribe `reports/descarga.md` con: URL usada (o "copia local" si no se descargó), fecha, SHA-256, filas, tabla de conteo por categoría (números con separador de miles).
+   Si faltan las columnas de texto o categoría, si las filas ≠ `datos.filas_esperadas` o si las categorías no son exactamente las claves de `datos.categorias`, termina con `sys.exit(1)` y un mensaje claro. Si esos valores esperados están en `null` (todavía no se conocen), no los compruebes: imprime los valores reales para que el usuario los registre en `proyecto.yaml`.
+3. Si el corpus no viene como un CSV (carpetas de `.txt` por categoría, JSON, varios archivos), conviértelo en este mismo script a un único CSV con una columna de texto y otra de categoría, guárdalo en `datos.ruta_raw` y documenta la conversión en el reporte.
+4. Ejecuta `python src/descarga.py`.
+5. Escribe `reports/descarga.md` con: URL usada (o "copia local" si no se descargó), fecha, SHA-256, filas, tabla de conteo por categoría (números con separador de miles).
 
 ## Salidas
 

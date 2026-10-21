@@ -1,6 +1,7 @@
 # Verificaciones por etapa. bloqueante: true => si falla, la etapa es FAIL.
 # Genérico: todo lo que depende del corpus se lee de proyecto.yaml, disponible como `cfg`
-# en las verificaciones de tipo python (src/ ya está en sys.path).
+# en las verificaciones de tipo python (src/ ya está en sys.path). Los conteos esperados que estén en null
+# en proyecto.yaml se omiten (la verificación pasa) hasta que se registren.
 
 setup:
   - {id: S1, tipo: archivo_existe, ruta: requirements.txt, bloqueante: true, desc: "requirements.txt existe"}
@@ -12,21 +13,21 @@ setup:
 
 descarga:
   - {id: D1, tipo: python, expr: "os.path.exists(cfg['datos']['ruta_raw'])", bloqueante: true, desc: "CSV obtenido"}
-  - {id: D2, tipo: python, expr: "len(pd.read_csv(cfg['datos']['ruta_raw'])) == cfg['datos']['filas_esperadas']", bloqueante: true, desc: "filas esperadas"}
+  - {id: D2, tipo: python, expr: "cfg['datos'].get('filas_esperadas') is None or len(pd.read_csv(cfg['datos']['ruta_raw'])) == cfg['datos']['filas_esperadas']", bloqueante: true, desc: "filas esperadas"}
   - {id: D3, tipo: python, expr: "{cfg['datos']['columna_texto'], cfg['datos']['columna_categoria']} <= set(pd.read_csv(cfg['datos']['ruta_raw'], nrows=0).columns)", bloqueante: true, desc: "columnas de texto y categoría"}
-  - {id: D4, tipo: python, expr: "set(pd.read_csv(cfg['datos']['ruta_raw'])[cfg['datos']['columna_categoria']]) == set(cfg['datos']['categorias'])", bloqueante: true, desc: "categorías esperadas"}
+  - {id: D4, tipo: python, expr: "not cfg['datos'].get('categorias') or set(pd.read_csv(cfg['datos']['ruta_raw'])[cfg['datos']['columna_categoria']]) == set(cfg['datos']['categorias'])", bloqueante: true, desc: "categorías esperadas"}
   - {id: D5, tipo: python, expr: "os.path.exists(os.path.splitext(cfg['datos']['ruta_raw'])[0] + '.sha256')", bloqueante: false, desc: "hash registrado"}
   - {id: D6, tipo: archivo_existe, ruta: reports/descarga.md, bloqueante: true, desc: "reporte de descarga"}
 
 eda_raw:
   - {id: E1, tipo: archivo_existe, ruta: reports/eda_raw.md, bloqueante: true, desc: "reporte EDA raw"}
-  - {id: E2, tipo: python, expr: "json.load(open('reports/eda_raw.json'))['n_duplicados'] == cfg['datos']['duplicados_esperados']", bloqueante: true, desc: "detectó los duplicados esperados"}
+  - {id: E2, tipo: python, expr: "cfg['datos'].get('duplicados_esperados') is None or json.load(open('reports/eda_raw.json'))['n_duplicados'] == cfg['datos']['duplicados_esperados']", bloqueante: true, desc: "detectó los duplicados esperados"}
   - {id: E3, tipo: archivo_existe, ruta: reports/figuras/raw_categorias.png, bloqueante: true, desc: "gráfica de categorías"}
   - {id: E4, tipo: archivo_existe, ruta: reports/figuras/raw_longitudes.png, bloqueante: true, desc: "gráfica de longitudes"}
 
 limpieza:
   - {id: L1, tipo: archivo_existe, ruta: data/processed/corpus_clean.csv, bloqueante: true, desc: "corpus limpio"}
-  - {id: L2, tipo: python, expr: "cfg['limpieza']['filas_limpias']['min'] <= len(pd.read_csv('data/processed/corpus_clean.csv')) <= cfg['limpieza']['filas_limpias']['max']", bloqueante: true, desc: "duplicados quitados (filas en rango)"}
+  - {id: L2, tipo: python, expr: "not cfg['limpieza'].get('filas_limpias') or cfg['limpieza']['filas_limpias']['min'] <= len(pd.read_csv('data/processed/corpus_clean.csv')) <= cfg['limpieza']['filas_limpias']['max']", bloqueante: true, desc: "duplicados quitados (filas en rango)"}
   - {id: L3, tipo: csv_columnas, ruta: data/processed/corpus_clean.csv, columnas: [doc_id, category, titulo, text_original, text_norm, tokens_lemma, tokens_stem, n_tokens], bloqueante: true, desc: "columnas en orden"}
   - {id: L4, tipo: csv_sin_nulos, ruta: data/processed/corpus_clean.csv, columnas: [doc_id, category, tokens_lemma], bloqueante: true, desc: "sin nulos"}
   - {id: L5, tipo: csv_sin_duplicados, ruta: data/processed/corpus_clean.csv, columna: text_original, bloqueante: true, desc: "sin textos duplicados"}

@@ -11,7 +11,7 @@ Si el corpus trae juicios de relevancia, úsalos. Si no los trae, se usa la **ca
 
 Crea `src/consultas.py` que genere `data/processed/consultas.csv` con columnas `query_id, query, categoria_esperada, tipo, doc_origen`:
 
-1. **Automáticas (tipo = `auto`)**: muestreo estratificado de `evaluacion.auto_por_categoria` documentos por categoría con `random_state=<proyecto.semilla>`. La consulta es el `titulo` del documento. Guarda su `doc_id` en `doc_origen`: ese documento **se excluye** de su propio ranking (si no, todos los métodos lo encuentran trivialmente).
+1. **Automáticas (tipo = `auto`)**: muestreo estratificado de `evaluacion.auto_por_categoria` documentos por categoría con `random_state=<proyecto.semilla>`. La consulta es el `titulo` del documento. Cada categoría debe tener más documentos que `auto_por_categoria`; si alguna no llega, detente y repórtalo. Guarda su `doc_id` en `doc_origen`: ese documento **se excluye** de su propio ranking (si no, todos los métodos lo encuentran trivialmente).
 2. **Manuales (tipo = `manual`)**: las de `evaluacion.consultas_manuales` en `proyecto.yaml`, con su categoría. Deben ser consultas temáticas cortas (2 a 4 palabras), escritas en el idioma del corpus, y el mismo número por categoría (se recomiendan 3). Si `proyecto.yaml` no las trae, detente y pídelas: no las inventes.
 
 ## Métricas (`src/evaluacion.py`)
@@ -19,8 +19,8 @@ Crea `src/consultas.py` que genere `data/processed/consultas.csv` con columnas `
 Para cada método y cada consulta, recupera top-10 con `buscar()` (excluyendo `doc_origen`) y calcula:
 
 - **P@5** y **P@10**: relevantes en top-k / k.
-- **AP@10** → **MAP@10**: promedio de la precisión en cada posición relevante, dividido entre min(10, total de relevantes en el corpus).
-- **nDCG@10**: ganancia binaria (1 relevante, 0 no), descuento `1/log2(pos+1)`; IDCG con 10 relevantes.
+- **AP@10** → **MAP@10**: promedio de la precisión en cada posición relevante, dividido entre min(10, total de relevantes en el corpus sin contar `doc_origen`).
+- **nDCG@10**: ganancia binaria (1 relevante, 0 no), descuento `1/log2(pos+1)`; IDCG con min(10, total de relevantes) relevantes.
 - **MRR**: 1 / posición del primer relevante (0 si no hay).
 - **Latencia**: tiempo medio por consulta en milisegundos (mide con `time.perf_counter`, excluye la carga de modelos).
 

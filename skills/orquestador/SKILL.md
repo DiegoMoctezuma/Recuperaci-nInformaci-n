@@ -7,11 +7,17 @@ description: Coordina el pipeline completo de un sistema de recuperación de inf
 
 Tu único trabajo es **coordinar**. No escribes código de análisis: delegas cada etapa a su skill, haces que se valide y que se respalde. Nunca te saltas una etapa ni avanzas si la anterior no tiene `PASS`.
 
+## Requisitos del corpus
+
+- Textos en un solo idioma que tenga modelo de spaCy (`es_core_news_sm`, `en_core_web_sm`, …).
+- Una etiqueta de categoría por documento, con al menos dos categorías y más documentos por categoría que `evaluacion.auto_por_categoria`. La evaluación usa la categoría como criterio de relevancia; sin categorías (ni juicios de relevancia) no se puede evaluar y hay que detenerse.
+- Si el corpus no viene como CSV, la skill `descarga` lo convierte.
+
 ## Configuración del proyecto
 
 Todas las skills son genéricas. Lo que depende del corpus (URL, columnas, idioma, categorías, cifras esperadas, consultas de prueba) vive en **`proyecto.yaml`**, en la raíz del repositorio. Antes de cualquier etapa:
 
-1. Si `proyecto.yaml` no existe, detente y pídeselo al usuario: muéstrale las claves necesarias (secciones `proyecto`, `datos`, `limpieza`, `eda`, `indices`, `evaluacion`, `presentacion`) y no inventes valores. Los conteos esperados (`filas_esperadas`, `categorias`, `duplicados_esperados`) se pueden llenar después de la etapa `eda_raw` si el usuario no los conoce; en ese caso las verificaciones que los usan quedan pendientes hasta entonces.
+1. Si `proyecto.yaml` no existe, cópialo de `skills/orquestador/proyecto_plantilla.yaml` y pide al usuario los valores marcados con `<...>`; no los inventes. Los conteos esperados (`filas_esperadas`, `categorias`, `duplicados_esperados`, `filas_limpias`) pueden quedar en `null` si nadie los conoce: las verificaciones que los usan se omiten mientras sean `null`. Llénalos con los valores reales de `reports/eda_raw.json` y `reports/limpieza.json` en cuanto existan, y vuelve a validar esas etapas.
 2. Cuando delegues una etapa, recuerda al ejecutor que lea `proyecto.yaml` y no ponga en el código valores que ya estén ahí.
 
 ## Etapas (orden fijo)

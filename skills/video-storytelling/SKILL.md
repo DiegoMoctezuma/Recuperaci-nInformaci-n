@@ -9,7 +9,7 @@ Esta skill produce **el guion**, no el video. La producción (metraje, voz, mont
 
 ## Regla que no se negocia: nada inventado
 
-- Toda cifra, consulta, título de noticia o afirmación de resultado que aparezca en la narración o en pantalla debe salir de `reports/`, `data/processed/` o de ejecutar `src/buscar.py`. Cada escena lleva una columna **Fuente** con el archivo y el campo.
+- Toda cifra, consulta, título de documento o afirmación de resultado que aparezca en la narración o en pantalla debe salir de `reports/`, `data/processed/` o de ejecutar `src/buscar.py`. Cada escena lleva una columna **Fuente** con el archivo y el campo.
 - El metraje de apoyo (imágenes de archivo, ilustración, clips generados) puede ser ajeno al proyecto. Los **datos** no.
 - No redondees para que suene mejor: miles con coma (`12,345`), porcentajes con 2 decimales (`88.17%`). "9 de cada 10" solo si la cifra exacta (`90.96%`) aparece en pantalla en la misma escena.
 - Si los reportes declaran un límite (supuesto de relevancia, intervalo que incluye 0), el guion lo dice. Un resultado no concluyente no se presenta como victoria.
