@@ -1,0 +1,78 @@
+# Plantilla de proyecto.yaml. El orquestador la copia a la raíz del repositorio como proyecto.yaml.
+#
+# `auto` significa "que la etapa lo decida a partir de los datos". Cada etapa reemplaza sus `auto` por
+# el valor elegido y deja la razón en la lista `decisiones` del final. Cualquier valor que escribas tú
+# en lugar de `auto` se respeta siempre.
+#
+# Lo único obligatorio es decir dónde están los datos: `datos.url` o `datos.ruta_local`.
+
+proyecto:
+  nombre: auto                     # identificador sin espacios; por defecto, el nombre de la carpeta
+  titulo: auto                     # se pregunta en la etapa presentacion si sigue en auto
+  nombre_corto: auto
+  equipo: auto                     # se pregunta en la etapa presentacion
+  materia: auto                    # se pregunta en la etapa presentacion
+  entorno_conda: auto
+  python: "3.11"
+  semilla: 42
+
+datos:
+  url: null                        # URL directa al archivo (CSV, JSON, Excel, Parquet, ZIP…)
+  ruta_local: null                 # o un archivo / carpeta que ya tengas
+  repo_respaldo: null              # opcional: URL .git que se clona si falla la descarga
+  archivo_en_repo: null            # ruta del archivo dentro de repo_respaldo
+  ruta_raw: auto                   # CSV estándar que deja la etapa descarga
+  tamano_minimo_bytes: auto
+  descripcion: auto
+  columna_texto: auto              # descarga: la columna con textos más largos y distintos
+  columna_titulo: auto             # descarga: columna corta tipo título, o null
+  columna_categoria: auto          # descarga: columna con 2 a 50 etiquetas, o null si no hay
+  filas_esperadas: auto            # se registran las observadas
+  categorias: auto                 # {categoria: documentos} observados
+  duplicados_esperados: auto       # eda_raw
+  idioma: auto                     # eda_raw: por proporción de stopwords de cada idioma
+
+limpieza:
+  modelo_spacy: auto               # según el idioma
+  stemmer: auto                    # porter (inglés) o snowball
+  caracteres_permitidos: auto      # letras Unicode
+  simbolos_a_espacio: auto         # eda_raw: símbolos pegados entre palabras
+  conservar_numeros: auto          # eda_raw
+  stopwords_extra: auto            # términos presentes en casi todos los documentos
+  longitud_minima_token: auto
+  min_tokens_documento: auto       # eda_raw: según la longitud típica del texto
+  palabras_titulo: auto            # eda_raw
+  filas_limpias: auto
+  palabras_prohibidas: auto
+  prueba: auto
+
+eda:
+  paleta_categorias: auto
+  zipf: {rango_ajuste: auto, s_min: 0.6, s_max: 1.5}          # s_min/s_max: umbrales de la validación
+  heaps: {paso_tokens: auto, beta_min: 0.3, beta_max: 0.8, r2_min: 0.9}
+
+indices:
+  min_df: auto
+  max_df: auto
+  svd_componentes: auto
+  lda_topicos: auto
+  w2v: auto
+  bm25: auto
+  consultas_prueba: auto
+  sanidad: auto
+  consulta_rango: auto
+
+evaluacion:
+  modo: auto                       # juicios | categoria | item_conocido
+  juicios: null                    # ruta a un archivo de juicios de relevancia, si existe
+  auto_por_categoria: auto
+  n_auto: auto
+  consultas_manuales: auto         # escribe aquí las tuyas si quieres usar consultas propias
+  n_consultas_minimo: auto
+
+presentacion:
+  unidad: auto                     # cómo llamar a los documentos: noticias, reseñas, artículos…
+  categorias_es: auto              # nombres para mostrar
+  colores_categorias: auto
+
+decisiones: []                     # cada etapa añade {etapa, clave, valor, razon}

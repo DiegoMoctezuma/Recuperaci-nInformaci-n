@@ -1,6 +1,6 @@
 ---
 name: validacion-calidad
-description: Revisa la calidad de una etapa del pipeline BBC contra checklist_calidad.yaml y decide PASS o FAIL; si falla, exige repetir la etapa con la corrección concreta antes de avanzar. Úsala después de cada etapa o cuando el usuario pida "validar", "revisar calidad" o "¿podemos avanzar?".
+description: Revisa la calidad de una etapa del pipeline de recuperación de información contra checklist_calidad.yaml y decide PASS o FAIL; si falla, exige repetir la etapa con la corrección concreta antes de avanzar. Úsala después de cada etapa o cuando el usuario pida "validar", "revisar calidad" o "¿podemos avanzar?".
 ---
 
 # Validación de calidad (compuerta entre etapas)
@@ -25,7 +25,7 @@ Eres un revisor estricto. Tu decisión se basa en **verificaciones ejecutadas**,
   - `csv_sin_duplicados`: sin duplicados en la columna indicada.
   - `json_rango`: el valor de `clave` en el JSON está entre `min` y `max`.
   - `comando`: ejecuta `cmd`; pasa si el código de salida es 0.
-  - `python`: evalúa una expresión Python corta (`expr`) que debe dar `True`; dispone de `os`, `pd`, `np`, `json`, `joblib`. Ejecuta todo desde la raíz del repo.
+  - `python`: evalúa una expresión Python corta (`expr`) que debe dar `True`; dispone de `os`, `pd`, `np`, `json`, `joblib` y `cfg` (el contenido de `proyecto.yaml`, con los valores `auto` convertidos a `None`), y `src/` está en `sys.path` para importar módulos del proyecto. Ejecuta todo desde la raíz del repo.
 - Imprime una tabla `id | descripción | PASS/FAIL | detalle` y escribe `reports/validacion/<etapa>.json`.
 - Sale con código 0 si todas las bloqueantes pasan, 1 si no.
 
@@ -35,6 +35,8 @@ Eres un revisor estricto. Tu decisión se basa en **verificaciones ejecutadas**,
 2. Revisión cualitativa adicional (no sustituye al script), responde sí/no con evidencia:
    - ¿El código está en `src/` y corre desde la raíz sin pasos manuales?
    - ¿Las rutas y parámetros coinciden con el SKILL.md de la etapa?
+   - ¿Cada valor que estaba en `auto` quedó decidido en `proyecto.yaml`, con su entrada en `decisiones`, y la decisión sigue la regla de la skill? Comprueba al menos una contra los datos (p. ej. recalcula el idioma o la columna de texto).
+   - ¿Se respetó todo lo que el usuario fijó (sin `auto`)?
    - ¿El reporte `.md` de la etapa existe y sus números coinciden con los JSON?
    - ¿Formato: miles con coma, porcentajes con 2 decimales?
    Un "no" aquí es FAIL solo si contradice el SKILL.md de la etapa; si es menor, ponlo como advertencia.
@@ -43,7 +45,7 @@ Eres un revisor estricto. Tu decisión se basa en **verificaciones ejecutadas**,
 ## Paso 3 — Decidir y registrar
 
 - **PASS**: en `estado/progreso.json` pon `estado: "PASS"` y `notas: ""` (o las advertencias).
-- **FAIL**: pon `estado: "FAIL"`, incrementa `intentos` en 1 y escribe en `notas` la corrección concreta, en imperativo y verificable. Ejemplo bueno: `"corpus_clean.csv tiene 2,225 filas; aplica drop_duplicates(subset='text') antes de asignar doc_id"`. Ejemplo malo: `"revisar los datos"`.
+- **FAIL**: pon `estado: "FAIL"`, incrementa `intentos` en 1 y escribe en `notas` la corrección concreta, en imperativo y verificable. Ejemplo bueno: `"corpus_clean.csv tiene 2,225 filas y proyecto.yaml espera como máximo 2,126; aplica drop_duplicates(subset='text') antes de asignar doc_id"`. Ejemplo malo: `"revisar los datos"`.
 - Si `intentos` llega a 3, pon `estado: "BLOQUEADA"` y en `notas` resume los 3 fallos para que un humano decida.
 
 ## Reglas

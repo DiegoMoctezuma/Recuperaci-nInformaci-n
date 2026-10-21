@@ -1,61 +1,67 @@
 # Verificaciones por etapa. bloqueante: true => si falla, la etapa es FAIL.
+# Genérico: todo lo que depende del corpus se lee de proyecto.yaml, disponible como `cfg` en las
+# verificaciones de tipo python (src/ ya está en sys.path). Los valores `auto` llegan como None:
+# una verificación cuyo valor esperado es None se omite (pasa) hasta que la etapa lo decida.
 
 setup:
   - {id: S1, tipo: archivo_existe, ruta: requirements.txt, bloqueante: true, desc: "requirements.txt existe"}
   - {id: S2, tipo: archivo_existe, ruta: .gitignore, bloqueante: true, desc: ".gitignore existe"}
   - {id: S3, tipo: python, expr: "'data/raw/' in open('.gitignore').read()", bloqueante: true, desc: "data/raw ignorado por git"}
-  - {id: S4, tipo: comando, cmd: "python -c \"import sklearn, rank_bm25, gensim, spacy, wordcloud, pptx; spacy.load('en_core_web_sm')\"", bloqueante: true, desc: "dependencias instaladas"}
+  - {id: S4, tipo: python, expr: "all(__import__(m) for m in ['sklearn', 'rank_bm25', 'gensim', 'wordcloud', 'pptx', 'spacy', 'nltk'])", bloqueante: true, desc: "dependencias instaladas"}
   - {id: S5, tipo: archivo_existe, ruta: estado/progreso.json, bloqueante: true, desc: "archivo de estado creado"}
+  - {id: S6, tipo: python, expr: "isinstance(cfg.get('datos'), dict) and any(cfg['datos'].get(k) for k in ['url', 'ruta_local', 'ruta_raw'])", bloqueante: true, desc: "proyecto.yaml dice dónde están los datos"}
 
 descarga:
-  - {id: D1, tipo: archivo_existe, ruta: data/raw/bbc-text.csv, bloqueante: true, desc: "CSV descargado"}
-  - {id: D2, tipo: csv_filas, ruta: data/raw/bbc-text.csv, min: 2225, max: 2225, bloqueante: true, desc: "2,225 filas"}
-  - {id: D3, tipo: csv_columnas, ruta: data/raw/bbc-text.csv, columnas: [category, text], bloqueante: true, desc: "columnas category y text"}
-  - {id: D4, tipo: python, expr: "set(pd.read_csv('data/raw/bbc-text.csv').category) == {'business','entertainment','politics','sport','tech'}", bloqueante: true, desc: "5 categorías esperadas"}
-  - {id: D5, tipo: archivo_existe, ruta: data/raw/bbc-text.sha256, bloqueante: false, desc: "hash registrado"}
+  - {id: D1, tipo: python, expr: "os.path.exists((cfg['datos'].get('ruta_raw') or 'data/raw/corpus.csv'))", bloqueante: true, desc: "CSV obtenido"}
+  - {id: D2, tipo: python, expr: "cfg['datos'].get('filas_esperadas') is None or len(pd.read_csv((cfg['datos'].get('ruta_raw') or 'data/raw/corpus.csv'))) == cfg['datos']['filas_esperadas']", bloqueante: true, desc: "filas esperadas"}
+  - {id: D3, tipo: python, expr: "cfg['datos'].get('columna_texto') is not None and {c for c in [cfg['datos'].get('columna_texto'), cfg['datos'].get('columna_categoria'), cfg['datos'].get('columna_titulo')] if c} <= set(pd.read_csv((cfg['datos'].get('ruta_raw') or 'data/raw/corpus.csv'), nrows=0).columns)", bloqueante: true, desc: "columnas detectadas (texto y, si hay, categoría y título) existen"}
+  - {id: D4, tipo: python, expr: "not cfg['datos'].get('categorias') or not cfg['datos'].get('columna_categoria') or set(pd.read_csv((cfg['datos'].get('ruta_raw') or 'data/raw/corpus.csv'))[cfg['datos']['columna_categoria']].dropna()) == set(cfg['datos']['categorias'])", bloqueante: true, desc: "categorías esperadas"}
+  - {id: D5, tipo: python, expr: "os.path.exists(os.path.splitext((cfg['datos'].get('ruta_raw') or 'data/raw/corpus.csv'))[0] + '.sha256')", bloqueante: false, desc: "hash registrado"}
   - {id: D6, tipo: archivo_existe, ruta: reports/descarga.md, bloqueante: true, desc: "reporte de descarga"}
 
 eda_raw:
   - {id: E1, tipo: archivo_existe, ruta: reports/eda_raw.md, bloqueante: true, desc: "reporte EDA raw"}
-  - {id: E2, tipo: json_rango, ruta: reports/eda_raw.json, clave: n_duplicados, min: 99, max: 99, bloqueante: true, desc: "detectó los 99 duplicados"}
+  - {id: E2, tipo: python, expr: "cfg['datos'].get('duplicados_esperados') is None or json.load(open('reports/eda_raw.json'))['n_duplicados'] == cfg['datos']['duplicados_esperados']", bloqueante: true, desc: "detectó los duplicados esperados"}
   - {id: E3, tipo: archivo_existe, ruta: reports/figuras/raw_categorias.png, bloqueante: true, desc: "gráfica de categorías"}
   - {id: E4, tipo: archivo_existe, ruta: reports/figuras/raw_longitudes.png, bloqueante: true, desc: "gráfica de longitudes"}
 
 limpieza:
   - {id: L1, tipo: archivo_existe, ruta: data/processed/corpus_clean.csv, bloqueante: true, desc: "corpus limpio"}
-  - {id: L2, tipo: csv_filas, ruta: data/processed/corpus_clean.csv, min: 2050, max: 2126, bloqueante: true, desc: "duplicados quitados (<= 2,126)"}
+  - {id: L2, tipo: python, expr: "not cfg['limpieza'].get('filas_limpias') or cfg['limpieza']['filas_limpias']['min'] <= len(pd.read_csv('data/processed/corpus_clean.csv')) <= cfg['limpieza']['filas_limpias']['max']", bloqueante: true, desc: "duplicados quitados (filas en rango)"}
   - {id: L3, tipo: csv_columnas, ruta: data/processed/corpus_clean.csv, columnas: [doc_id, category, titulo, text_original, text_norm, tokens_lemma, tokens_stem, n_tokens], bloqueante: true, desc: "columnas en orden"}
   - {id: L4, tipo: csv_sin_nulos, ruta: data/processed/corpus_clean.csv, columnas: [doc_id, category, tokens_lemma], bloqueante: true, desc: "sin nulos"}
   - {id: L5, tipo: csv_sin_duplicados, ruta: data/processed/corpus_clean.csv, columna: text_original, bloqueante: true, desc: "sin textos duplicados"}
   - {id: L6, tipo: csv_sin_duplicados, ruta: data/processed/corpus_clean.csv, columna: doc_id, bloqueante: true, desc: "doc_id único"}
-  - {id: L7, tipo: python, expr: "not pd.read_csv('data/processed/corpus_clean.csv').tokens_lemma.str.contains(r'\\d|[A-Z]|\\b(the|and|said)\\b').any()", bloqueante: true, desc: "sin dígitos, mayúsculas ni stopwords comunes"}
-  - {id: L8, tipo: comando, cmd: "python -c \"import sys; sys.path.insert(0,'src'); from preprocesamiento import preprocesar; assert preprocesar('The Markets were FALLING in 2005!') == ['market','fall']\"", bloqueante: false, desc: "preprocesar() reutilizable y consistente"}
+  - {id: L7, tipo: python, expr: "not pd.read_csv('data/processed/corpus_clean.csv').tokens_lemma.str.contains(('' if cfg['limpieza'].get('conservar_numeros') else r'\\d|') + r'[A-Z]' + (r'|\\b(?:' + '|'.join(cfg['limpieza']['palabras_prohibidas']) + r')\\b' if cfg['limpieza'].get('palabras_prohibidas') else '')).any()", bloqueante: true, desc: "sin dígitos (si no se conservan), mayúsculas ni stopwords comunes"}
+  - {id: L8, tipo: python, expr: "not cfg['limpieza'].get('prueba') or __import__('preprocesamiento').preprocesar(cfg['limpieza']['prueba']['entrada']) == cfg['limpieza']['prueba']['salida']", bloqueante: false, desc: "preprocesar() reutilizable y consistente"}
+  - {id: L10, tipo: python, expr: "cfg['limpieza'].get('modelo_spacy') is not None and __import__('spacy').load(cfg['limpieza']['modelo_spacy']) is not None", bloqueante: true, desc: "modelo de spaCy decidido e instalado"}
   - {id: L9, tipo: archivo_existe, ruta: reports/limpieza.md, bloqueante: true, desc: "reporte de limpieza"}
 
 eda_corpus:
   - {id: C1, tipo: archivo_existe, ruta: reports/eda_corpus.md, bloqueante: true, desc: "reporte EDA corpus"}
-  - {id: C2, tipo: json_rango, ruta: reports/eda_corpus.json, clave: zipf_s, min: 0.6, max: 1.5, bloqueante: true, desc: "exponente de Zipf plausible"}
-  - {id: C3, tipo: json_rango, ruta: reports/eda_corpus.json, clave: heaps_beta, min: 0.3, max: 0.8, bloqueante: true, desc: "beta de Heaps plausible"}
-  - {id: C4, tipo: json_rango, ruta: reports/eda_corpus.json, clave: heaps_r2, min: 0.9, max: 1.0, bloqueante: false, desc: "buen ajuste de Heaps"}
+  - {id: C2, tipo: python, expr: "cfg['eda']['zipf']['s_min'] <= json.load(open('reports/eda_corpus.json'))['zipf_s'] <= cfg['eda']['zipf']['s_max']", bloqueante: true, desc: "exponente de Zipf plausible"}
+  - {id: C3, tipo: python, expr: "cfg['eda']['heaps']['beta_min'] <= json.load(open('reports/eda_corpus.json'))['heaps_beta'] <= cfg['eda']['heaps']['beta_max']", bloqueante: true, desc: "beta de Heaps plausible"}
+  - {id: C4, tipo: python, expr: "json.load(open('reports/eda_corpus.json'))['heaps_r2'] >= cfg['eda']['heaps']['r2_min']", bloqueante: false, desc: "buen ajuste de Heaps"}
   - {id: C5, tipo: archivo_existe, ruta: reports/figuras/zipf.png, bloqueante: true, desc: "gráfica Zipf"}
   - {id: C6, tipo: archivo_existe, ruta: reports/figuras/heaps.png, bloqueante: true, desc: "gráfica Heaps"}
-  - {id: C7, tipo: python, expr: "all(os.path.exists(f'reports/figuras/wordcloud_{c}.png') for c in ['global','business','entertainment','politics','sport','tech'])", bloqueante: true, desc: "6 wordclouds"}
+  - {id: C7, tipo: python, expr: "all(os.path.exists(f'reports/figuras/wordcloud_{c}.png') for c in ['global', *pd.read_csv('data/processed/corpus_clean.csv', usecols=['category']).category.loc[lambda s: s != 'sin_categoria'].value_counts().index[:12]])", bloqueante: true, desc: "wordcloud global y una por categoría graficada"}
 
 indices:
   - {id: I1, tipo: python, expr: "all(os.path.exists(f'models/{f}') for f in ['count.pkl','tfidf.pkl','bm25.pkl','svd.pkl'])", bloqueante: true, desc: "4 índices obligatorios"}
   - {id: I2, tipo: python, expr: "all(os.path.exists(f'models/{f}') for f in ['w2v.model','w2v_docs.npy','lda.pkl'])", bloqueante: false, desc: "índices extra (W2V, LDA)"}
   - {id: I3, tipo: python, expr: "len(pd.read_csv('models/doc_index.csv')) == len(pd.read_csv('data/processed/corpus_clean.csv'))", bloqueante: true, desc: "mapeo fila→documento completo"}
-  - {id: I4, tipo: comando, cmd: "python -c \"import sys; sys.path.insert(0,'src'); from buscar import buscar; [buscar('stock market shares', m, 10).shape[0]==10 or sys.exit(1) for m in ['count','tfidf','bm25','svd']]\"", bloqueante: true, desc: "buscar() devuelve 10 resultados en los 4 métodos"}
-  - {id: I5, tipo: comando, cmd: "python -c \"import sys; sys.path.insert(0,'src'); from buscar import buscar; r=buscar('election labour party vote','bm25',5); sys.exit(0 if (r.category=='politics').sum()>=3 else 1)\"", bloqueante: true, desc: "sanidad: consulta política devuelve política"}
-  - {id: I6, tipo: comando, cmd: "python -c \"import sys; sys.path.insert(0,'src'); from buscar import buscar; r=buscar('stock market shares','tfidf',10); sys.exit(0 if r.score.is_monotonic_decreasing else 1)\"", bloqueante: true, desc: "ranking ordenado descendente"}
+  - {id: I4, tipo: python, expr: "cfg['indices'].get('consulta_rango') is not None and all(__import__('buscar').buscar(cfg['indices']['consulta_rango'], m, 10).shape[0] == 10 for m in ['count','tfidf','bm25','svd'])", bloqueante: true, desc: "buscar() devuelve 10 resultados en los 4 métodos"}
+  - {id: I5, tipo: python, expr: "(s := cfg['indices']['sanidad']) is not None and ((r := __import__('buscar').buscar(s['query'], s.get('metodo') or 'bm25', s.get('k') or 5)) is not None) and (s['doc_id'] in set(r.doc_id) if s.get('doc_id') else int((r.category == s['categoria']).sum()) >= (s.get('minimo') or 3))", bloqueante: true, desc: "sanidad: la consulta de control trae su categoría (o su documento)"}
+  - {id: I6, tipo: python, expr: "__import__('buscar').buscar(cfg['indices']['consulta_rango'], 'tfidf', 10).score.is_monotonic_decreasing", bloqueante: true, desc: "ranking ordenado descendente"}
   - {id: I7, tipo: archivo_existe, ruta: src/ingesta.py, bloqueante: true, desc: "pipeline de ingesta"}
   - {id: I8, tipo: archivo_existe, ruta: reports/ejemplos_busqueda.md, bloqueante: true, desc: "ejemplos de búsqueda"}
 
 evaluacion:
   - {id: V1, tipo: archivo_existe, ruta: reports/metricas.csv, bloqueante: true, desc: "métricas agregadas"}
-  - {id: V2, tipo: python, expr: "set(pd.read_csv('reports/metricas.csv').iloc[:,0]) >= {'count','tfidf','bm25','svd'}", bloqueante: true, desc: "los 4 métodos evaluados"}
+  - {id: V2, tipo: python, expr: "list(pd.read_csv('reports/metricas.csv').columns[:2]) == ['metodo', 'tipo'] and set(pd.read_csv('reports/metricas.csv').metodo) >= {'count','tfidf','bm25','svd'}", bloqueante: true, desc: "los 4 métodos evaluados"}
   - {id: V3, tipo: python, expr: "pd.read_csv('reports/metricas.csv').select_dtypes('number').drop(columns=[c for c in pd.read_csv('reports/metricas.csv').columns if 'lat' in c.lower()], errors='ignore').apply(lambda s: s.between(0,1).all()).all()", bloqueante: true, desc: "métricas entre 0 y 1"}
-  - {id: V4, tipo: python, expr: "pd.read_csv('data/processed/consultas.csv').query_id.nunique() >= 115", bloqueante: true, desc: "100 auto + 15 manuales"}
+  - {id: V4, tipo: python, expr: "pd.read_csv('data/processed/consultas.csv').query_id.nunique() >= (cfg['evaluacion'].get('n_consultas_minimo') or 50)", bloqueante: true, desc: "número de consultas suficiente"}
+  - {id: V7, tipo: python, expr: "'## Hallazgos' in open('reports/evaluacion.md', encoding='utf-8').read()", bloqueante: true, desc: "hallazgos listos para la presentación"}
   - {id: V5, tipo: python, expr: "all(os.path.exists(f'reports/figuras/{f}') for f in ['eval_map_por_metodo.png','eval_heatmap_categoria.png','eval_latencia.png'])", bloqueante: true, desc: "gráficas de evaluación"}
   - {id: V6, tipo: archivo_existe, ruta: reports/evaluacion.md, bloqueante: true, desc: "reporte de evaluación"}
 

@@ -16,6 +16,22 @@ evaluación con métricas de ranking y una presentación ejecutiva de resultados
 La lógica vive en `src/*.py` (scripts ejecutables desde la raíz con `python src/<script>.py`).
 El notebook de entrega `práctica.ipynb` importa esos scripts y muestra las tablas y figuras de `reports/`.
 
+## Configuración del proyecto
+
+Las skills de `skills/` son genéricas: sirven para cualquier corpus de textos y deciden sus parámetros a
+partir de los datos. Cada etapa tiene una sección "Decide según los datos" con reglas: detecta el formato
+y las columnas, el idioma (y con él el modelo de spaCy y el stemmer), los umbrales de limpieza, el tamaño
+de SVD y LDA, y el criterio de evaluación (juicios de relevancia, categorías o búsqueda de ítem conocido
+si no hay categorías).
+
+`proyecto.yaml` guarda lo que el usuario fija y lo que las etapas deciden. En un proyecto nuevo se parte de
+`skills/orquestador/proyecto_plantilla.yaml`, donde todo está en `auto` y lo único obligatorio es decir
+dónde están los datos. Cada decisión automática queda escrita con su razón en la lista `decisiones`.
+El `proyecto.yaml` de este repositorio tiene los valores del corpus BBC fijados a mano.
+
+Para usar el pipeline con otro corpus: copia `skills/`, `src/validar.py` y `checklist_calidad.yaml`,
+y pide "Ejecuta la skill orquestador" indicando dónde están los datos.
+
 ## Etapas
 
 | # | Etapa | Skill | Salida principal |

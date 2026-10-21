@@ -29,6 +29,9 @@ CMD_TIMEOUT = 600  # segundos por verificación tipo `comando`
 # --------------------------------------------------------------------------
 # Verificaciones: cada función recibe el dict `v` y devuelve (ok: bool, detalle: str)
 # --------------------------------------------------------------------------
+CONFIG = "proyecto.yaml"
+
+
 def _fmt(n):
     return f"{n:,}" if isinstance(n, int) else str(n)
 
@@ -117,8 +120,27 @@ def chk_comando(v):
     return ok, det
 
 
+def _cfg():
+    """proyecto.yaml: todo lo que depende del corpus (vacío si el archivo no existe)."""
+    if not os.path.exists(CONFIG):
+        return {}
+    with open(CONFIG, encoding="utf-8") as f:
+        return _sin_auto(yaml.safe_load(f) or {})
+
+
+def _sin_auto(x):
+    """Los valores `auto` (todavía sin decidir) llegan a las verificaciones como None."""
+    if isinstance(x, dict):
+        return {k: _sin_auto(val) for k, val in x.items()}
+    if isinstance(x, list):
+        return [_sin_auto(val) for val in x]
+    return None if x == "auto" else x
+
+
 def chk_python(v):
-    ns = {"os": os, "pd": pd, "np": np, "json": json, "joblib": joblib}
+    if "src" not in sys.path:
+        sys.path.insert(0, "src")  # para que las expresiones puedan importar módulos del proyecto
+    ns = {"os": os, "pd": pd, "np": np, "json": json, "joblib": joblib, "cfg": _cfg()}
     res = eval(v["expr"], ns)  # globals únicos: las comprensiones ven el namespace
     ok = res is True or (isinstance(res, (bool, np.bool_)) and bool(res))
     return ok, f"expr -> {res!r}"

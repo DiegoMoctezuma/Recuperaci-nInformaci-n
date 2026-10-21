@@ -1,6 +1,6 @@
 ---
 name: presentacion
-description: Diseña desde cero (sin plantilla) y genera la presentación ejecutiva de resultados del sistema de recuperación BBC con python-pptx - sistema de diseño propio, storytelling, gráficas con la identidad del deck y revisión visual sin depender de LibreOffice. Úsala en la etapa presentacion del pipeline o cuando pidan armar o actualizar las diapositivas.
+description: Diseña desde cero (sin plantilla) y genera la presentación ejecutiva de resultados de un sistema de recuperación de información con python-pptx - sistema de diseño propio, storytelling, gráficas con la identidad del deck y revisión visual sin depender de LibreOffice. Úsala en la etapa presentacion del pipeline o cuando pidan armar o actualizar las diapositivas.
 ---
 
 # Presentación ejecutiva (diseño propio, sin plantilla)
@@ -12,11 +12,11 @@ Se califica estrictamente que **no sea genérica**. Como no hay plantilla, tú d
 ## Criterios de diseño (obligatorios)
 
 - **Nada de viñetas.** Donde iría una lista: iconos, cifras grandes, bloques separados o varias diapositivas.
-- **Una idea por diapositiva.** El título es una frase-hallazgo ("BM25 encuentra la noticia correcta 9 de cada 10 veces"), no un tema ("Resultados").
+- **Una idea por diapositiva.** El título es una frase-hallazgo ("BM25 encuentra el documento correcto 9 de cada 10 veces"), no un tema ("Resultados").
 - Máximo **60 palabras** por diapositiva, sin contar las notas del orador.
 - Solo tipografías estándar y legibles. Sin animaciones ni transiciones.
-- Números: miles con coma (`2,126`) y porcentajes con 2 decimales (`87.35%`).
-- **Iconos**: no los generes ni los descargues. Deja un marcador: un rectángulo redondeado con borde punteado del color de acento y el texto `ICONO: <qué debe representar>` en 10 pt (p. ej. `ICONO: lupa sobre un periódico`). El equipo los reemplaza después.
+- Números: miles con coma (`12,345`) y porcentajes con 2 decimales (`87.35%`).
+- **Iconos**: no los generes ni los descargues. Deja un marcador: un rectángulo redondeado con borde punteado del color de acento y el texto `ICONO: <qué debe representar>` en 10 pt (p. ej. `ICONO: lupa sobre un documento`). El equipo los reemplaza después.
 
 ## Paso 1 — Sistema de diseño (`src/presentacion/diseno.py` + `presentacion/estilo.json`)
 
@@ -36,7 +36,17 @@ Define estas constantes en código y guárdalas también en `presentacion/estilo
 | `acento_2` | `#2A9D8F` | segundo nivel de énfasis (uso escaso) |
 | `neutro` | `#C9CCD1` | todo lo que no es protagonista en gráficas |
 
-Categorías (en gráficas donde las 5 deben distinguirse): business `#14213D`, entertainment `#E07A1F`, politics `#2A9D8F`, sport `#8E5572`, tech `#6C8EAD`.
+Categorías (en gráficas donde todas deben distinguirse): `presentacion.colores_categorias`, con los nombres de `presentacion.categorias_es`. Si están en `auto`, decide y regístralo en `proyecto.yaml`: nombres traducidos al español y con mayúscula inicial; colores tomados en este orden: `fondo_oscuro`, `acento`, `acento_2`, `#8E5572`, `#6C8EAD`, `#7A8B3C`, `#B5654A`, `#4F6D7A` (con más de 8 categorías, agrupa las menores en "otras").
+
+### Decide según los datos (si está en `auto`)
+
+| Dato | Regla |
+|---|---|
+| `proyecto.titulo`, `equipo`, `materia` | Pregúntalos al usuario antes de generar la portada; son lo único de esta etapa que no sale de los datos. |
+| `proyecto.nombre_corto` | Las 2 o 3 palabras clave del título. |
+| `presentacion.unidad` | El tipo de documento según `datos.descripcion` y una muestra de textos: noticias, reseñas, artículos, tuits, quejas… |
+| Sin categorías | La diapositiva 3 muestra la distribución de longitudes en lugar de categorías, la 7 usa la wordcloud global con los términos más característicos, y las de resultados hablan del criterio de ítem conocido. |
+| Pocas consultas o resultados empatados | Si la evaluación no declaró ganador, la diapositiva 10 presenta el empate como hallazgo, no un método ganador. |
 
 **Tipografía**: títulos en **Georgia** (negrita), cuerpo en **Calibri**. Escala fija:
 
@@ -83,10 +93,10 @@ Regenera las gráficas desde `reports/*.csv` y `reports/*.json`, sin reutilizar 
 
 Primero escribe el guion en `guion.md`; después pásalo a `slides.json` (lista de diapositivas con `layout`, `titulo`, campos del layout y `notas`). Estructura (13–14 diapositivas):
 
-1. `portada`: título del proyecto, equipo, materia, fecha.
-2. `cifra_grande`: el problema, encontrar la noticia correcta entre `2,225`.
-3. `grafica`: el corpus, 5 categorías y su distribución.
-4. `cifra_grande`: limpieza, de 2,225 a 2,126 documentos y por qué.
+1. `portada`: `proyecto.titulo`, `proyecto.equipo`, `proyecto.materia` y la fecha.
+2. `cifra_grande`: el problema, encontrar el documento correcto entre los N del corpus (`n_docs` de `reports/eda_raw.json`; llama a los documentos como diga `presentacion.unidad`).
+3. `grafica`: el corpus, sus categorías y su distribución.
+4. `cifra_grande`: limpieza, cuántos documentos quedaron y por qué (`reports/limpieza.json`).
 5. `grafica`: Zipf, pocas palabras dominan (con el exponente).
 6. `grafica`: Heaps, el vocabulario sigue creciendo (con β).
 7. `bloques`: cada categoría tiene su huella (2–3 wordclouds como bloques).
