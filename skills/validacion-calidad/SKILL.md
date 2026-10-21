@@ -25,7 +25,7 @@ Eres un revisor estricto. Tu decisión se basa en **verificaciones ejecutadas**,
   - `csv_sin_duplicados`: sin duplicados en la columna indicada.
   - `json_rango`: el valor de `clave` en el JSON está entre `min` y `max`.
   - `comando`: ejecuta `cmd`; pasa si el código de salida es 0.
-  - `python`: evalúa una expresión Python corta (`expr`) que debe dar `True`; dispone de `os`, `pd`, `np`, `json`, `joblib` y `cfg` (el contenido de `proyecto.yaml`), y `src/` está en `sys.path` para importar módulos del proyecto. Ejecuta todo desde la raíz del repo.
+  - `python`: evalúa una expresión Python corta (`expr`) que debe dar `True`; dispone de `os`, `pd`, `np`, `json`, `joblib` y `cfg` (el contenido de `proyecto.yaml`, con los valores `auto` convertidos a `None`), y `src/` está en `sys.path` para importar módulos del proyecto. Ejecuta todo desde la raíz del repo.
 - Imprime una tabla `id | descripción | PASS/FAIL | detalle` y escribe `reports/validacion/<etapa>.json`.
 - Sale con código 0 si todas las bloqueantes pasan, 1 si no.
 
@@ -35,6 +35,8 @@ Eres un revisor estricto. Tu decisión se basa en **verificaciones ejecutadas**,
 2. Revisión cualitativa adicional (no sustituye al script), responde sí/no con evidencia:
    - ¿El código está en `src/` y corre desde la raíz sin pasos manuales?
    - ¿Las rutas y parámetros coinciden con el SKILL.md de la etapa?
+   - ¿Cada valor que estaba en `auto` quedó decidido en `proyecto.yaml`, con su entrada en `decisiones`, y la decisión sigue la regla de la skill? Comprueba al menos una contra los datos (p. ej. recalcula el idioma o la columna de texto).
+   - ¿Se respetó todo lo que el usuario fijó (sin `auto`)?
    - ¿El reporte `.md` de la etapa existe y sus números coinciden con los JSON?
    - ¿Formato: miles con coma, porcentajes con 2 decimales?
    Un "no" aquí es FAIL solo si contradice el SKILL.md de la etapa; si es menor, ponlo como advertencia.

@@ -36,7 +36,17 @@ Define estas constantes en código y guárdalas también en `presentacion/estilo
 | `acento_2` | `#2A9D8F` | segundo nivel de énfasis (uso escaso) |
 | `neutro` | `#C9CCD1` | todo lo que no es protagonista en gráficas |
 
-Categorías (en gráficas donde todas deben distinguirse): los colores de `presentacion.colores_categorias` en `proyecto.yaml`, con sus nombres para mostrar en `presentacion.categorias_es`. Si faltan, elige colores que contrasten con `fondo` y regístralos ahí.
+Categorías (en gráficas donde todas deben distinguirse): `presentacion.colores_categorias`, con los nombres de `presentacion.categorias_es`. Si están en `auto`, decide y regístralo en `proyecto.yaml`: nombres traducidos al español y con mayúscula inicial; colores tomados en este orden: `fondo_oscuro`, `acento`, `acento_2`, `#8E5572`, `#6C8EAD`, `#7A8B3C`, `#B5654A`, `#4F6D7A` (con más de 8 categorías, agrupa las menores en "otras").
+
+### Decide según los datos (si está en `auto`)
+
+| Dato | Regla |
+|---|---|
+| `proyecto.titulo`, `equipo`, `materia` | Pregúntalos al usuario antes de generar la portada; son lo único de esta etapa que no sale de los datos. |
+| `proyecto.nombre_corto` | Las 2 o 3 palabras clave del título. |
+| `presentacion.unidad` | El tipo de documento según `datos.descripcion` y una muestra de textos: noticias, reseñas, artículos, tuits, quejas… |
+| Sin categorías | La diapositiva 3 muestra la distribución de longitudes en lugar de categorías, la 7 usa la wordcloud global con los términos más característicos, y las de resultados hablan del criterio de ítem conocido. |
+| Pocas consultas o resultados empatados | Si la evaluación no declaró ganador, la diapositiva 10 presenta el empate como hallazgo, no un método ganador. |
 
 **Tipografía**: títulos en **Georgia** (negrita), cuerpo en **Calibri**. Escala fija:
 
@@ -83,7 +93,7 @@ Regenera las gráficas desde `reports/*.csv` y `reports/*.json`, sin reutilizar 
 
 Primero escribe el guion en `guion.md`; después pásalo a `slides.json` (lista de diapositivas con `layout`, `titulo`, campos del layout y `notas`). Estructura (13–14 diapositivas):
 
-1. `portada`: `proyecto.titulo`, `proyecto.equipo`, `proyecto.materia` y la fecha (de `proyecto.yaml`).
+1. `portada`: `proyecto.titulo`, `proyecto.equipo`, `proyecto.materia` y la fecha.
 2. `cifra_grande`: el problema, encontrar el documento correcto entre los N del corpus (`n_docs` de `reports/eda_raw.json`; llama a los documentos como diga `presentacion.unidad`).
 3. `grafica`: el corpus, sus categorías y su distribución.
 4. `cifra_grande`: limpieza, cuántos documentos quedaron y por qué (`reports/limpieza.json`).

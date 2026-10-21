@@ -122,10 +122,19 @@ def chk_comando(v):
 
 def _cfg():
     """proyecto.yaml: todo lo que depende del corpus (vacío si el archivo no existe)."""
-    if os.path.exists(CONFIG):
-        with open(CONFIG, encoding="utf-8") as f:
-            return yaml.safe_load(f) or {}
-    return {}
+    if not os.path.exists(CONFIG):
+        return {}
+    with open(CONFIG, encoding="utf-8") as f:
+        return _sin_auto(yaml.safe_load(f) or {})
+
+
+def _sin_auto(x):
+    """Los valores `auto` (todavía sin decidir) llegan a las verificaciones como None."""
+    if isinstance(x, dict):
+        return {k: _sin_auto(val) for k, val in x.items()}
+    if isinstance(x, list):
+        return [_sin_auto(val) for val in x]
+    return None if x == "auto" else x
 
 
 def chk_python(v):

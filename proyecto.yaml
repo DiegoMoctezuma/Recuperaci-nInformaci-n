@@ -20,6 +20,7 @@ datos:
   tamano_minimo_bytes: 4000000     # si el archivo ya existe y supera esto, no se vuelve a descargar
   columna_texto: text
   columna_categoria: category
+  columna_titulo: null             # el corpus no separa título y cuerpo
   filas_esperadas: 2225
   categorias:                      # nombre: documentos esperados en el CSV original
     sport: 511
@@ -35,6 +36,7 @@ datos:
 
 limpieza:
   modelo_spacy: en_core_web_sm
+  conservar_numeros: false
   stemmer: porter                  # porter (solo inglés) o snowball (usa datos.idioma)
   caracteres_permitidos: "a-z'"    # clase de regex que se conserva tras pasar a minúsculas
   simbolos_a_espacio: ["£", "$"]
@@ -71,6 +73,8 @@ indices:
   consulta_rango: stock market shares   # para comprobar 10 resultados y orden descendente
 
 evaluacion:
+  modo: categoria                  # juicios | categoria | item_conocido
+  n_consultas_minimo: 115
   auto_por_categoria: 20
   consultas_manuales:              # 3 por categoría
     business: [interest rates central bank, company profits shares, oil price economy growth]

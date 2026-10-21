@@ -1,64 +1,78 @@
-# Plantilla de proyecto.yaml. Cópiala a la raíz del repositorio como proyecto.yaml y reemplaza cada <...>.
-# Las skills de este pipeline leen de aquí todo lo que depende del corpus; no lo escriben en el código.
-# Los conteos que no conozcas déjalos en null: se llenan después de las etapas eda_raw y limpieza.
+# Plantilla de proyecto.yaml. El orquestador la copia a la raíz del repositorio como proyecto.yaml.
+#
+# `auto` significa "que la etapa lo decida a partir de los datos". Cada etapa reemplaza sus `auto` por
+# el valor elegido y deja la razón en la lista `decisiones` del final. Cualquier valor que escribas tú
+# en lugar de `auto` se respeta siempre.
+#
+# Lo único obligatorio es decir dónde están los datos: `datos.url` o `datos.ruta_local`.
 
 proyecto:
-  nombre: <identificador-sin-espacios>     # aparece en estado/progreso.json
-  titulo: <Título del proyecto>
-  nombre_corto: <Nombre corto>             # pie de diapositivas y créditos
-  equipo: <Nombre del equipo>
-  materia: <Materia>
-  entorno_conda: <nombre-del-entorno>
+  nombre: auto                     # identificador sin espacios; por defecto, el nombre de la carpeta
+  titulo: auto                     # se pregunta en la etapa presentacion si sigue en auto
+  nombre_corto: auto
+  equipo: auto                     # se pregunta en la etapa presentacion
+  materia: auto                    # se pregunta en la etapa presentacion
+  entorno_conda: auto
   python: "3.11"
   semilla: 42
 
 datos:
-  descripcion: <qué contiene el corpus, en una línea>
-  url: <URL directa al archivo>             # o null si se usa una copia local en ruta_raw
-  repo_respaldo: null                       # URL .git que se clona si falla la descarga
-  archivo_en_repo: null                     # ruta del archivo dentro de repo_respaldo
-  ruta_raw: data/raw/<archivo>.csv
-  tamano_minimo_bytes: 1000                 # si el archivo ya existe y supera esto, no se descarga
-  columna_texto: <nombre de la columna con el texto>
-  columna_categoria: <nombre de la columna con la categoría>
-  filas_esperadas: null
-  categorias: null                          # {categoria: documentos esperados, ...}
-  duplicados_esperados: null
-  idioma: es                                # código de idioma de spaCy: es, en, fr, pt, ...
-  notas: >-
-    <particularidades del texto: viene en minúsculas, trae título separado, etc.>
+  url: null                        # URL directa al archivo (CSV, JSON, Excel, Parquet, ZIP…)
+  ruta_local: null                 # o un archivo / carpeta que ya tengas
+  repo_respaldo: null              # opcional: URL .git que se clona si falla la descarga
+  archivo_en_repo: null            # ruta del archivo dentro de repo_respaldo
+  ruta_raw: auto                   # CSV estándar que deja la etapa descarga
+  tamano_minimo_bytes: auto
+  descripcion: auto
+  columna_texto: auto              # descarga: la columna con textos más largos y distintos
+  columna_titulo: auto             # descarga: columna corta tipo título, o null
+  columna_categoria: auto          # descarga: columna con 2 a 50 etiquetas, o null si no hay
+  filas_esperadas: auto            # se registran las observadas
+  categorias: auto                 # {categoria: documentos} observados
+  duplicados_esperados: auto       # eda_raw
+  idioma: auto                     # eda_raw: por proporción de stopwords de cada idioma
 
 limpieza:
-  modelo_spacy: es_core_news_sm             # inglés: en_core_web_sm
-  stemmer: snowball                         # porter solo para inglés
-  caracteres_permitidos: "a-záéíóúñü"       # inglés: "a-z'"
-  simbolos_a_espacio: ["-", "/"]            # se cambian por espacio antes de borrar el resto
-  stopwords_extra: []                       # muletillas frecuentes del dominio
-  longitud_minima_token: 3
-  min_tokens_documento: 20
-  palabras_titulo: 8
-  filas_limpias: null                       # {min: ..., max: ...}
-  palabras_prohibidas: [de, la, que]        # stopwords comunes que no deben quedar en los tokens
-  prueba: null                              # {entrada: "texto de prueba", salida: [tokens, esperados]}
+  modelo_spacy: auto               # según el idioma
+  stemmer: auto                    # porter (inglés) o snowball
+  caracteres_permitidos: auto      # letras Unicode
+  simbolos_a_espacio: auto         # eda_raw: símbolos pegados entre palabras
+  conservar_numeros: auto          # eda_raw
+  stopwords_extra: auto            # términos presentes en casi todos los documentos
+  longitud_minima_token: auto
+  min_tokens_documento: auto       # eda_raw: según la longitud típica del texto
+  palabras_titulo: auto            # eda_raw
+  filas_limpias: auto
+  palabras_prohibidas: auto
+  prueba: auto
 
 eda:
-  paleta_categorias: null                   # {categoria: "#hex", ...}; si es null se asigna una
-  simbolos_a_contar: ["$", "%", "-"]
-  zipf: {rango_ajuste: [1, 1000], s_min: 0.6, s_max: 1.5}
-  heaps: {paso_tokens: 5000, beta_min: 0.3, beta_max: 0.8, beta_tipico: [0.4, 0.7], r2_min: 0.9}
+  paleta_categorias: auto
+  zipf: {rango_ajuste: auto, s_min: 0.6, s_max: 1.5}          # s_min/s_max: umbrales de la validación
+  heaps: {paso_tokens: auto, beta_min: 0.3, beta_max: 0.8, r2_min: 0.9}
 
 indices:
-  consultas_prueba:                         # 3 consultas temáticas con su categoría esperada
-    - {query: <consulta>, categoria: <categoria>}
-  sanidad: {query: <consulta muy clara>, metodo: bm25, k: 5, categoria: <categoria>, minimo: 3}
-  consulta_rango: <consulta>                # debe devolver al menos 10 documentos
+  min_df: auto
+  max_df: auto
+  svd_componentes: auto
+  lda_topicos: auto
+  w2v: auto
+  bm25: auto
+  consultas_prueba: auto
+  sanidad: auto
+  consulta_rango: auto
 
 evaluacion:
-  auto_por_categoria: 20
-  consultas_manuales:                       # mismo número por categoría (se recomiendan 3)
-    <categoria>: [<consulta 1>, <consulta 2>, <consulta 3>]
+  modo: auto                       # juicios | categoria | item_conocido
+  juicios: null                    # ruta a un archivo de juicios de relevancia, si existe
+  auto_por_categoria: auto
+  n_auto: auto
+  consultas_manuales: auto         # escribe aquí las tuyas si quieres usar consultas propias
+  n_consultas_minimo: auto
 
 presentacion:
-  unidad: documentos                        # cómo se nombra a los documentos: noticias, reseñas, tuits...
-  categorias_es: null                       # {categoria: nombre para mostrar}
-  colores_categorias: null                  # {categoria: "#hex"}
+  unidad: auto                     # cómo llamar a los documentos: noticias, reseñas, artículos…
+  categorias_es: auto              # nombres para mostrar
+  colores_categorias: auto
+
+decisiones: []                     # cada etapa añade {etapa, clave, valor, razon}
